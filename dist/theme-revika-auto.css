@@ -1,0 +1,7 @@
+@import "./theme-revika-light.css" (prefers-color-scheme: light);
+@import "./theme-revika-dark.css" (prefers-color-scheme: dark);
+
+gitea-theme-meta-info {
+  --theme-display-name: "Revika Auto";
+  --theme-color-scheme: "auto";
+}

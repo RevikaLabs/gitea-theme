@@ -1,0 +1,29 @@
+name: gitea-theme-dev
+
+services:
+  gitea:
+    image: gitea/gitea:28.4.0-rootless
+    ports:
+      - "127.0.0.1:3300:3000"
+    environment:
+      GITEA__database__DB_TYPE: sqlite3
+      GITEA__security__INSTALL_LOCK: "true"
+      GITEA__security__SECRET_KEY: dev-only-secret-key
+      GITEA__security__INTERNAL_TOKEN: dev-only-internal-token-0123456789abcdef0123456789abcdef
+      GITEA__server__ROOT_URL: http://localhost:3300/
+      GITEA__server__DISABLE_SSH: "true"
+      GITEA__server__OFFLINE_MODE: "true"
+      GITEA__service__DISABLE_REGISTRATION: "true"
+      GITEA__ui__THEMES: revika-dark,revika-light,revika-auto,gitea-auto,gitea-light,gitea-dark
+      GITEA__ui__DEFAULT_THEME: revika-dark
+      # Reload templates on every request while developing.
+      GITEA____RUN_MODE: dev
+      GITEA__log__LEVEL: Warn
+    volumes:
+      - gitea-data:/var/lib/gitea
+      - ../dist:/var/lib/gitea/custom/public/assets/css:ro
+      - ../src/fonts:/var/lib/gitea/custom/public/assets/fonts:ro
+      - ../templates:/var/lib/gitea/custom/templates:ro
+
+volumes:
+  gitea-data:

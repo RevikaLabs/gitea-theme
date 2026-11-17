@@ -1,0 +1,61 @@
+{{/* Revika: centered single-column sign-in. Upstream: upstream/templates/user/auth/signin.tmpl + signin_inner.tmpl (v28.4.0). */}}
+{{/* OAuth link-account mode never renders this template: link_account.tmpl includes the untouched signin_inner. */}}
+{{template "base/head" .}}
+<div role="main" aria-label="{{.Title}}" class="page-content user signin rv-auth">
+	<div class="rv-auth-card">
+		<a class="rv-auth-mark" href="{{AppSubUrl}}/" aria-label="{{ctx.Locale.Tr "home_title"}}"><span class="rv-mark"></span></a>
+		<h1 class="rv-auth-title">{{ctx.Locale.Tr "auth.login_userpass"}}</h1>
+
+		{{template "base/alert" .}}
+
+		{{if .EnablePasswordSignInForm}}
+		<form class="ui form rv-auth-form" action="{{.SignInLink}}" method="post">
+			<div class="field {{if .Err_UserName}}error{{end}}">
+				<label class="rv-sr-only" for="user_name">{{ctx.Locale.Tr "home.uname_holder"}}</label>
+				<input id="user_name" type="text" name="user_name" value="{{.user_name}}" placeholder="{{ctx.Locale.Tr "home.uname_holder"}}" autocomplete="username" autofocus required {{if .Err_UserName}}aria-invalid="true"{{end}}>
+			</div>
+			{{if not .DisablePassword}}
+			<div class="field {{if .Err_Password}}error{{end}}">
+				<label class="rv-sr-only" for="password">{{ctx.Locale.Tr "password"}}</label>
+				<input id="password" name="password" type="password" value="{{.password}}" placeholder="{{ctx.Locale.Tr "password"}}" autocomplete="current-password" required {{if .Err_Password}}aria-invalid="true"{{end}}>
+			</div>
+			{{end}}
+
+			<div class="rv-auth-row">
+				<div class="ui checkbox">
+					<input id="remember" name="remember" type="checkbox">
+					<label for="remember">{{ctx.Locale.Tr "auth.remember_me"}}</label>
+				</div>
+				{{if not .DisablePassword}}
+				<a href="{{AppSubUrl}}/user/forgot_password">{{ctx.Locale.Tr "auth.forgot_password"}}</a>
+				{{end}}
+			</div>
+
+			{{template "user/auth/captcha" .}}
+
+			<button type="submit" class="ui primary button rv-auth-submit">{{ctx.Locale.Tr "sign_in"}}</button>
+		</form>
+		{{end}}
+
+		{{$showExternalAuthMethods := or .OAuth2Providers .EnableOpenIDSignIn .EnableSSPI}}
+		{{if and $showExternalAuthMethods .EnablePasswordSignInForm}}
+			<div class="divider divider-text">{{ctx.Locale.Tr "sign_in_or"}}</div>
+		{{end}}
+		{{if $showExternalAuthMethods}}
+			{{template "user/auth/external_auth_methods" .}}
+		{{end}}
+
+		{{if or .EnablePasskeyAuth .ShowRegistrationButton}}
+		<div class="rv-auth-links">
+			{{if .EnablePasskeyAuth}}
+				{{template "user/auth/webauthn_error" .}}
+				<a class="signin-passkey">{{ctx.Locale.Tr "auth.signin_passkey"}}</a>
+			{{end}}
+			{{if .ShowRegistrationButton}}
+				<span>{{ctx.Locale.Tr "auth.need_account"}} <a href="{{AppSubUrl}}/user/sign_up">{{ctx.Locale.Tr "auth.sign_up_now"}}</a></span>
+			{{end}}
+		</div>
+		{{end}}
+	</div>
+</div>
+{{template "base/footer" .}}

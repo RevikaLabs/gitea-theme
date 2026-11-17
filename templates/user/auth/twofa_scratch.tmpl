@@ -1,0 +1,19 @@
+{{/* Revika: same layout as sign-in. Upstream: upstream/templates/user/auth/twofa_scratch.tmpl (v28.4.0). */}}
+{{template "base/head" .}}
+<div role="main" aria-label="{{.Title}}" class="page-content user signin rv-auth">
+	<div class="rv-auth-card">
+		<a class="rv-auth-mark" href="{{AppSubUrl}}/" aria-label="{{ctx.Locale.Tr "home_title"}}"><span class="rv-mark"></span></a>
+		<h1 class="rv-auth-title">{{ctx.Locale.Tr "twofa_scratch"}}</h1>
+
+		{{template "base/alert" .}}
+
+		<form class="ui form rv-auth-form" action="{{.Link}}" method="post">
+			<div class="field">
+				<label class="rv-sr-only" for="token">{{ctx.Locale.Tr "auth.scratch_code"}}</label>
+				<input id="token" name="token" type="text" placeholder="{{ctx.Locale.Tr "auth.scratch_code"}}" autocomplete="off" autofocus required>
+			</div>
+			<button type="submit" class="ui primary button rv-auth-submit">{{ctx.Locale.Tr "auth.verify"}}</button>
+		</form>
+	</div>
+</div>
+{{template "base/footer" .}}

@@ -1,0 +1,2442 @@
+gitea-theme-meta-info {
+  --theme-display-name: "Revika Light";
+  --theme-color-scheme: "light";
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --fonts-override: "Geist", -apple-system, "Segoe UI", system-ui;
+  --fonts-monospace: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace, var(--fonts-emoji);
+}
+/* Verbatim :root of web_src/css/themes/theme-gitea-light.css from Gitea v28.4.0; Revika overrides live in light.css. */
+:root {
+  --is-dark-theme: false;
+  --color-primary: #4183c4;
+  --color-primary-contrast: #ffffff;
+  --color-primary-dark-1: #3876b3;
+  --color-primary-dark-2: #31699f;
+  --color-primary-dark-3: #2b5c8b;
+  --color-primary-dark-4: #254f77;
+  --color-primary-dark-5: #193450;
+  --color-primary-dark-6: #0c1a28;
+  --color-primary-dark-7: #04080c;
+  --color-primary-light-1: #548fca;
+  --color-primary-light-2: #679cd0;
+  --color-primary-light-3: #7aa8d6;
+  --color-primary-light-4: #8db5dc;
+  --color-primary-light-5: #b3cde7;
+  --color-primary-light-6: #d9e6f3;
+  --color-primary-light-7: #f4f8fb;
+  --color-primary-alpha-10: #4183c419;
+  --color-primary-alpha-20: #4183c433;
+  --color-primary-alpha-30: #4183c44b;
+  --color-primary-alpha-40: #4183c466;
+  --color-primary-alpha-50: #4183c480;
+  --color-primary-alpha-60: #4183c499;
+  --color-primary-alpha-70: #4183c4b3;
+  --color-primary-alpha-80: #4183c4cc;
+  --color-primary-alpha-90: #4183c4e1;
+  --color-primary-hover: var(--color-primary-dark-1);
+  --color-primary-active: var(--color-primary-dark-2);
+  --color-secondary: #d0d7de;
+  --color-secondary-dark-1: #c7ced5;
+  --color-secondary-dark-2: #b9c0c7;
+  --color-secondary-dark-3: #99a0a7;
+  --color-secondary-dark-4: #899097;
+  --color-secondary-dark-5: #7a8188;
+  --color-secondary-dark-6: #6a7178;
+  --color-secondary-dark-7: #5b6269;
+  --color-secondary-dark-8: #4b5259;
+  --color-secondary-dark-9: #3c434a;
+  --color-secondary-dark-10: #2c333a;
+  --color-secondary-dark-11: #1d242b;
+  --color-secondary-dark-12: #0d141b;
+  --color-secondary-dark-13: #00040b;
+  --color-secondary-light-1: #dee5ec;
+  --color-secondary-light-2: #e4ebf2;
+  --color-secondary-light-3: #ebf2f9;
+  --color-secondary-light-4: #f1f8ff;
+  --color-secondary-alpha-10: #d0d7de19;
+  --color-secondary-alpha-20: #d0d7de33;
+  --color-secondary-alpha-30: #d0d7de4b;
+  --color-secondary-alpha-40: #d0d7de66;
+  --color-secondary-alpha-50: #d0d7de80;
+  --color-secondary-alpha-60: #d0d7de99;
+  --color-secondary-alpha-70: #d0d7deb3;
+  --color-secondary-alpha-80: #d0d7decc;
+  --color-secondary-alpha-90: #d0d7dee1;
+  --color-secondary-button: var(--color-secondary-dark-4);
+  --color-secondary-hover: var(--color-secondary-dark-5);
+  --color-secondary-active: var(--color-secondary-dark-6);
+  /* console colors - used for actions console and console files */
+  --color-console-fg: #0d1117;
+  --color-console-fg-subtle: #40474d;
+  --color-console-bg: #ffffff;
+  --color-console-hover-bg: #f1f3f5;
+  --color-console-active-bg: #d0d7de;
+  --color-console-link: #5c656d;
+  /* named colors */
+  --color-red: #db2828;
+  --color-orange: #f2711c;
+  --color-yellow: #fbbd08;
+  --color-olive: #b5cc18;
+  --color-green: #21ba45;
+  --color-teal: #00b5ad;
+  --color-blue: #2185d0;
+  --color-violet: #6435c9;
+  --color-purple: #a333c8;
+  --color-pink: #e03997;
+  --color-brown: #a5673f;
+  --color-black: #1d2328;
+  /* light variants - produced via Sass scale-color(color, $lightness: +25%) */
+  --color-red-light: #e45e5e;
+  --color-orange-light: #f59555;
+  --color-yellow-light: #fcce46;
+  --color-olive-light: #d3e942;
+  --color-green-light: #46de6a;
+  --color-teal-light: #08fff4;
+  --color-blue-light: #51a5e3;
+  --color-violet-light: #8b67d7;
+  --color-purple-light: #bb64d8;
+  --color-pink-light: #e86bb1;
+  --color-brown-light: #c58b66;
+  --color-black-light: #4b5b68;
+  /* dark 1 variants - produced via Sass scale-color(color, $lightness: -10%) */
+  --color-red-dark-1: #c82121;
+  --color-orange-dark-1: #e6630d;
+  --color-yellow-dark-1: #e5ac04;
+  --color-olive-dark-1: #a3b816;
+  --color-green-dark-1: #1ea73e;
+  --color-teal-dark-1: #00a39c;
+  --color-blue-dark-1: #1e78bb;
+  --color-violet-dark-1: #5a30b5;
+  --color-purple-dark-1: #932eb4;
+  --color-pink-dark-1: #db228a;
+  --color-brown-dark-1: #955d39;
+  --color-black-dark-1: #2c3339;
+  /* dark 2 variants - produced via Sass scale-color(color, $lightness: -20%) */
+  --color-red-dark-2: #b11e1e;
+  --color-orange-dark-2: #cc580c;
+  --color-yellow-dark-2: #cc9903;
+  --color-olive-dark-2: #91a313;
+  --color-green-dark-2: #1a9537;
+  --color-teal-dark-2: #00918a;
+  --color-blue-dark-2: #1a6aa6;
+  --color-violet-dark-2: #502aa1;
+  --color-purple-dark-2: #8229a0;
+  --color-pink-dark-2: #c21e7b;
+  --color-brown-dark-2: #845232;
+  --color-black-dark-2: #131619;
+  /* ansi colors used for actions console and console files */
+  --color-ansi-black: #1e2327;
+  --color-ansi-red: #cc4848;
+  --color-ansi-green: #87ab63;
+  --color-ansi-yellow: #cc9903;
+  --color-ansi-blue: #3a8ac6;
+  --color-ansi-magenta: #d22e8b;
+  --color-ansi-cyan: #00918a;
+  --color-ansi-white: var(--color-console-fg-subtle);
+  --color-ansi-bright-black: #46494d;
+  --color-ansi-bright-red: #d15a5a;
+  --color-ansi-bright-green: #93b373;
+  --color-ansi-bright-yellow: #eaaf03;
+  --color-ansi-bright-blue: #4e96cc;
+  --color-ansi-bright-magenta: #d74397;
+  --color-ansi-bright-cyan: #00b6ad;
+  --color-ansi-bright-white: var(--color-console-fg);
+  /* 16-color series */
+  --color-series-16-0: #7db233;
+  --color-series-16-1: #499a37;
+  --color-series-16-2: #ce4751;
+  --color-series-16-3: #8f9121;
+  --color-series-16-4: #ac32a6;
+  --color-series-16-5: #7445e9;
+  --color-series-16-6: #c67d28;
+  --color-series-16-7: #4db392;
+  --color-series-16-8: #aa4d30;
+  --color-series-16-9: #2a6f84;
+  --color-series-16-10: #c45327;
+  --color-series-16-11: #3d965c;
+  --color-series-16-12: #792a93;
+  --color-series-16-13: #439d73;
+  --color-series-16-14: #103aad;
+  --color-series-16-15: #982e85;
+  /* other colors */
+  --color-grey: #697077;
+  --color-grey-light: #7c838a;
+  --color-gold: #a1882b;
+  --color-white: #ffffff;
+  --color-diff-added-fg: #177231;
+  --color-diff-added-linenum-bg: #d1f8d9;
+  --color-diff-added-row-bg: #e6ffed;
+  --color-diff-added-row-border: #e6ffed;
+  --color-diff-added-word-bg: #acf2bd;
+  --color-diff-moved-row-bg: #f1f8d1;
+  --color-diff-moved-row-border: #d0e27f;
+  --color-diff-removed-fg: #c61f2b;
+  --color-diff-removed-linenum-bg: #ffcecb;
+  --color-diff-removed-row-bg: #ffeef0;
+  --color-diff-removed-row-border: #f1c0c0;
+  --color-diff-removed-word-bg: #fdb8c0;
+  --color-diff-inactive: #f0f2f4;
+  --color-error-border: #ff818266;
+  --color-error-bg: #ffebe9;
+  --color-error-bg-active: #ffcecb;
+  --color-error-bg-hover: #ffdcd7;
+  --color-error-text: #d1242f;
+  --color-success-border: #4ac26b66;
+  --color-success-bg: #dafbe1;
+  --color-success-text: #1a7f37;
+  --color-warning-border: #d4a72c66;
+  --color-warning-bg: #fff8c5;
+  --color-warning-text: #9a6700;
+  --color-info-border: #54aeff66;
+  --color-info-bg: #ddf4ff;
+  --color-info-text: #0969da;
+  --color-priority-border: #b9a1ff66;
+  --color-priority-bg: #f3e7ff;
+  --color-priority-text: #8250df;
+  --color-red-badge: #db2828;
+  --color-red-badge-bg: #db28281a;
+  --color-red-badge-hover-bg: #db28284d;
+  --color-green-badge: #21ba45;
+  --color-green-badge-bg: #21ba451a;
+  --color-green-badge-hover-bg: #21ba454d;
+  --color-yellow-badge: #fbbd08;
+  --color-yellow-badge-bg: #fbbd081a;
+  --color-yellow-badge-hover-bg: #fbbd084d;
+  --color-orange-badge: #f2711c;
+  --color-orange-badge-bg: #f2711c1a;
+  --color-orange-badge-hover-bg: #f2711c4d;
+  --color-git: #f05133;
+  --color-logo: #609926;
+  /* target-based colors */
+  --color-body: #ffffff;
+  --color-box-header: #f1f3f5;
+  --color-box-body: #ffffff;
+  --color-box-body-highlight: #ecf5fd;
+  --color-text-dark: #01050a;
+  --color-text: #181c21;
+  --color-text-light: #30363b;
+  --color-text-light-1: #40474d;
+  --color-text-light-2: #5b6167;
+  --color-text-light-3: #747c84;
+  --color-footer: var(--color-nav-bg);
+  --color-timeline: #d0d7de;
+  --color-input-text: var(--color-text-dark);
+  --color-input-background: #fff;
+  --color-input-toggle-background: #d0d7de;
+  --color-input-border: var(--color-secondary-dark-1);
+  --color-light: #00001706;
+  --color-light-border: #0000171d;
+  --color-hover: #00001708;
+  --color-hover-opaque: #f1f3f5; /* TODO: color-mix(in srgb, var(--color-body), var(--color-hover)); */
+  --color-active: #00001714;
+  --color-menu: #f8f9fb;
+  --color-card: #f8f9fb;
+  --color-markup-table-row: #0030600a;
+  --color-markup-code-block: #00306010;
+  --color-markup-code-inline: #00306012;
+  --color-button: #f8f9fb;
+  --color-code-bg: #fafdff;
+  --color-shadow: #00001726;
+  --color-shadow-opaque: #c7ced5;
+  --color-secondary-bg: #f2f5f8;
+  --color-expand-button: #cfe8fa;
+  --color-placeholder-text: var(--color-text-light-3);
+  --color-editor-line-highlight: var(--color-secondary-alpha-30);
+  --color-editor-selection: var(--color-primary-alpha-30);
+  --color-project-column-bg: var(--color-secondary-light-4);
+  --color-caret: var(--color-text-dark);
+  --color-reaction-bg: #0000170a;
+  --color-reaction-hover-bg: var(--color-primary-light-5);
+  --color-reaction-active-bg: var(--color-primary-light-6);
+  --color-tooltip-text: #fbfdff;
+  --color-tooltip-bg: #25292e;
+  --color-nav-bg: #f6f7fa;
+  --color-nav-hover-bg: var(--color-secondary-light-1);
+  --color-nav-text: var(--color-text);
+  --color-secondary-nav-bg: #f9fafb;
+  --color-label-text: var(--color-text);
+  --color-label-bg: #949da64b;
+  --color-label-hover-bg: #949da6a0;
+  --color-label-active-bg: #949da6ff;
+  --color-accent: var(--color-primary-light-1);
+  --color-small-accent: var(--color-primary-light-6);
+  --color-highlight-fg: #eed200;
+  --color-highlight-bg: #f5efc5;
+  --color-overlay-backdrop: #080808c0;
+  --color-danger: var(--color-red);
+  --color-transparency-grid-light: #fafafa;
+  --color-transparency-grid-dark: #e2e2e2;
+  --color-workflow-edge-hover: #b1b7bd;
+  --color-syntax-keyword: #a73a00;
+  --color-syntax-bool: #076872;
+  --color-syntax-control: #7d5700;
+  --color-syntax-name: #785900;
+  --color-syntax-type: #ae2368;
+  --color-syntax-number: #105ead;
+  --color-syntax-operator: #a73a00;
+  --color-syntax-regexp: #773dc5;
+  --color-syntax-string: #456800;
+  --color-syntax-comment: #506070;
+  --color-syntax-invalid: #c00000;
+  --color-syntax-link: var(--color-primary);
+  --color-syntax-tag: #a73a00;
+  --color-syntax-attribute: #6f41c5;
+  --color-syntax-property: #2060a0;
+  --color-syntax-variable: #944a00;
+  --color-syntax-string-special: #7d5700;
+  --color-syntax-escape: #785900;
+  --color-syntax-entity: #6f41c5;
+  --color-syntax-preproc: #2d6a4b;
+  --color-syntax-preproc-file: #105ead;
+  --color-syntax-decorator: #2d6a4b;
+  --color-syntax-namespace: #555555;
+  --color-syntax-name-pseudo: #6f41c5;
+  --color-syntax-comment-special: #773dc5;
+  --color-syntax-text: inherit;
+  --color-syntax-text-alt: #47525b;
+  --color-syntax-punctuation: inherit;
+  --color-syntax-whitespace: #bbbbbb;
+  --color-syntax-diff-fg: #000000;
+  --color-syntax-deleted-bg: #ffdddd;
+  --color-syntax-inserted-bg: #ddffdd;
+  --color-syntax-emph: #8b5000;
+  --color-syntax-strong: inherit;
+  --color-syntax-heading: #7d5700;
+  --color-syntax-subheading: #456800;
+  --color-syntax-output: #506070;
+  --color-syntax-prompt: #944a00;
+  --color-syntax-traceback: #c00000;
+  --color-syntax-matching-bracket-bg: #00b5ad38;
+  --color-syntax-nonmatching-bracket-bg: #db282838;
+  accent-color: var(--color-accent);
+  color-scheme: light;
+}
+/* Revika Light: off-white canvas, white raised surfaces, borders are translucent ink. Mirrors dark.css. */
+:root {
+  /* Revika primitives */
+  --rv-canvas: #fbfbfc;
+  --rv-surface-1: #f4f5f6;
+  --rv-surface-2: #ffffff;
+  --rv-surface-3: #eceef0;
+  --rv-inset: #ffffff;
+  --rv-line: rgb(15 17 20 / 0.09);
+  --rv-line-soft: rgb(15 17 20 / 0.06);
+  --rv-line-strong: rgb(15 17 20 / 0.16);
+  --rv-ink: #1b1c1f;
+  --rv-ink-2: #3c3f45;
+  /* ink-3 carries metadata and counters on tinted chips; keep it above 4.5:1 on --rv-press. */
+  --rv-ink-3: #5f636a;
+  --rv-ink-4: #9a9ea5;
+  /* No hue accent: the primary action is the darkest ink on the canvas. */
+  --rv-accent: #1b1c1f;
+  --rv-accent-ink: #ffffff;
+  --rv-accent-soft: rgb(15 17 20 / 0.08);
+  --rv-focus: rgb(15 17 20 / 0.32);
+  --rv-hover: rgb(15 17 20 / 0.04);
+  --rv-press: rgb(15 17 20 / 0.07);
+  /* Status hues: used only on icons and dots, never on text blocks. */
+  --rv-open: #946508;
+  --rv-done: #5e6ad2;
+  /* Darkened to reach 4.5:1 on the canvas: these also colour diff counters and danger buttons. */
+  --rv-success: #1f8456;
+  --rv-danger: #c53a3a;
+  --rv-neutral: #6b6f76;
+  /* Shape: 6 for 28px controls and inline tokens, 8 for controls, 12 for surfaces; pills only for chips. */
+  --rv-radius-sm: 6px;
+  --rv-radius: 8px;
+  --rv-radius-lg: 12px;
+  --rv-h-sm: 28px;
+  --rv-h: 32px;
+  --rv-shadow-pop: 0 0 0 1px var(--rv-line), 0 8px 24px rgb(15 17 20 / 0.12);
+  --rv-shadow-card: 0 1px 2px rgb(15 17 20 / 0.06);
+  --rv-selection: rgb(15 17 20 / 0.12);
+  --rv-glow: rgb(15 17 20 / 0.03);
+
+  /* Gitea mapping */
+  --color-primary: var(--rv-accent);
+  --color-primary-contrast: var(--rv-accent-ink);
+  --color-primary-hover: #000000;
+  --color-primary-active: #2e3035;
+  --color-primary-alpha-10: rgb(15 17 20 / 0.04);
+  --color-primary-alpha-20: rgb(15 17 20 / 0.07);
+  --color-primary-alpha-30: rgb(15 17 20 / 0.1);
+  --color-primary-alpha-40: rgb(15 17 20 / 0.14);
+  --color-primary-alpha-50: rgb(15 17 20 / 0.18);
+  --color-primary-alpha-60: rgb(15 17 20 / 0.24);
+  --color-primary-alpha-70: rgb(15 17 20 / 0.32);
+  --color-primary-alpha-80: rgb(15 17 20 / 0.42);
+  --color-primary-alpha-90: rgb(15 17 20 / 0.56);
+  --color-primary-light-1: #2e3035;
+  --color-primary-light-2: #45484e;
+  --color-primary-light-3: #6b6f76;
+  --color-primary-light-4: #9a9ea5;
+  --color-primary-light-5: #c4c7cc;
+  --color-primary-light-6: #e2e4e7;
+  --color-primary-light-7: #f1f2f4;
+  --color-primary-dark-1: #000000;
+  --color-primary-dark-2: #000000;
+  --color-primary-dark-3: #000000;
+  --color-primary-dark-4: #000000;
+  --color-primary-dark-5: #000000;
+  --color-primary-dark-6: #000000;
+  --color-primary-dark-7: #000000;
+  --color-accent: var(--rv-accent);
+
+  --color-secondary: var(--rv-line-strong);
+  --color-secondary-bg: var(--rv-surface-1);
+  --color-secondary-alpha-40: rgb(15 17 20 / 0.08);
+  --color-secondary-alpha-50: rgb(15 17 20 / 0.1);
+
+  --color-body: var(--rv-canvas);
+  --color-box-header: var(--rv-surface-1);
+  --color-box-body: var(--rv-surface-2);
+  --color-box-body-highlight: var(--rv-surface-1);
+  --color-card: var(--rv-surface-2);
+  --color-menu: var(--rv-surface-2);
+  --color-button: var(--rv-surface-2);
+  --color-nav-bg: var(--rv-canvas);
+  --color-secondary-nav-bg: var(--rv-canvas);
+  --color-footer: var(--rv-canvas);
+  --color-code-bg: var(--rv-surface-2);
+  --color-console-bg: var(--rv-surface-1);
+  --color-expand-button: var(--rv-surface-3);
+  --color-input-background: var(--rv-inset);
+  --color-input-toggle-background: var(--rv-surface-3);
+  --color-input-border: var(--rv-line);
+
+  --color-text-dark: #000000;
+  --color-text: var(--rv-ink);
+  --color-text-light: var(--rv-ink-2);
+  --color-text-light-1: var(--rv-ink-2);
+  --color-text-light-2: var(--rv-ink-3);
+  --color-text-light-3: var(--rv-ink-3);
+  --color-placeholder-text: var(--rv-ink-4);
+  --color-nav-text: var(--rv-ink-2);
+
+  --color-light-border: var(--rv-line);
+  --color-timeline: var(--rv-line-strong);
+  --color-hover: var(--rv-hover);
+  --color-hover-opaque: #f1f2f4;
+  --color-active: var(--rv-press);
+  --color-shadow: rgb(15 17 20 / 0.12);
+
+  --color-markup-code-inline: rgb(15 17 20 / 0.06);
+  --color-markup-code-block: var(--rv-surface-1);
+  --color-markup-table-row: rgb(15 17 20 / 0.025);
+
+  --color-tooltip-bg: var(--rv-ink);
+  --color-tooltip-text: #ffffff;
+  --color-overlay-backdrop: rgb(15 17 20 / 0.35);
+  --color-reaction-bg: rgb(15 17 20 / 0.04);
+  --color-label-bg: rgb(15 17 20 / 0.06);
+  --color-label-hover-bg: rgb(15 17 20 / 0.1);
+  --color-label-active-bg: rgb(15 17 20 / 0.14);
+
+  --color-red: var(--rv-danger);
+  --color-green: var(--rv-success);
+  --color-yellow: var(--rv-open);
+  --color-purple: var(--rv-done);
+  --color-grey: #c4c7cc;
+  --color-grey-light: var(--rv-ink-3);
+
+  --color-success-text: var(--rv-success);
+  --color-success-bg: rgb(47 158 106 / 0.08);
+  --color-success-border: rgb(47 158 106 / 0.25);
+  --color-error-text: var(--rv-danger);
+  --color-error-bg: rgb(214 69 69 / 0.07);
+  --color-error-bg-hover: rgb(214 69 69 / 0.11);
+  --color-error-bg-active: rgb(214 69 69 / 0.15);
+  --color-error-border: rgb(214 69 69 / 0.3);
+  --color-warning-text: #9a6b05;
+  --color-warning-bg: rgb(196 138 12 / 0.08);
+  --color-warning-border: rgb(196 138 12 / 0.25);
+  --color-info-text: var(--rv-ink-2);
+  --color-info-bg: var(--rv-surface-1);
+  --color-info-border: var(--rv-line);
+  --color-logo: var(--rv-ink);
+  --color-nav-hover-bg: var(--rv-hover);
+
+  /* Diff: calm row tint, saturated gutter edge and word highlight only. */
+  --color-diff-added-fg: #1f7a4f;
+  --color-diff-added-row-bg: rgb(47 158 106 / 0.07);
+  --color-diff-added-linenum-bg: rgb(47 158 106 / 0.11);
+  --color-diff-added-row-border: rgb(47 158 106 / 0.22);
+  --color-diff-added-word-bg: rgb(47 158 106 / 0.22);
+  --color-diff-removed-fg: #b23a3a;
+  --color-diff-removed-row-bg: rgb(214 69 69 / 0.06);
+  --color-diff-removed-linenum-bg: rgb(214 69 69 / 0.1);
+  --color-diff-removed-row-border: rgb(214 69 69 / 0.2);
+  --color-diff-removed-word-bg: rgb(214 69 69 / 0.2);
+  --color-diff-inactive: var(--rv-surface-1);
+
+  /* Syntax: same families as dark, darkened for contrast on white. */
+  --color-syntax-text: var(--rv-ink);
+  --color-syntax-keyword: #8b3fc4;
+  --color-syntax-type: #0f7b6c;
+  --color-syntax-name: #2f5fc4;
+  --color-syntax-variable: #b04a4a;
+  --color-syntax-attribute: #2f5fc4;
+  --color-syntax-property: #3c3f45;
+  --color-syntax-tag: #c03b3b;
+  --color-syntax-string: #9a5d0c;
+  --color-syntax-number: #b8540f;
+  --color-syntax-comment: #9a9ea5;
+  --color-syntax-operator: #45484e;
+  --color-syntax-punctuation: #6b6f76;
+
+  --border-radius: var(--rv-radius);
+  --border-radius-medium: var(--rv-radius-lg);
+}
+/* Sign-in and 2FA: one narrow centred column on an empty canvas, no navbar or footer. */
+body:has(.rv-auth) :is(#navbar, .page-footer) {
+  display: none;
+}
+
+body:has(.rv-auth) .full.height {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body:has(.rv-auth) {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, var(--rv-glow), transparent 70%),
+    var(--rv-canvas);
+}
+
+.page-content.rv-auth {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px 18vh;
+}
+
+.rv-auth-card {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  text-align: center;
+}
+
+.rv-auth-mark {
+  align-self: center;
+  color: var(--rv-ink);
+  margin-bottom: 8px;
+}
+
+.rv-auth-mark .rv-mark {
+  width: 44px;
+  height: 44px;
+}
+
+.rv-auth-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+  color: var(--rv-ink);
+}
+
+.rv-auth .flash-message {
+  margin: 0;
+  text-align: left;
+  border-radius: var(--rv-radius);
+}
+
+.rv-auth-form.ui.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rv-auth-form.ui.form .field {
+  margin: 0;
+}
+
+/* Auth fields are the hero of this screen: 44px, above the 32px app-wide control height.
+   Higher specificity than controls.css, which loads later in the build and pins inputs to 32px. */
+.rv-auth-form.ui.form input:not([type="checkbox"], [type="radio"], [type="file"], .ui.dropdown > input.search) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0 14px;
+  background: var(--color-input-background);
+  font-size: 14px;
+}
+
+.rv-auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 2px 6px;
+  font-size: 13px;
+  color: var(--rv-ink-3);
+}
+
+.rv-auth-row .ui.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rv-auth-row .ui.checkbox label {
+  color: var(--rv-ink-3);
+  cursor: pointer;
+}
+
+.rv-auth-row a,
+.rv-auth-links a {
+  color: var(--rv-ink-3);
+}
+
+.rv-auth-row a:hover,
+.rv-auth-links a:hover {
+  color: var(--rv-ink);
+}
+
+/* The sign-in hero keeps a pill CTA; app controls elsewhere are 8px rectangles. */
+.rv-auth-submit.ui.button,
+.rv-auth #external-login-navigator .ui.button {
+  border-radius: var(--border-radius-full);
+}
+
+.rv-auth-submit.ui.button {
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
+  margin: 0;
+  font-size: 14px;
+}
+
+.rv-auth .divider.divider-text {
+  margin: 4px 0;
+  color: var(--rv-ink-4);
+  font-size: 12px;
+}
+
+.rv-auth #external-login-navigator .ui.button {
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
+  margin: 0;
+  background: var(--rv-surface-2);
+}
+
+.rv-auth #external-login-navigator svg,
+.rv-auth #external-login-navigator img {
+  filter: grayscale(1);
+}
+
+.rv-auth-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--rv-ink-4);
+}
+
+.rv-auth-links .signin-passkey {
+  cursor: pointer;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  font-feature-settings: "cv11", "ss01";
+  letter-spacing: -0.003em;
+}
+
+::selection {
+  background: var(--rv-selection);
+}
+
+:focus-visible {
+  outline: 2px solid var(--rv-focus);
+  outline-offset: 2px;
+}
+
+.rv-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Boxes: one translucent hairline, no header slab. */
+.ui.segment,
+.ui.attached.segment,
+.ui.attached.header,
+.ui.message,
+.ui.table {
+  border-color: var(--rv-line) !important;
+}
+
+.ui.top.attached.header {
+  font-weight: var(--font-weight-medium);
+}
+
+.divider:not(.divider-text) {
+  border-color: var(--rv-line-soft);
+}
+
+/*
+ * Popups lift one step with a soft shadow instead of a border. Only the outer menu is a surface:
+ * nested .scrolling.menu lists stay flat. Selection dropdowns keep their list attached to the field.
+ */
+.tippy-box:not([data-theme="tooltip"]),
+.ui.dropdown:not(.selection) > .menu,
+.ui.menu .dropdown.item > .menu {
+  background: var(--rv-surface-2) !important;
+  border: 0 !important;
+  border-radius: var(--rv-radius-lg) !important;
+  box-shadow: var(--rv-shadow-pop) !important;
+}
+
+/* Text tooltips keep their own inverted --color-tooltip-bg (dark on light scheme). */
+.tippy-box[data-theme="tooltip"] {
+  border-radius: var(--rv-radius) !important;
+  box-shadow: var(--rv-shadow-pop);
+}
+
+.ui.dropdown:not(.selection) > .menu {
+  padding: 4px !important;
+}
+
+.ui.dropdown:not(.selection) > .menu > .scrolling.menu {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ui.selection.dropdown > .menu {
+  border-radius: 0 0 var(--rv-radius) var(--rv-radius) !important;
+}
+
+.ui.dropdown:not(.selection) .menu > .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+.ui.dropdown .menu > .item:hover {
+  background: var(--rv-hover) !important;
+}
+/*
+ * Controls: one rounded-rectangle family. 32px / 8px by default, 28px / 6px compact.
+ * Primary is solid ink; everything else is a quiet surface with a hairline.
+ */
+.ui.button {
+  min-height: var(--rv-h);
+  padding: 0 12px;
+  border-radius: var(--rv-radius);
+  font-weight: var(--font-weight-medium);
+  line-height: 20px;
+  border: 1px solid var(--rv-line);
+  background: var(--rv-surface-1);
+  color: var(--rv-ink-2);
+  box-shadow: none;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.ui.button:hover {
+  background: var(--rv-surface-3);
+  border-color: var(--rv-line-strong);
+  color: var(--rv-ink);
+}
+
+/* Upstream pins small buttons with a 4-class selector; match its weight. */
+.ui.ui.ui.ui.small.button,
+.ui.ui.ui.ui.compact.button,
+.ui.ui.ui.ui.tiny.button,
+.ui.ui.ui.ui.mini.button,
+.ui.ui.ui.ui.small.button.compact,
+.ui.ui.ui.ui.small.buttons .button {
+  min-height: var(--rv-h-sm);
+  padding: 0 10px;
+  font-size: 13px;
+  border-radius: var(--rv-radius-sm);
+}
+
+/* Dropdown buttons draw an absolute caret on the right; reserve room so it never covers the label. */
+.ui.ui.ui.ui.dropdown.button:not(.icon) {
+  padding-right: 26px;
+}
+
+/* Upstream pins these to 30px with height; keep them on the 28px compact step. */
+.repository .diff-detail-box .ui.button,
+.repo-view-container .ui.button.repo-view-file-tree-toggle {
+  height: var(--rv-h-sm);
+  min-height: var(--rv-h-sm);
+}
+
+.ui.icon.button:not(.compact),
+.ui.icon.button,
+.ui.icon.buttons .button {
+  padding: 0 7px;
+  min-width: var(--rv-h);
+  justify-content: center;
+}
+
+.ui.ui.ui.ui.compact.icon.button,
+.ui.ui.ui.ui.small.icon.button,
+.ui.ui.ui.ui.tiny.icon.button,
+.ui.ui.compact.icon.buttons .button {
+  padding: 0 5px;
+  min-width: var(--rv-h-sm);
+}
+
+.ui.primary.button,
+.ui.primary.buttons .button {
+  border-color: transparent;
+}
+
+.ui.basic.button {
+  background: transparent;
+  border-color: var(--rv-line);
+}
+
+.ui.red.button,
+.ui.basic.red.button {
+  background: transparent;
+  color: var(--rv-danger);
+  border-color: var(--color-error-border);
+}
+
+.ui.red.button:hover,
+.ui.basic.red.button:hover {
+  background: var(--color-error-bg);
+  color: var(--rv-danger);
+}
+
+.ui.green.button {
+  background: var(--rv-accent);
+  color: var(--rv-accent-ink);
+  border-color: transparent;
+}
+
+/* Groups: outer corners only, hairline seams inside. No overflow clipping: split buttons own dropdowns. */
+.ui.buttons {
+  border-radius: var(--rv-radius);
+}
+
+.ui.buttons > .button,
+.ui.buttons > .ui.dropdown.button {
+  margin: 0;
+  border-radius: 0;
+}
+
+.ui.buttons > .button + .button {
+  margin-left: -1px;
+}
+
+.ui.buttons > .button:first-child {
+  border-top-left-radius: var(--rv-radius);
+  border-bottom-left-radius: var(--rv-radius);
+}
+
+.ui.buttons > .button:last-child {
+  border-top-right-radius: var(--rv-radius);
+  border-bottom-right-radius: var(--rv-radius);
+}
+
+.ui.compact.buttons > .button:first-child,
+.ui.small.buttons > .button:first-child {
+  border-top-left-radius: var(--rv-radius-sm);
+  border-bottom-left-radius: var(--rv-radius-sm);
+}
+
+.ui.compact.buttons > .button:last-child,
+.ui.small.buttons > .button:last-child {
+  border-top-right-radius: var(--rv-radius-sm);
+  border-bottom-right-radius: var(--rv-radius-sm);
+}
+
+.ui.buttons > .active.button {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Labeled buttons (Watch / Star / Fork): one control, the count sits behind a seam. */
+.ui.labeled.button > .button {
+  border-radius: var(--rv-radius-sm) 0 0 var(--rv-radius-sm);
+}
+
+.ui.labeled.button > .label {
+  min-height: var(--rv-h-sm);
+  padding: 0 8px;
+  border: 1px solid var(--rv-line);
+  border-radius: 0 var(--rv-radius-sm) var(--rv-radius-sm) 0;
+  background: var(--rv-surface-1);
+  color: var(--rv-ink-3);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inputs sit slightly below the surface: darker fill, hairline, ring on focus. */
+.ui.form input:not([type="checkbox"], [type="radio"]),
+.ui.form select,
+.ui.form textarea,
+.ui.input > input,
+.ui.selection.dropdown,
+.ui.search > .prompt {
+  border-radius: var(--rv-radius);
+  border-color: var(--rv-line);
+}
+
+/*
+ * Fixed height, no vertical padding: upstream em-padding made inputs 35-42px and stretched buttons beside them.
+ * Search inputs inside dropdowns are bare text carets sized by the dropdown, so they are excluded.
+ */
+.ui.form input:not([type="checkbox"], [type="radio"], [type="file"], .ui.dropdown > input.search),
+.ui.input > input {
+  height: var(--rv-h);
+  min-height: var(--rv-h);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+input:not([type="checkbox"], [type="radio"]):focus,
+textarea:focus,
+.ui.form input:not([type="checkbox"], [type="radio"]):focus,
+.ui.form textarea:focus,
+.ui.form select:focus,
+.ui.input input:focus,
+.ui.search > .prompt:focus {
+  border-color: var(--rv-line-strong) !important;
+  box-shadow: 0 0 0 3px var(--rv-accent-soft);
+}
+
+.ui.form .field.error input:not([type="checkbox"], [type="radio"]) {
+  border-color: var(--rv-danger);
+  background: var(--color-input-background);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--rv-ink-4);
+}
+
+.form .help {
+  color: var(--rv-ink-3);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border-color: var(--rv-line-strong);
+}
+
+/* Action inputs (search + button): one field, the button is a quiet glyph inside its right end. */
+.ui.action.input:not([class*="left action"]) > input,
+.ui.action.input:not([class*="left action"]) > .ui.input > input {
+  border-radius: var(--rv-radius) 0 0 var(--rv-radius) !important;
+  border-right: 0 !important;
+}
+
+/* A selection dropdown acting as the field (dependency search) takes the same height and left corners. */
+.ui.action.input > .ui.selection.dropdown {
+  min-height: var(--rv-h);
+  height: var(--rv-h);
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  border-radius: var(--rv-radius) 0 0 var(--rv-radius) !important;
+  border-right: 0;
+}
+
+.ui.action.input > .button,
+.ui.action.input > .ui.button,
+.ui.action.input > .ui.dropdown.button {
+  min-height: 0;
+  height: var(--rv-h);
+  padding: 0 10px !important;
+  border: 1px solid var(--rv-line);
+  border-left: 0;
+  border-radius: 0 var(--rv-radius) var(--rv-radius) 0 !important;
+  background: var(--color-input-background);
+  color: var(--rv-ink-3);
+}
+
+.ui.action.input > .ui.dropdown.button:not(.icon) {
+  padding-right: 26px !important;
+}
+
+.ui.action.input > .button:hover {
+  background: var(--color-input-background);
+  color: var(--rv-ink);
+}
+
+.ui.action.input:focus-within > .button,
+.ui.action.input:focus-within > .ui.dropdown.button {
+  border-color: var(--rv-line-strong);
+}
+
+/*
+ * Tabs: every tab kind (repo nav, PR tabs, Write/Preview) is the same quiet chip row.
+ * overflow-menu measures item widths, so the repo nav gets margins, not flex gap.
+ */
+.ui.secondary.pointing.menu,
+overflow-menu.ui.secondary.pointing.menu,
+.ui.tabular.menu {
+  border: 0 !important;
+  border-bottom: 1px solid var(--rv-line-soft) !important;
+  border-radius: 0;
+  background: transparent;
+  padding-bottom: 8px;
+  min-height: 0;
+}
+
+.ui.secondary.pointing.menu .item,
+.ui.tabular.menu .item {
+  border: 0 !important;
+  margin: 0 4px 0 0 !important;
+  align-self: center;
+  min-height: var(--rv-h);
+  padding: 0 10px !important;
+  line-height: 20px;
+  border-radius: var(--rv-radius) !important;
+  background: transparent;
+  color: var(--rv-ink-3);
+}
+
+.ui.secondary.pointing.menu a.item:hover,
+.ui.tabular.menu .item:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.secondary.pointing.menu .active.item,
+.ui.secondary.pointing.menu .active.item:hover,
+.ui.tabular.menu .active.item,
+.ui.tabular.menu .active.item:hover {
+  border-radius: var(--rv-radius) !important;
+  background: var(--rv-press);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.secondary.pointing.menu .item > .label,
+.ui.tabular.menu .item > .label {
+  background: transparent;
+  color: var(--rv-ink-3);
+  padding: 0;
+  margin-left: 6px;
+  font-weight: var(--font-weight-normal);
+  font-variant-numeric: tabular-nums;
+}
+
+.ui.tabular.menu + .attached:not(.top).segment {
+  border: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* The PR tab row is a bare strip, not an attached box header. */
+.ui.top.attached.pull.tabular.menu {
+  margin-bottom: 16px;
+}
+
+/* Segmented switches (Open/Closed, small menus): chip row like tabs. */
+/* Upstream pins the group to 35.4px with !important, which stretched the whole list-header row. */
+.small-menu-items.ui.menu {
+  min-height: var(--rv-h) !important;
+  background: transparent;
+  border: 0;
+  gap: 4px;
+}
+
+.small-menu-items.ui.menu .item {
+  min-height: var(--rv-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  background: transparent !important;
+  color: var(--rv-ink-3);
+  border: 1px solid transparent !important;
+}
+
+.small-menu-items.ui.menu .item::before {
+  display: none;
+}
+
+.small-menu-items.ui.menu .item:hover {
+  color: var(--rv-ink);
+}
+
+.small-menu-items.ui.menu .active.item {
+  background: var(--rv-press) !important;
+  border-color: var(--rv-line) !important;
+  color: var(--rv-ink);
+}
+
+/* Pagination and compact menus: separate 8px chips. */
+.ui.pagination.menu,
+.ui.compact.menu:not(.small-menu-items) {
+  background: transparent;
+  border: 0;
+  gap: 2px;
+}
+
+.ui.pagination.menu .item,
+.ui.compact.menu:not(.small-menu-items) > .item {
+  border-radius: var(--rv-radius) !important;
+  min-width: var(--rv-h);
+  justify-content: center;
+}
+
+.ui.pagination.menu .item::before,
+.ui.compact.menu:not(.small-menu-items) > .item::before {
+  display: none;
+}
+
+.ui.pagination.menu .active.item {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Vertical menus (settings, activity): a bare sidebar list, no outer box. */
+.ui.vertical.menu {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* details.item (collapsible groups) keeps its block layout; only plain links become rows. */
+.ui.secondary.vertical.menu > .item,
+.ui.vertical.menu > a.item,
+.ui.vertical.menu > div.item:not(:has(> .menu)),
+.ui.vertical.menu .item > .menu > .item,
+.ui.vertical.menu > details.item > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--rv-h);
+  margin: 0 0 2px;
+  padding: 0 10px !important;
+  border: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  color: var(--rv-ink-3);
+  background: transparent;
+}
+
+.ui.vertical.menu > details.item,
+.ui.vertical.menu > .item:has(> .menu) {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent;
+}
+
+.ui.vertical.menu .item::before {
+  display: none;
+}
+
+.ui.vertical.menu a.item:hover,
+.ui.vertical.menu > details.item > summary:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.vertical.menu a.active.item,
+.ui.vertical.menu .item .menu .active.item {
+  background: var(--rv-press) !important;
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.vertical.menu .item > .menu {
+  margin: 0 0 0 12px;
+  border: 0;
+  background: transparent;
+}
+
+/* Horizontal secondary menus that are not tabs (filters, dashboard switchers, two-item toggles): quiet 8px items. */
+.ui.secondary.menu:not(.pointing, .vertical) > .item,
+.ui.secondary.menu:not(.pointing, .vertical) > form > .item,
+.ui.item.menu > .item {
+  min-height: var(--rv-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  color: var(--rv-ink-3);
+}
+
+.ui.secondary.menu:not(.pointing, .vertical) > .item:hover,
+.ui.item.menu > a.item:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.item.menu {
+  background: transparent;
+  border: 0;
+  gap: 4px;
+}
+
+.ui.item.menu > .item::before {
+  display: none;
+}
+
+.ui.item.menu > .item.active {
+  background: var(--rv-press);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink);
+}
+
+.ui.menu .item > .label:not(.floating),
+.ui.small.label.counter {
+  background: transparent;
+}
+/*
+ * Issue / PR conversation: a thin rail with small neutral event dots, comments as calm surfaces.
+ * Status colour (open / closed / merged) is kept on the event icon only.
+ */
+.repository.view.issue .comment-list::before {
+  width: 1px;
+  background-color: var(--rv-line);
+}
+
+/* Odd width so the badge centre lands on the 1px rail at left:30px. */
+.repository.view.issue .comment-list .timeline-item .badge {
+  width: 29px;
+  height: 29px;
+  margin-left: -31px;
+  margin-right: 8px;
+  background-color: var(--rv-canvas);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-3);
+}
+
+.repository.view.issue .comment-list .timeline-item .badge .svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Upstream fills status badges with tw-bg-*; keep a neutral dot and colour the glyph instead. */
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-green {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-success) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-red {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-danger) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-purple {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-done) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-primary {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-ink) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.badge-commit {
+  box-shadow: none;
+}
+
+.repository.view.issue .comment-list .timeline-item.commits-list .badge {
+  height: 24px;
+}
+
+/* Commit rows were exactly as tall as their SHA chips, so the chips stacked edge to edge. */
+.repository.view.issue .comment-list .timeline-item.commits-list .flex-text-block {
+  min-height: 30px;
+}
+
+/* Code review conversation: file bar, code preview and comments are one card with inner seams. */
+.ui.segment.collapsible-comment-box {
+  margin-bottom: 0;
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0 !important;
+  background: var(--rv-surface-1);
+}
+
+.ui.segment.collapsible-comment-box + .ui.table.segment,
+.ui.segment.collapsible-comment-box ~ .comment-code-cloud.ui.segment {
+  margin-top: -1px;
+  border-radius: 0 !important;
+}
+
+.ui.segment.collapsible-comment-box ~ .comment-code-cloud.ui.segment:last-child {
+  border-radius: 0 0 var(--rv-radius-lg) var(--rv-radius-lg) !important;
+}
+
+/* Messages closing the timeline (sign-in, archived) sit on the rail: paint them opaque. */
+.repository.view.issue .comment-list > .ui.message {
+  position: relative;
+  margin-top: 16px;
+  background-image: linear-gradient(var(--color-warning-bg), var(--color-warning-bg));
+  background-color: var(--rv-canvas);
+  border-radius: var(--rv-radius-lg);
+}
+
+.comment-text-line {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+.comment-text-line .author,
+.comment-text-line > a.author {
+  color: var(--rv-ink-2);
+  font-weight: var(--font-weight-medium);
+}
+
+.repository.view.issue .comment-list .timeline-item .comment-text-label {
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius-sm);
+}
+
+/* Comment cards. */
+.repository.view.issue .comment-list .comment .ui.segment,
+.repository.view.issue .comment-list .comment > .content > .ui.segment {
+  border-color: var(--rv-line) !important;
+}
+
+.comment-header {
+  min-height: 40px;
+  padding: 6px 12px 6px 16px;
+}
+
+.comment-header-left .muted-links,
+.comment-header-left .time-since {
+  color: var(--rv-ink-3);
+}
+
+.comment-header-right .item,
+.comment-header-right .context-dropdown > .svg {
+  color: var(--rv-ink-4);
+}
+
+.comment-header-right .item:hover {
+  color: var(--rv-ink);
+}
+
+.comment-body {
+  padding: 16px !important;
+}
+
+/* Reactions: small neutral chips. */
+.bottom-reactions .ui.label {
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-2);
+}
+
+.bottom-reactions .ui.label.primary {
+  background-color: var(--rv-press) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line-strong);
+}
+
+.bottom-reactions .ui.label:hover {
+  background-color: var(--rv-hover) !important;
+}
+
+.ui.dropdown.select-reaction .menu > .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+/* PR merge box: a single surface, list rows separated by hairlines. */
+.merge-section.flex-divided-list > .item + .item {
+  border-top-color: var(--rv-line-soft);
+}
+
+.merge-section .item .svg.tw-text-green,
+.merge-section .item .tw-text-green {
+  color: var(--rv-success) !important;
+}
+
+/* Markdown body. */
+.markup {
+  line-height: 1.6;
+  color: var(--rv-ink-2);
+}
+
+.markup h1,
+.markup h2,
+.markup h3,
+.markup h4,
+.markup h5,
+.markup h6 {
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.01em;
+}
+
+.markup h1,
+.markup h2 {
+  border-bottom-color: var(--rv-line-soft);
+}
+
+.markup code,
+.markup tt {
+  border-radius: var(--rv-radius-sm);
+  font-size: 0.86em;
+}
+
+.markup pre,
+.markup .highlight pre,
+.markup .code-block-container {
+  border-radius: var(--rv-radius);
+  border: 1px solid var(--rv-line-soft);
+}
+
+.markup blockquote {
+  border-left-width: 2px;
+  border-left-color: var(--rv-line-strong);
+  color: var(--rv-ink-3);
+}
+
+.markup table th,
+.markup table td {
+  border-color: var(--rv-line) !important;
+}
+
+.markup hr {
+  height: 1px;
+  background-color: var(--rv-line);
+}
+
+.markup a:not(.label, .button) {
+  color: var(--rv-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rv-line-strong);
+  text-underline-offset: 2px;
+}
+
+.markup a:not(.label, .button):hover {
+  text-decoration-color: var(--rv-ink-3);
+}
+
+.markup a:is(.mention, .ref-issue, .commit, .anchor) {
+  text-decoration: none;
+}
+
+/* Markdown editor: the textarea is the field, toolbar icons are quiet. */
+.combo-markdown-editor .markdown-toolbar .markdown-toolbar-button {
+  color: var(--rv-ink-3);
+  border-radius: var(--rv-radius-sm);
+}
+
+.combo-markdown-editor .markdown-toolbar .markdown-toolbar-button:hover {
+  color: var(--rv-ink);
+  background: var(--rv-hover);
+}
+
+.combo-markdown-editor textarea.markdown-text-editor {
+  border-radius: var(--rv-radius);
+  padding: 10px 12px;
+}
+
+/* Diff: hairline file boxes, quiet line numbers, monospace 12.5. */
+.diff-file-box {
+  border-color: var(--rv-line) !important;
+}
+
+.diff-file-header .file-link,
+.diff-file-header .diff-stats-bar {
+  font-size: 13px;
+}
+
+.code-diff td.lines-num,
+.code-diff td.lines-escape,
+.code-diff td.lines-type-marker {
+  color: var(--rv-ink-4);
+}
+
+.code-diff .code-inner,
+.code-diff td.lines-num {
+  font-size: 12.5px;
+}
+
+.diff-detail-box {
+  background: var(--rv-canvas);
+  border-bottom: 1px solid var(--rv-line-soft);
+}
+
+.diff-detail-stats strong.tw-text-green {
+  color: var(--rv-success) !important;
+}
+
+.diff-detail-stats strong.tw-text-red {
+  color: var(--rv-danger) !important;
+}
+
+/* Diff file tree. */
+.diff-file-tree .item,
+#diff-file-tree .item,
+.repo-file-tree .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+.repo-file-tree .item.selected,
+#diff-file-tree .item.selected {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+/*
+ * Labels: a coloured dot and neutral text in a quiet pill.
+ * RenderLabel sets the label colour inline with !important on color and background-color,
+ * so the dot inherits background-color and the pill paints its own background-image on top.
+ */
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right) {
+  position: relative;
+  gap: 6px;
+  padding: 1px 8px 1px 6px;
+  border-radius: var(--border-radius-full);
+  background-image: linear-gradient(var(--rv-label-base, var(--rv-canvas)), var(--rv-label-base, var(--rv-canvas)));
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  font-weight: var(--font-weight-normal);
+}
+
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis {
+  color: var(--rv-ink-2);
+}
+
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: inherit;
+  background-image: none;
+}
+
+/* Scoped labels: keep the two-part shape, but neutral pill with a dot on the scope. */
+.ui.label.scope-parent {
+  background: transparent !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  border-radius: var(--border-radius-full);
+  padding: 0;
+}
+
+.ui.label.scope-parent > .ui.label {
+  background-image: linear-gradient(var(--rv-label-base, var(--rv-canvas)), var(--rv-label-base, var(--rv-canvas)));
+  color: var(--rv-ink-2) !important;
+  font-weight: var(--font-weight-normal);
+}
+
+.ui.label.scope-parent > .scope-left {
+  gap: 6px;
+  border-radius: var(--border-radius-full) 0 0 var(--border-radius-full);
+  border-right: 1px solid var(--rv-line);
+}
+
+.ui.label.scope-parent > .scope-left::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: inherit;
+  background-image: none;
+}
+
+.ui.label.scope-parent > :last-child {
+  border-radius: 0 var(--border-radius-full) var(--border-radius-full) 0;
+}
+/*
+ * Page frame. On full-width pages (file tree, PR files, compare) the repo header follows the
+ * fluid content container so the title, tabs and content share one left edge.
+ */
+.page-content:has(> .ui.fluid.container):not(:has(> .ui.container:not(.fluid))) > .secondary-nav > .ui.container {
+  width: 100%;
+}
+
+/*
+ * Full-bleed tab bars (explore, link account): upstream centres the items across the viewport
+ * (tw-justify-center !important). Pin them to the 1280 content column.
+ * overflow-menu compares this.offsetLeft + offsetWidth (page-relative) with item.offsetLeft
+ * (host-relative), so the host must start at x=0: indent with padding-left and end the box at
+ * the column's right edge. The full-width hairline is drawn by ::after.
+ */
+.page-content > overflow-menu.secondary-nav.ui.secondary.pointing.menu {
+  --rv-col-x: max(var(--page-margin-x), calc((100% - 1280px) / 2));
+  box-sizing: border-box;
+  width: calc(100% - var(--rv-col-x));
+  margin-left: 0;
+  margin-right: 0;
+  padding: 8px 0 8px var(--rv-col-x) !important;
+  border-bottom-color: transparent !important;
+}
+
+.page-content > overflow-menu.secondary-nav.ui.secondary.pointing.menu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100vw;
+  height: 1px;
+  background: var(--rv-line-soft);
+}
+
+overflow-menu.secondary-nav .overflow-menu-items.tw-justify-center {
+  justify-content: flex-start !important;
+}
+
+/* Org header: compact avatar beside the name, separated from the tab row. */
+.page-content.organization > .ui.container.flex-container:has(> div:first-child > .avatar) {
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.page-content.organization > .ui.container.flex-container:has(> div:first-child > .avatar) img.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--rv-radius-lg);
+}
+
+.page-content.organization > .ui.container.flex-container:has(> div:first-child > .avatar) .tw-text-2xl {
+  font-size: 22px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.015em;
+}
+
+/* PR tabs share one frame: "Files changed" is fluid upstream, so switching tabs jumped by 48px. */
+/* Split diffs are a deliberate width-over-consistency choice: they keep the upstream full width. */
+.page-content.repository.view.issue.pull:not(:has(.code-diff-split)) > .ui.fluid.container,
+.page-content.repository.view.issue.pull:not(:has(.code-diff-split)):has(> .ui.fluid.container) > .secondary-nav > .ui.container {
+  width: 1280px;
+}
+
+.secondary-nav {
+  border-bottom: 0 !important;
+  margin-bottom: 20px;
+}
+
+.repo-header {
+  padding: 16px 0 10px;
+}
+
+.repo-header .flex-text-block > .tw-text-18,
+.repo-header .flex-text-inline {
+  font-size: 18px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+}
+
+/* Page titles: one size everywhere. */
+.repository.view.issue .issue-title h1 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.015em;
+  color: var(--rv-ink);
+}
+
+.issue-title .index {
+  color: var(--rv-ink-3);
+  font-weight: var(--font-weight-normal);
+}
+
+.repository.view.issue .issue-title {
+  align-items: center;
+  min-height: var(--rv-h);
+}
+
+.repository.view.issue .issue-title-buttons > .ui.button {
+  height: auto;
+}
+
+/* Status chip: neutral pill, colour only on the icon. */
+.ui.label.issue-state-label {
+  min-height: var(--rv-h-sm);
+  padding: 0 10px 0 8px !important;
+  border-radius: var(--border-radius-full) !important;
+  background: var(--rv-surface-2) !important;
+  border: 1px solid var(--rv-line) !important;
+  color: var(--rv-ink) !important;
+  font-size: 13px !important;
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.green.label.issue-state-label .svg {
+  color: var(--rv-success);
+}
+
+.ui.purple.label.issue-state-label .svg {
+  color: var(--rv-done);
+}
+
+.ui.red.label.issue-state-label .svg {
+  color: var(--rv-danger);
+}
+
+.ui.grey.label.issue-state-label .svg {
+  color: var(--rv-ink-3);
+}
+
+/* Branch list PR state uses the same neutral chip with a coloured glyph. */
+.ui.large.label:is(.green, .red, .purple):not(.issue-state-label) {
+  min-height: var(--rv-h-sm);
+  padding: 0 10px 0 8px;
+  border-radius: var(--border-radius-full);
+  background: var(--rv-surface-2) !important;
+  border: 1px solid var(--rv-line) !important;
+  color: var(--rv-ink) !important;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.green.large.label .svg {
+  color: var(--rv-success);
+}
+
+.ui.red.large.label .svg {
+  color: var(--rv-danger);
+}
+
+.ui.purple.large.label .svg {
+  color: var(--rv-done);
+}
+
+/* Inline tokens: sha, role ("Owner"), small counters — 6px, quiet. */
+.ui.label.commit-id-short,
+a.ui.label.commit-id-short,
+.ui.basic.label.role-label,
+.ui.label.sha {
+  min-height: 22px;
+  padding: 0 6px;
+  border-radius: var(--rv-radius-sm);
+  background: var(--rv-surface-1);
+  border: 1px solid var(--rv-line);
+  color: var(--rv-ink-3);
+  font-weight: var(--font-weight-normal);
+}
+
+.ui.label.commit-id-short,
+a.ui.label.commit-id-short,
+.ui.label.sha {
+  font-family: var(--fonts-monospace);
+  font-size: 12px;
+}
+
+.ui.basic.label.role-label {
+  min-height: 20px;
+  font-size: 12px;
+}
+
+/* Surfaces: 12px corners, one hairline, transparent header rows. */
+.ui.segment,
+.ui.segments,
+.ui.table,
+.repo-file-list,
+#repo-files-table,
+.diff-file-box,
+.comment .comment-container,
+.timeline-item .comment-container,
+.ui.comments .comment .content > .segment {
+  border-radius: var(--rv-radius-lg);
+}
+
+.ui.segment.repository-menu,
+.ui.segment.avatar-content-left-arrow,
+.ui.segment.collapsible-comment-box,
+.comment-code-cloud.ui.segment {
+  border-radius: var(--rv-radius-lg);
+}
+
+.ui.attached.segment:not(.top, .bottom) {
+  border-radius: 0;
+}
+
+/* Upstream closes attached stacks with literal .2857rem corners; match the surface radius. */
+.ui.top.attached.segment,
+.ui.top.attached.header {
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0;
+}
+
+.ui.bottom.attached.segment,
+.ui.bottom.attached.header,
+.ui.attached.segment:last-child,
+.ui.attached.segment:has(+ :not(.ui.attached.segment)),
+.ui.segments:not(.horizontal) > .segment:last-child,
+.repository.view.issue .comment-list .comment > .content > div:last-child {
+  border-bottom-left-radius: var(--rv-radius-lg);
+  border-bottom-right-radius: var(--rv-radius-lg);
+}
+
+.ui.segments:not(.horizontal) > .segment:first-child,
+.repository.view.issue .comment-list .comment > .content > div:first-child {
+  border-top-left-radius: var(--rv-radius-lg);
+  border-top-right-radius: var(--rv-radius-lg);
+}
+
+.ui.segments:not(.horizontal) > .segment:only-child {
+  border-radius: var(--rv-radius-lg);
+}
+
+/* Cells of horizontal segment rows (activity stats) live inside a box: square, no own border. */
+.ui.horizontal.segments > .ui.segment {
+  border-radius: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.ui.top.attached.header,
+.ui.attached.header {
+  background: transparent;
+  border-color: var(--rv-line) !important;
+}
+
+.comment-header {
+  background: transparent;
+  border-bottom-color: var(--rv-line-soft);
+  color: var(--rv-ink-3);
+}
+
+.comment-header .author,
+.comment-header strong {
+  color: var(--rv-ink);
+}
+
+/* The speech-bubble arrow points at the avatar; it now matches the transparent header. */
+.comment-header.avatar-content-left-arrow::after {
+  border-right-color: var(--rv-canvas);
+}
+
+.comment-header.avatar-content-left-arrow::before {
+  border-right-color: var(--rv-line);
+}
+
+/* Sticky diff headers must stay opaque, or scrolled code shows through. */
+.diff-file-header {
+  background: var(--rv-canvas) !important;
+  border-bottom: 1px solid var(--rv-line) !important;
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0;
+}
+
+/* Issue/PR sidebar: section headings small and quiet, rows separated by space, not lines. */
+.issue-content-right .ui.dropdown.full-width > .fixed-text strong,
+.issue-content-right .flex-text-block > strong,
+.issue-content-right > .divider + span > strong {
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--rv-ink-3);
+  letter-spacing: 0.01em;
+}
+
+.issue-content-right .divider {
+  border-color: transparent !important;
+  margin: 10px 0;
+}
+
+/* Standalone sidebar actions span the column; buttons inside action inputs (due date, dependency)
+   and inline rows (reference link copy) stay compact. */
+.issue-content-right .ui.button:not(.action.input .button, .ui.buttons .button, .flex-text-block > .button) {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Footer: present but quiet. */
+.page-footer {
+  background: transparent;
+  border-top: 1px solid var(--rv-line-soft);
+  color: var(--rv-ink-4);
+  font-size: 12px;
+  padding: 10px 24px;
+}
+
+.page-footer a,
+.page-footer .ui.dropdown {
+  color: var(--rv-ink-3);
+}
+
+.page-footer strong {
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink-3);
+}
+
+/* Branch / tag selector (Vue component): one surface, chip tabs, no nested boxes. */
+.ui.dropdown.branch-selector-dropdown > .menu {
+  padding: 6px !important;
+}
+
+.branch-selector-dropdown .ui.icon.search.input {
+  margin: 0 0 6px;
+}
+
+.branch-selector-dropdown .ui.icon.search.input > input {
+  border-radius: var(--rv-radius-sm) !important;
+  min-height: var(--rv-h);
+}
+
+.branch-selector-dropdown .branch-tag-tab {
+  display: flex;
+  gap: 2px;
+  padding: 0 0 6px;
+}
+
+.branch-selector-dropdown .branch-tag-item {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--rv-h-sm);
+  padding: 0 8px;
+  border: 0 !important;
+  border-radius: var(--rv-radius-sm) !important;
+  background: transparent;
+  color: var(--rv-ink-3);
+}
+
+.branch-selector-dropdown .branch-tag-item:hover {
+  color: var(--rv-ink);
+  background: var(--rv-hover);
+}
+
+.branch-selector-dropdown .branch-tag-item.active {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+.branch-selector-dropdown .branch-tag-divider {
+  margin: 0 -6px 6px !important;
+  border-top: 1px solid var(--rv-line-soft) !important;
+}
+
+.ui.dropdown.branch-selector-dropdown .scrolling.menu {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.branch-selector-dropdown .menu > .divider {
+  margin: 6px -6px !important;
+  border-color: var(--rv-line-soft) !important;
+}
+
+.branch-selector-dropdown .menu .item .ui.label {
+  min-height: 18px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-3);
+  font-size: 11px;
+}
+/* Repo home: file table as one quiet surface, last-commit row without a slab. */
+#repo-files-table {
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius-lg);
+  background: transparent;
+}
+
+#repo-files-table .repo-file-line,
+#repo-files-table .repo-file-cell {
+  border-top-color: var(--rv-line-soft);
+  padding: 7px 12px;
+}
+
+#repo-files-table .repo-file-last-commit {
+  background: transparent;
+  color: var(--rv-ink-3);
+  min-height: 44px;
+}
+
+#repo-files-table .repo-file-line:first-child {
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0;
+}
+
+#repo-files-table .repo-file-item:last-child .repo-file-cell:first-child {
+  border-bottom-left-radius: calc(var(--rv-radius-lg) - 1px);
+}
+
+#repo-files-table .repo-file-item:last-child .repo-file-cell:last-child {
+  border-bottom-right-radius: calc(var(--rv-radius-lg) - 1px);
+}
+
+#repo-files-table .repo-file-item:hover > .repo-file-cell,
+#repo-files-table .parent-link:hover {
+  background: var(--rv-hover);
+}
+
+#repo-files-table .repo-file-cell.name .svg {
+  color: var(--rv-ink-3);
+}
+
+#repo-files-table .repo-file-cell.message,
+#repo-files-table .repo-file-cell.age {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+#repo-files-table .repo-file-cell.age {
+  font-variant-numeric: tabular-nums;
+}
+
+.repo-button-row .ui.button,
+.repo-button-row .repo-file-search-container .ui.input {
+  min-height: var(--rv-h);
+  height: var(--rv-h);
+}
+
+/* Repo home sidebar: quiet property-group headings. */
+.repo-home-sidebar-header {
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--rv-ink-3);
+  letter-spacing: 0.01em;
+  margin-top: 4px;
+}
+
+.repo-description {
+  color: var(--rv-ink-2);
+}
+
+.repo-home-sidebar-top a.flex-text-block,
+.repo-home-sidebar-bottom a.flex-text-block {
+  color: var(--rv-ink-2);
+}
+
+.repo-home-sidebar-top a.flex-text-block:hover,
+.repo-home-sidebar-bottom a.flex-text-block:hover {
+  color: var(--rv-ink);
+}
+
+.repo-home-sidebar-top kbd {
+  border-radius: var(--rv-radius-sm);
+  border-color: var(--rv-line);
+  background: var(--rv-surface-2);
+  color: var(--rv-ink-4);
+}
+
+.ui.label.repo-topic {
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-2);
+  font-size: 12px;
+  font-weight: var(--font-weight-normal);
+}
+
+.ui.label.repo-topic:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+/* README / file view: the header is a transparent row above the content. */
+.non-diff-file-content > .ui.top.attached.header,
+.file-header {
+  background: transparent;
+  min-height: 44px;
+}
+
+#readme .markup,
+.file-view.markup {
+  padding: 24px 32px;
+}
+
+/* Issue, PR and repo lists: compact rows. Hairline dividers, hover tint, quiet metadata. */
+.flex-divided-list > .item + .item {
+  border-top-color: var(--rv-line-soft);
+}
+
+#issue-list.flex-divided-list > .item {
+  padding: 10px 12px;
+  margin: 0 -12px;
+  border-radius: var(--rv-radius);
+  align-items: center;
+}
+
+#issue-list.flex-divided-list > .item + .item {
+  border-top: 0;
+  box-shadow: 0 -1px 0 var(--rv-line-soft);
+}
+
+/* Opaque hover so label pills can match it exactly. */
+#issue-list.flex-divided-list > .item:hover {
+  background: var(--rv-surface-1);
+  box-shadow: none;
+}
+
+#issue-list.flex-divided-list > .item:hover + .item {
+  box-shadow: none;
+}
+
+#issue-list .item-main {
+  gap: 2px;
+}
+
+.list-item-large-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink);
+}
+
+.items-with-main > .item .item-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Links in lists stay ink on hover instead of the accent colour. */
+.items-with-main > .item a:not(.label, .button):hover {
+  color: var(--rv-ink) !important;
+}
+
+.items-with-main > .item .item-body,
+.list-item-secondary-bar {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
+
+#issue-list .item-body a,
+#issue-list .item-body .index {
+  color: var(--rv-ink-3);
+}
+
+#issue-list .item-body .index {
+  font-variant-numeric: tabular-nums;
+}
+
+#issue-list .branches .branch {
+  padding: 0 6px;
+  border-radius: var(--rv-radius-sm);
+  background: var(--rv-surface-2);
+  font-family: var(--fonts-monospace);
+  font-size: 11.5px;
+}
+
+#issue-list .checklist progress::-webkit-progress-bar {
+  background: var(--rv-press);
+  border-radius: 3px;
+}
+
+#issue-list .checklist progress::-webkit-progress-value {
+  background-color: var(--rv-ink-3);
+  border-radius: 3px;
+}
+
+#issue-list .checklist progress::-moz-progress-bar {
+  background-color: var(--rv-ink-3);
+}
+
+/* Reveal-on-hover only where hover exists; touch devices always see the bulk-select checkbox. */
+@media (hover: hover) and (pointer: fine) {
+  #issue-list .issue-checkbox {
+    opacity: 0;
+    transition: opacity 0.12s;
+  }
+
+  #issue-list .item:hover .issue-checkbox,
+  #issue-list .issue-checkbox:checked,
+  #issue-list .issue-checkbox:focus-visible,
+  #issue-list:has(.issue-checkbox:checked) .issue-checkbox {
+    opacity: 1;
+  }
+}
+
+/* Label pills paint their fill with --rv-label-base; match it to the surface under them. */
+#issue-list > .item:hover {
+  --rv-label-base: var(--rv-surface-1);
+}
+
+.issue-list-toolbar {
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+/* Filter dropdowns read as quiet text buttons. */
+.issue-list-toolbar-right .ui.secondary.filter.menu > .item {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+.issue-list-toolbar-right .ui.secondary.filter.menu > .item:hover {
+  color: var(--rv-ink);
+}
+
+/* Dashboard repo list: filter chips form a row under the search field, flush with its left edge.
+   Upstream pins the menu to 35.4px, zeroes its margin and centres items via tw-justify-center. */
+.ui.attached.segment.repos-search {
+  padding-bottom: 12px !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu {
+  border-bottom: 0 !important;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 10px 0 0 !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter .overflow-menu-items.tw-justify-center {
+  justify-content: flex-start !important;
+  align-items: center;
+  gap: 2px;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .item {
+  min-height: var(--rv-h-sm) !important;
+  height: var(--rv-h-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 !important;
+  padding: 0 10px !important;
+  border: 1px solid transparent !important;
+  font-size: 13px;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .item:hover {
+  background: var(--rv-hover) !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .active.item {
+  background: var(--rv-press) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter .item .ui.mini.label {
+  box-sizing: border-box;
+  min-width: 18px;
+  min-height: 0;
+  height: 18px;
+  margin: 0 !important;
+  padding: 0 5px !important;
+  border: 0 !important;
+  border-radius: var(--border-radius-full) !important;
+  background: var(--rv-press) !important;
+  color: var(--rv-ink-2) !important;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  line-height: 18px;
+}
+
+/* The active chip is already filled with press; lift the counter off it. */
+.ui.attached.segment.repos-search overflow-menu.repos-filter .active.item .ui.mini.label {
+  background: var(--rv-surface-2) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+}
+
+/* Empty states. */
+.empty-placeholder {
+  color: var(--rv-ink-3);
+}
+
+.empty-placeholder .svg {
+  color: var(--rv-ink-4);
+}
+
+/* Repo lists (explore, profile, org): the repo name is the row title, not a link-blue string. */
+.flex-divided-list .item-title a.name,
+.flex-divided-list .item-title .tw-text-primary {
+  color: var(--rv-ink) !important;
+}
+
+.flex-divided-list .item-title .ui.basic.label {
+  min-height: 20px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  border-color: var(--rv-line);
+  color: var(--rv-ink-3);
+  font-size: 11px;
+  font-weight: var(--font-weight-normal);
+}
+
+.flex-divided-list .item-trailing {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
+/* Monochrome Gitea mark: upstream cup and branch paths, the white tag fill dropped so the tag reads as a cut-out. */
+:root {
+  --rv-gitea-mark: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 640%22%3E%3Cpath d=%22M622.7 149.8c-4.1-4.1-9.6-4-9.6-4s-117.2 6.6-177.9 8c-13.3.3-26.5.6-39.6.7v117.2c-5.5-2.6-11.1-5.3-16.6-7.9 0-36.4-.1-109.2-.1-109.2-29 .4-89.2-2.2-89.2-2.2s-141.4-7.1-156.8-8.5c-9.8-.6-22.5-2.1-39 1.5-8.7 1.8-33.5 7.4-53.8 26.9C-4.9 212.4 6.6 276.2 8 285.8c1.7 11.7 6.9 44.2 31.7 72.5 45.8 56.1 144.4 54.8 144.4 54.8s12.1 28.9 30.6 55.5c25 33.1 50.7 58.9 75.7 62 63 0 188.9-.1 188.9-.1s12 .1 28.3-10.3c14-8.5 26.5-23.4 26.5-23.4S547 483 565 451.5c5.5-9.7 10.1-19.1 14.1-28 0 0 55.2-117.1 55.2-231.1-1.1-34.5-9.6-40.6-11.6-42.6M125.6 353.9c-25.9-8.5-36.9-18.7-36.9-18.7S69.6 321.8 60 295.4c-16.5-44.2-1.4-71.2-1.4-71.2s8.4-22.5 38.5-30c13.8-3.7 31-3.1 31-3.1s7.1 59.4 15.7 94.2c7.2 29.2 24.8 77.7 24.8 77.7s-26.1-3.1-43-9.1m300.3 107.6s-6.1 14.5-19.6 15.4c-5.8.4-10.3-1.2-10.3-1.2s-.3-.1-5.3-2.1l-112.9-55s-10.9-5.7-12.8-15.6c-2.2-8.1 2.7-18.1 2.7-18.1L322 273s4.8-9.7 12.2-13c.6-.3 2.3-1 4.5-1.5 8.1-2.1 18 2.8 18 2.8L467.4 315s12.6 5.7 15.3 16.2c1.9 7.4-.5 14-1.8 17.2-6.3 15.4-55 113.1-55 113.1%22/%3E%3Cpath d=%22M326.8 380.1c-8.2.1-15.4 5.8-17.3 13.8s2 16.3 9.1 20c7.7 4 17.5 1.8 22.7-5.4 5.1-7.1 4.3-16.9-1.8-23.1l24-49.1c1.5.1 3.7.2 6.2-.5 4.1-.9 7.1-3.6 7.1-3.6 4.2 1.8 8.6 3.8 13.2 6.1 4.8 2.4 9.3 4.9 13.4 7.3.9.5 1.8 1.1 2.8 1.9 1.6 1.3 3.4 3.1 4.7 5.5 1.9 5.5-1.9 14.9-1.9 14.9-2.3 7.6-18.4 40.6-18.4 40.6-8.1-.2-15.3 5-17.7 12.5-2.6 8.1 1.1 17.3 8.9 21.3s17.4 1.7 22.5-5.3c5-6.8 4.6-16.3-1.1-22.6 1.9-3.7 3.7-7.4 5.6-11.3 5-10.4 13.5-30.4 13.5-30.4.9-1.7 5.7-10.3 2.7-21.3-2.5-11.4-12.6-16.7-12.6-16.7-12.2-7.9-29.2-15.2-29.2-15.2s0-4.1-1.1-7.1c-1.1-3.1-2.8-5.1-3.9-6.3 4.7-9.7 9.4-19.3 14.1-29-4.1-2-8.1-4-12.2-6.1-4.8 9.8-9.7 19.7-14.5 29.5-6.7-.1-12.9 3.5-16.1 9.4-3.4 6.3-2.7 14.1 1.9 19.8z%22/%3E%3C/svg%3E");
+}
+
+.rv-mark {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: currentcolor;
+  mask: var(--rv-gitea-mark) center / contain no-repeat;
+}
+/* Top bar: same canvas as the page, a hairline below, quiet items that brighten on hover. */
+#navbar {
+  border-bottom-color: var(--rv-line-soft);
+  padding: 0 12px;
+}
+
+#navbar .navbar-left,
+#navbar .navbar-right {
+  min-height: 47px;
+  gap: 2px;
+}
+
+#navbar .navbar-left > .item,
+#navbar .navbar-right > .item {
+  min-height: 30px;
+  padding: 3px 10px;
+  border-radius: var(--rv-radius);
+  color: var(--rv-ink-3);
+  font-weight: var(--font-weight-medium);
+}
+
+#navbar :is(a, button).item:not(.dropdown *):hover {
+  color: var(--rv-ink);
+}
+
+#navbar .item.active {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Upstream colour logo swapped for the monochrome mark. */
+#navbar-logo img {
+  display: none;
+}
+
+#navbar-logo::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: var(--rv-ink);
+  mask: var(--rv-gitea-mark) center / contain no-repeat;
+}
+
+#navbar .notification_count,
+#navbar .header-stopwatch-dot {
+  background: var(--rv-ink) !important;
+  color: var(--rv-canvas) !important;
+}
+
+.secondary-nav {
+  border-bottom: 0 !important;
+}
+/*
+ * Project board: columns are bare lanes on the canvas, cards are the only surfaces.
+ * Columns with a user colour keep it (inline !important) as before.
+ */
+.project-column {
+  margin: 0 6px;
+  padding: 8px;
+  border: 0;
+  border-radius: var(--rv-radius-lg);
+  background-color: var(--rv-surface-1);
+}
+
+.project-column-header {
+  min-height: var(--rv-h);
+  padding: 0 4px 6px;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink-2);
+}
+
+.ui.label.project-column-issue-count {
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  background: var(--rv-press);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-column > .divider {
+  display: none;
+}
+
+.project-column > .ui.cards {
+  gap: 6px;
+}
+
+.issue-card {
+  padding: 10px 12px;
+  gap: 6px;
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius);
+  background: var(--rv-surface-2);
+  box-shadow: var(--rv-shadow-card);
+  --rv-label-base: var(--rv-surface-2);
+  transition: border-color 0.12s;
+}
+
+.issue-card:hover {
+  border-color: var(--rv-line-strong);
+}
+
+.issue-card-title {
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink);
+}
+
+.issue-card .meta,
+.issue-card-bottom {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
+
+.card-ghost {
+  border-color: var(--rv-line-strong) !important;
+  border-radius: var(--rv-radius);
+}
+
+/* The board scrolls horizontally inside the page frame; keep the first column on the content edge. */
+#project-board {
+  margin: 0 -6px;
+}
+
+.project-header h2 {
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+}
+
+/* Milestone and project list progress bars. */
+progress {
+  border-radius: 3px;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--rv-press);
+  border-radius: 3px;
+}
+
+progress::-webkit-progress-value {
+  background: var(--rv-ink-3);
+  border-radius: 3px;
+}
+
+progress::-moz-progress-bar {
+  background: var(--rv-ink-3);
+}

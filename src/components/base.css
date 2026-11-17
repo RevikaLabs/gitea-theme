@@ -1,0 +1,82 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  font-feature-settings: "cv11", "ss01";
+  letter-spacing: -0.003em;
+}
+
+::selection {
+  background: var(--rv-selection);
+}
+
+:focus-visible {
+  outline: 2px solid var(--rv-focus);
+  outline-offset: 2px;
+}
+
+.rv-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Boxes: one translucent hairline, no header slab. */
+.ui.segment,
+.ui.attached.segment,
+.ui.attached.header,
+.ui.message,
+.ui.table {
+  border-color: var(--rv-line) !important;
+}
+
+.ui.top.attached.header {
+  font-weight: var(--font-weight-medium);
+}
+
+.divider:not(.divider-text) {
+  border-color: var(--rv-line-soft);
+}
+
+/*
+ * Popups lift one step with a soft shadow instead of a border. Only the outer menu is a surface:
+ * nested .scrolling.menu lists stay flat. Selection dropdowns keep their list attached to the field.
+ */
+.tippy-box:not([data-theme="tooltip"]),
+.ui.dropdown:not(.selection) > .menu,
+.ui.menu .dropdown.item > .menu {
+  background: var(--rv-surface-2) !important;
+  border: 0 !important;
+  border-radius: var(--rv-radius-lg) !important;
+  box-shadow: var(--rv-shadow-pop) !important;
+}
+
+/* Text tooltips keep their own inverted --color-tooltip-bg (dark on light scheme). */
+.tippy-box[data-theme="tooltip"] {
+  border-radius: var(--rv-radius) !important;
+  box-shadow: var(--rv-shadow-pop);
+}
+
+.ui.dropdown:not(.selection) > .menu {
+  padding: 4px !important;
+}
+
+.ui.dropdown:not(.selection) > .menu > .scrolling.menu {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ui.selection.dropdown > .menu {
+  border-radius: 0 0 var(--rv-radius) var(--rv-radius) !important;
+}
+
+.ui.dropdown:not(.selection) .menu > .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+.ui.dropdown .menu > .item:hover {
+  background: var(--rv-hover) !important;
+}

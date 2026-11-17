@@ -1,0 +1,174 @@
+/* Revika Dark: near-black neutral canvas, surfaces lift by 2-3% lightness, borders are translucent white. */
+:root {
+  /* Revika primitives */
+  --rv-canvas: #0d0e0f;
+  --rv-surface-1: #131415;
+  --rv-surface-2: #18191b;
+  --rv-surface-3: #1e1f22;
+  --rv-inset: #0a0b0c;
+  --rv-line: rgb(255 255 255 / 0.07);
+  --rv-line-soft: rgb(255 255 255 / 0.045);
+  --rv-line-strong: rgb(255 255 255 / 0.12);
+  --rv-ink: #eeeff1;
+  --rv-ink-2: #b4b7bd;
+  --rv-ink-3: #8a8f98;
+  --rv-ink-4: #62666d;
+  /* No hue accent: the primary action is the brightest ink on the canvas. */
+  --rv-accent: #e8e9ec;
+  --rv-accent-ink: #0d0e0f;
+  --rv-accent-soft: rgb(255 255 255 / 0.08);
+  --rv-focus: rgb(255 255 255 / 0.28);
+  --rv-hover: rgb(255 255 255 / 0.04);
+  --rv-press: rgb(255 255 255 / 0.07);
+  /* Status hues: used only on icons and dots, never on text blocks. */
+  --rv-open: #e2b340;
+  --rv-done: #6e79d6;
+  --rv-success: #4cb782;
+  --rv-danger: #eb5757;
+  --rv-neutral: #8a8f98;
+  /* Shape: 6 for 28px controls and inline tokens, 8 for controls, 12 for surfaces; pills only for chips. */
+  --rv-radius-sm: 6px;
+  --rv-radius: 8px;
+  --rv-radius-lg: 12px;
+  --rv-h-sm: 28px;
+  --rv-h: 32px;
+  --rv-shadow-pop: 0 0 0 1px var(--rv-line), 0 8px 24px rgb(0 0 0 / 0.45);
+  --rv-shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  --rv-selection: rgb(255 255 255 / 0.18);
+  --rv-glow: rgb(255 255 255 / 0.035);
+
+  /* Gitea mapping */
+  --color-primary: var(--rv-accent);
+  --color-primary-contrast: var(--rv-accent-ink);
+  --color-primary-hover: #ffffff;
+  --color-primary-active: #d4d6da;
+  --color-primary-alpha-10: rgb(255 255 255 / 0.04);
+  --color-primary-alpha-20: rgb(255 255 255 / 0.07);
+  --color-primary-alpha-30: rgb(255 255 255 / 0.1);
+  --color-primary-alpha-40: rgb(255 255 255 / 0.14);
+  --color-primary-alpha-50: rgb(255 255 255 / 0.18);
+  --color-primary-alpha-60: rgb(255 255 255 / 0.24);
+  --color-primary-alpha-70: rgb(255 255 255 / 0.32);
+  --color-primary-alpha-80: rgb(255 255 255 / 0.42);
+  --color-primary-alpha-90: rgb(255 255 255 / 0.56);
+  --color-primary-light-1: #d4d6da;
+  --color-primary-light-2: #c2c4c9;
+  --color-primary-light-3: #a9acb2;
+  --color-primary-light-4: #8a8f98;
+  --color-primary-light-5: #62666d;
+  --color-primary-light-6: #3a3c40;
+  --color-primary-light-7: #232427;
+  --color-primary-dark-1: #ffffff;
+  --color-primary-dark-2: #ffffff;
+  --color-primary-dark-3: #ffffff;
+  --color-primary-dark-4: #ffffff;
+  --color-primary-dark-5: #ffffff;
+  --color-primary-dark-6: #ffffff;
+  --color-primary-dark-7: #ffffff;
+  --color-accent: var(--rv-accent);
+
+  --color-secondary: var(--rv-line-strong);
+  --color-secondary-bg: var(--rv-surface-2);
+  --color-secondary-alpha-40: rgb(255 255 255 / 0.1);
+  --color-secondary-alpha-50: rgb(255 255 255 / 0.12);
+
+  --color-body: var(--rv-canvas);
+  --color-box-header: var(--rv-surface-1);
+  --color-box-body: var(--rv-canvas);
+  --color-box-body-highlight: var(--rv-surface-1);
+  --color-card: var(--rv-surface-1);
+  --color-menu: var(--rv-surface-2);
+  --color-button: var(--rv-surface-1);
+  --color-nav-bg: var(--rv-canvas);
+  --color-secondary-nav-bg: var(--rv-canvas);
+  --color-footer: var(--rv-canvas);
+  --color-code-bg: var(--rv-canvas);
+  --color-console-bg: var(--rv-inset);
+  --color-expand-button: var(--rv-surface-3);
+  --color-input-background: var(--rv-inset);
+  --color-input-toggle-background: var(--rv-surface-3);
+  --color-input-border: var(--rv-line);
+
+  --color-text-dark: #ffffff;
+  --color-text: var(--rv-ink);
+  --color-text-light: var(--rv-ink-2);
+  --color-text-light-1: var(--rv-ink-2);
+  --color-text-light-2: var(--rv-ink-3);
+  --color-text-light-3: var(--rv-ink-3);
+  --color-placeholder-text: var(--rv-ink-4);
+  --color-nav-text: var(--rv-ink-2);
+
+  --color-light-border: var(--rv-line);
+  --color-timeline: var(--rv-line-strong);
+  --color-hover: var(--rv-hover);
+  --color-hover-opaque: #151618;
+  --color-active: var(--rv-press);
+  --color-shadow: rgb(0 0 0 / 0.5);
+
+  --color-markup-code-inline: rgb(255 255 255 / 0.06);
+  --color-markup-code-block: var(--rv-surface-1);
+  --color-markup-table-row: rgb(255 255 255 / 0.025);
+
+  --color-tooltip-bg: var(--rv-surface-3);
+  --color-tooltip-text: var(--rv-ink);
+  --color-overlay-backdrop: rgb(0 0 0 / 0.6);
+  --color-reaction-bg: rgb(255 255 255 / 0.05);
+  --color-label-bg: rgb(255 255 255 / 0.06);
+  --color-label-hover-bg: rgb(255 255 255 / 0.1);
+  --color-label-active-bg: rgb(255 255 255 / 0.14);
+
+  --color-red: var(--rv-danger);
+  --color-green: var(--rv-success);
+  --color-yellow: var(--rv-open);
+  --color-purple: var(--rv-done);
+  --color-grey: #2a2c30;
+  --color-grey-light: var(--rv-ink-3);
+
+  --color-success-text: var(--rv-success);
+  --color-success-bg: rgb(76 183 130 / 0.1);
+  --color-success-border: rgb(76 183 130 / 0.25);
+  --color-error-text: var(--rv-danger);
+  --color-error-bg: rgb(235 87 87 / 0.1);
+  --color-error-bg-hover: rgb(235 87 87 / 0.14);
+  --color-error-bg-active: rgb(235 87 87 / 0.18);
+  --color-error-border: rgb(235 87 87 / 0.3);
+  --color-warning-text: var(--rv-open);
+  --color-warning-bg: rgb(226 179 64 / 0.1);
+  --color-warning-border: rgb(226 179 64 / 0.25);
+  --color-info-text: var(--rv-ink-2);
+  --color-info-bg: var(--rv-surface-1);
+  --color-info-border: var(--rv-line);
+  --color-logo: var(--rv-ink);
+  --color-nav-hover-bg: var(--rv-hover);
+
+  /* Diff: calm row tint, saturated gutter edge and word highlight only. */
+  --color-diff-added-fg: #6cc496;
+  --color-diff-added-row-bg: rgb(76 183 130 / 0.07);
+  --color-diff-added-linenum-bg: rgb(76 183 130 / 0.1);
+  --color-diff-added-row-border: rgb(76 183 130 / 0.2);
+  --color-diff-added-word-bg: rgb(76 183 130 / 0.24);
+  --color-diff-removed-fg: #ef7b7b;
+  --color-diff-removed-row-bg: rgb(235 87 87 / 0.07);
+  --color-diff-removed-linenum-bg: rgb(235 87 87 / 0.1);
+  --color-diff-removed-row-border: rgb(235 87 87 / 0.2);
+  --color-diff-removed-word-bg: rgb(235 87 87 / 0.24);
+  --color-diff-inactive: var(--rv-surface-1);
+
+  /* Syntax tuned to the screenshots: violet keywords, teal types, warm strings. */
+  --color-syntax-text: var(--rv-ink);
+  --color-syntax-keyword: #c792ea;
+  --color-syntax-type: #7fd4c1;
+  --color-syntax-name: #82aaff;
+  --color-syntax-variable: #e8a7a7;
+  --color-syntax-attribute: #82aaff;
+  --color-syntax-property: #d4d7dd;
+  --color-syntax-tag: #ef8f8f;
+  --color-syntax-string: #e7c08a;
+  --color-syntax-number: #f4a46b;
+  --color-syntax-comment: #62666d;
+  --color-syntax-operator: #b4b7bd;
+  --color-syntax-punctuation: #8a8f98;
+
+  --border-radius: var(--rv-radius);
+  --border-radius-medium: var(--rv-radius-lg);
+}

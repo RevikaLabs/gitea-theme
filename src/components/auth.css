@@ -1,0 +1,158 @@
+/* Sign-in and 2FA: one narrow centred column on an empty canvas, no navbar or footer. */
+body:has(.rv-auth) :is(#navbar, .page-footer) {
+  display: none;
+}
+
+body:has(.rv-auth) .full.height {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body:has(.rv-auth) {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, var(--rv-glow), transparent 70%),
+    var(--rv-canvas);
+}
+
+.page-content.rv-auth {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px 18vh;
+}
+
+.rv-auth-card {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  text-align: center;
+}
+
+.rv-auth-mark {
+  align-self: center;
+  color: var(--rv-ink);
+  margin-bottom: 8px;
+}
+
+.rv-auth-mark .rv-mark {
+  width: 44px;
+  height: 44px;
+}
+
+.rv-auth-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+  color: var(--rv-ink);
+}
+
+.rv-auth .flash-message {
+  margin: 0;
+  text-align: left;
+  border-radius: var(--rv-radius);
+}
+
+.rv-auth-form.ui.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rv-auth-form.ui.form .field {
+  margin: 0;
+}
+
+/* Auth fields are the hero of this screen: 44px, above the 32px app-wide control height.
+   Higher specificity than controls.css, which loads later in the build and pins inputs to 32px. */
+.rv-auth-form.ui.form input:not([type="checkbox"], [type="radio"], [type="file"], .ui.dropdown > input.search) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0 14px;
+  background: var(--color-input-background);
+  font-size: 14px;
+}
+
+.rv-auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 2px 6px;
+  font-size: 13px;
+  color: var(--rv-ink-3);
+}
+
+.rv-auth-row .ui.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rv-auth-row .ui.checkbox label {
+  color: var(--rv-ink-3);
+  cursor: pointer;
+}
+
+.rv-auth-row a,
+.rv-auth-links a {
+  color: var(--rv-ink-3);
+}
+
+.rv-auth-row a:hover,
+.rv-auth-links a:hover {
+  color: var(--rv-ink);
+}
+
+/* The sign-in hero keeps a pill CTA; app controls elsewhere are 8px rectangles. */
+.rv-auth-submit.ui.button,
+.rv-auth #external-login-navigator .ui.button {
+  border-radius: var(--border-radius-full);
+}
+
+.rv-auth-submit.ui.button {
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
+  margin: 0;
+  font-size: 14px;
+}
+
+.rv-auth .divider.divider-text {
+  margin: 4px 0;
+  color: var(--rv-ink-4);
+  font-size: 12px;
+}
+
+.rv-auth #external-login-navigator .ui.button {
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
+  margin: 0;
+  background: var(--rv-surface-2);
+}
+
+.rv-auth #external-login-navigator svg,
+.rv-auth #external-login-navigator img {
+  filter: grayscale(1);
+}
+
+.rv-auth-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--rv-ink-4);
+}
+
+.rv-auth-links .signin-passkey {
+  cursor: pointer;
+}

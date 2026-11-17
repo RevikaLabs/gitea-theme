@@ -1,0 +1,52 @@
+/* Top bar: same canvas as the page, a hairline below, quiet items that brighten on hover. */
+#navbar {
+  border-bottom-color: var(--rv-line-soft);
+  padding: 0 12px;
+}
+
+#navbar .navbar-left,
+#navbar .navbar-right {
+  min-height: 47px;
+  gap: 2px;
+}
+
+#navbar .navbar-left > .item,
+#navbar .navbar-right > .item {
+  min-height: 30px;
+  padding: 3px 10px;
+  border-radius: var(--rv-radius);
+  color: var(--rv-ink-3);
+  font-weight: var(--font-weight-medium);
+}
+
+#navbar :is(a, button).item:not(.dropdown *):hover {
+  color: var(--rv-ink);
+}
+
+#navbar .item.active {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Upstream colour logo swapped for the monochrome mark. */
+#navbar-logo img {
+  display: none;
+}
+
+#navbar-logo::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: var(--rv-ink);
+  mask: var(--rv-gitea-mark) center / contain no-repeat;
+}
+
+#navbar .notification_count,
+#navbar .header-stopwatch-dot {
+  background: var(--rv-ink) !important;
+  color: var(--rv-canvas) !important;
+}
+
+.secondary-nav {
+  border-bottom: 0 !important;
+}

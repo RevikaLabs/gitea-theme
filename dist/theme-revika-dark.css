@@ -1,0 +1,2464 @@
+gitea-theme-meta-info {
+  --theme-display-name: "Revika Dark";
+  --theme-color-scheme: "dark";
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("../fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --fonts-override: "Geist", -apple-system, "Segoe UI", system-ui;
+  --fonts-monospace: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace, var(--fonts-emoji);
+}
+/* Verbatim :root of web_src/css/themes/theme-gitea-dark.css from Gitea v28.4.0; Revika overrides live in dark.css. */
+:root {
+  --is-dark-theme: true;
+  --color-primary: #4183c4;
+  --color-primary-contrast: #ffffff;
+  --color-primary-dark-1: #548fca;
+  --color-primary-dark-2: #679cd0;
+  --color-primary-dark-3: #7aa8d6;
+  --color-primary-dark-4: #8db5dc;
+  --color-primary-dark-5: #b3cde7;
+  --color-primary-dark-6: #d9e6f3;
+  --color-primary-dark-7: #f4f8fb;
+  --color-primary-light-1: #3876b3;
+  --color-primary-light-2: #31699f;
+  --color-primary-light-3: #2b5c8b;
+  --color-primary-light-4: #254f77;
+  --color-primary-light-5: #193450;
+  --color-primary-light-6: #0c1a28;
+  --color-primary-light-7: #04080c;
+  --color-primary-alpha-10: #4183c419;
+  --color-primary-alpha-20: #4183c433;
+  --color-primary-alpha-30: #4183c44b;
+  --color-primary-alpha-40: #4183c466;
+  --color-primary-alpha-50: #4183c480;
+  --color-primary-alpha-60: #4183c499;
+  --color-primary-alpha-70: #4183c4b3;
+  --color-primary-alpha-80: #4183c4cc;
+  --color-primary-alpha-90: #4183c4e1;
+  --color-primary-hover: var(--color-primary-light-1);
+  --color-primary-active: var(--color-primary-light-2);
+  --color-secondary: #3f4248;
+  --color-secondary-dark-1: #46494f;
+  --color-secondary-dark-2: #4f5259;
+  --color-secondary-dark-3: #5e626a;
+  --color-secondary-dark-4: #6f747d;
+  --color-secondary-dark-5: #7d828c;
+  --color-secondary-dark-6: #8b8f98;
+  --color-secondary-dark-7: #999da4;
+  --color-secondary-dark-8: #a8abb1;
+  --color-secondary-dark-9: #aeb1b8;
+  --color-secondary-dark-10: #bbbec3;
+  --color-secondary-dark-11: #c8cacf;
+  --color-secondary-dark-12: #d2d4d7;
+  --color-secondary-dark-13: #d5d6d9;
+  --color-secondary-light-1: #35373c;
+  --color-secondary-light-2: #2c2e32;
+  --color-secondary-light-3: #1f2124;
+  --color-secondary-light-4: #191a1c;
+  --color-secondary-alpha-10: #3f424819;
+  --color-secondary-alpha-20: #3f424833;
+  --color-secondary-alpha-30: #3f42484b;
+  --color-secondary-alpha-40: #3f424866;
+  --color-secondary-alpha-50: #3f424880;
+  --color-secondary-alpha-60: #3f424899;
+  --color-secondary-alpha-70: #3f4248b3;
+  --color-secondary-alpha-80: #3f4248cc;
+  --color-secondary-alpha-90: #3f4248e1;
+  --color-secondary-button: var(--color-secondary-dark-4);
+  --color-secondary-hover: var(--color-secondary-dark-3);
+  --color-secondary-active: var(--color-secondary-dark-2);
+  /* console colors - used for actions console and console files */
+  --color-console-fg: #f8f8f8;
+  --color-console-fg-subtle: #c1c3c8;
+  --color-console-bg: #191a1c;
+  --color-console-hover-bg: #2a2c30;
+  --color-console-active-bg: #313338;
+  --color-console-link: #969aa1;
+  /* named colors */
+  --color-red: #cc4848;
+  --color-orange: #cc580c;
+  --color-yellow: #cc9903;
+  --color-olive: #91a313;
+  --color-green: #87ab63;
+  --color-teal: #00918a;
+  --color-blue: #3a8ac6;
+  --color-violet: #906ae1;
+  --color-purple: #b259d0;
+  --color-pink: #d22e8b;
+  --color-brown: #a47252;
+  --color-black: #202225;
+  /* light variants - produced via Sass scale-color(color, $lightness: +10%) */
+  --color-red-light: #d15a5a;
+  --color-orange-light: #f6a066;
+  --color-yellow-light: #eaaf03;
+  --color-olive-light: #abc016;
+  --color-green-light: #93b373;
+  --color-teal-light: #00b6ad;
+  --color-blue-light: #4e96cc;
+  --color-violet-light: #9b79e4;
+  --color-purple-light: #ba6ad5;
+  --color-pink-light: #d74397;
+  --color-brown-light: #b08061;
+  --color-black-light: #45484e;
+  /* dark 1 variants - produced via Sass scale-color(color, $lightness: -10%) */
+  --color-red-dark-1: #c23636;
+  --color-orange-dark-1: #f38236;
+  --color-yellow-dark-1: #b88a03;
+  --color-olive-dark-1: #839311;
+  --color-green-dark-1: #7a9e55;
+  --color-teal-dark-1: #00837c;
+  --color-blue-dark-1: #347cb3;
+  --color-violet-dark-1: #7b4edb;
+  --color-purple-dark-1: #a742c9;
+  --color-pink-dark-1: #be297d;
+  --color-brown-dark-1: #94674a;
+  --color-black-dark-1: #2e3033;
+  /* dark 2 variants - produced via Sass scale-color(color, $lightness: -20%) */
+  --color-red-dark-2: #ad3030;
+  --color-orange-dark-2: #f16e17;
+  --color-yellow-dark-2: #a37a02;
+  --color-olive-dark-2: #74820f;
+  --color-green-dark-2: #6c8c4c;
+  --color-teal-dark-2: #00746e;
+  --color-blue-dark-2: #2e6e9f;
+  --color-violet-dark-2: #6733d6;
+  --color-purple-dark-2: #9834b9;
+  --color-pink-dark-2: #a9246f;
+  --color-brown-dark-2: #835b42;
+  --color-black-dark-2: #292b2e;
+  /* ansi colors used for actions console and console files */
+  --color-ansi-black: #202225;
+  --color-ansi-red: #cc4848;
+  --color-ansi-green: #87ab63;
+  --color-ansi-yellow: #cc9903;
+  --color-ansi-blue: #3a8ac6;
+  --color-ansi-magenta: #d22e8b;
+  --color-ansi-cyan: #00918a;
+  --color-ansi-white: var(--color-console-fg-subtle);
+  --color-ansi-bright-black: #45484e;
+  --color-ansi-bright-red: #d15a5a;
+  --color-ansi-bright-green: #93b373;
+  --color-ansi-bright-yellow: #eaaf03;
+  --color-ansi-bright-blue: #4e96cc;
+  --color-ansi-bright-magenta: #d74397;
+  --color-ansi-bright-cyan: #00b6ad;
+  --color-ansi-bright-white: var(--color-console-fg);
+  /* 16-color series */
+  --color-series-16-0: #7db233;
+  --color-series-16-1: #499a37;
+  --color-series-16-2: #ce4751;
+  --color-series-16-3: #8f9121;
+  --color-series-16-4: #ac32a6;
+  --color-series-16-5: #7445e9;
+  --color-series-16-6: #c67d28;
+  --color-series-16-7: #4db392;
+  --color-series-16-8: #aa4d30;
+  --color-series-16-9: #2a6f84;
+  --color-series-16-10: #c45327;
+  --color-series-16-11: #3d965c;
+  --color-series-16-12: #792a93;
+  --color-series-16-13: #439d73;
+  --color-series-16-14: #103aad;
+  --color-series-16-15: #982e85;
+  /* other colors */
+  --color-grey: #3d3f44;
+  --color-grey-light: #898d96;
+  --color-gold: #b1983b;
+  --color-white: #ffffff;
+  --color-diff-added-fg: #93b373;
+  --color-diff-added-linenum-bg: #274227;
+  --color-diff-added-row-bg: #203224;
+  --color-diff-added-row-border: #314a37;
+  --color-diff-added-word-bg: #3c653c;
+  --color-diff-moved-row-bg: #818044;
+  --color-diff-moved-row-border: #bcca6f;
+  --color-diff-removed-fg: #fb5f5b;
+  --color-diff-removed-linenum-bg: #482121;
+  --color-diff-removed-row-bg: #301e1e;
+  --color-diff-removed-row-border: #634343;
+  --color-diff-removed-word-bg: #6f3333;
+  --color-diff-inactive: #25272a;
+  --color-error-border: #763232;
+  --color-error-bg: #322226;
+  --color-error-bg-active: #49262a;
+  --color-error-bg-hover: #3c2427;
+  --color-error-text: #f85149;
+  --color-success-border: #225633;
+  --color-success-bg: #1c3329;
+  --color-success-text: #3fb950;
+  --color-warning-border: #5f481a;
+  --color-warning-bg: #342e1f;
+  --color-warning-text: #d29922;
+  --color-info-border: #254a7e;
+  --color-info-bg: #1b283a;
+  --color-info-text: #2f81f7;
+  --color-priority-border: #4a268d;
+  --color-priority-bg: #251c39;
+  --color-priority-text: #a371f7;
+  --color-red-badge: #db2828;
+  --color-red-badge-bg: #db28281a;
+  --color-red-badge-hover-bg: #db28284d;
+  --color-green-badge: #21ba45;
+  --color-green-badge-bg: #21ba451a;
+  --color-green-badge-hover-bg: #21ba454d;
+  --color-yellow-badge: #fbbd08;
+  --color-yellow-badge-bg: #fbbd081a;
+  --color-yellow-badge-hover-bg: #fbbd084d;
+  --color-orange-badge: #f2711c;
+  --color-orange-badge-bg: #f2711c1a;
+  --color-orange-badge-hover-bg: #f2711c4d;
+  --color-git: #f05133;
+  --color-logo: #609926;
+  /* target-based colors */
+  --color-body: #1e1f20;
+  --color-box-header: #1b1c1e;
+  --color-box-body: #161718;
+  --color-box-body-highlight: #202124;
+  --color-text-dark: #f8f8f8;
+  --color-text: #d2d4d8;
+  --color-text-light: #c0c2c7;
+  --color-text-light-1: #aaadb4;
+  --color-text-light-2: #969aa1;
+  --color-text-light-3: #80858f;
+  --color-footer: var(--color-nav-bg);
+  --color-timeline: #383b40;
+  --color-input-text: var(--color-text-dark);
+  --color-input-background: #191a1c;
+  --color-input-toggle-background: #323438;
+  --color-input-border: var(--color-secondary-dark-1);
+  --color-light: #0b0b0c28;
+  --color-light-border: #f3f3f428;
+  --color-hover: #f3f3f419;
+  --color-hover-opaque: #232528; /* TODO: color-mix(in srgb, var(--color-body), var(--color-hover)); */
+  --color-active: #f3f3f424;
+  --color-menu: #191a1c;
+  --color-card: #191a1c;
+  --color-markup-table-row: #f3f3f40f;
+  --color-markup-code-block: #f3f3f412;
+  --color-markup-code-inline: #f3f3f428;
+  --color-button: #191a1c;
+  --color-code-bg: #161718;
+  --color-shadow: #0b0b0c58;
+  --color-shadow-opaque: #0b0b0c;
+  --color-secondary-bg: #2e3033;
+  --color-expand-button: #333539;
+  --color-placeholder-text: var(--color-text-light-3);
+  --color-editor-line-highlight: var(--color-secondary-alpha-40);
+  --color-editor-selection: var(--color-primary-alpha-50);
+  --color-project-column-bg: var(--color-secondary-light-2);
+  --color-caret: var(--color-text); /* should ideally be --color-text-dark, see #15651 */
+  --color-reaction-bg: #f3f3f412;
+  --color-reaction-hover-bg: var(--color-primary-light-4);
+  --color-reaction-active-bg: var(--color-primary-light-5);
+  --color-tooltip-text: #fafafa;
+  --color-tooltip-bg: #2b2e33;
+  --color-nav-bg: #18191b;
+  --color-nav-hover-bg: var(--color-secondary-light-1);
+  --color-nav-text: var(--color-text);
+  --color-secondary-nav-bg: #1a1b1e;
+  --color-label-text: var(--color-text);
+  --color-label-bg: #7a7f8a4b;
+  --color-label-hover-bg: #7a7f8aa0;
+  --color-label-active-bg: #7a7f8aff;
+  --color-accent: var(--color-primary-light-1);
+  --color-small-accent: var(--color-primary-light-5);
+  --color-highlight-fg: #87651e;
+  --color-highlight-bg: #443a27;
+  --color-overlay-backdrop: #080808c0;
+  --color-danger: var(--color-red);
+  --color-transparency-grid-light: #2a2a2a;
+  --color-transparency-grid-dark: #1a1a1a;
+  --color-workflow-edge-hover: #666a73;
+  --color-syntax-keyword: #ff8854;
+  --color-syntax-bool: #25bbc9;
+  --color-syntax-control: #dd9e17;
+  --color-syntax-name: #fabd2f;
+  --color-syntax-type: #eb8cb3;
+  --color-syntax-number: #63b2dd;
+  --color-syntax-operator: #ff8854;
+  --color-syntax-regexp: #b89de4;
+  --color-syntax-string: #95b62a;
+  --color-syntax-comment: #8898b0;
+  --color-syntax-invalid: #ff8686;
+  --color-syntax-link: var(--color-primary);
+  --color-syntax-tag: #ff8854;
+  --color-syntax-attribute: #c792ff;
+  --color-syntax-property: #55afff;
+  --color-syntax-variable: #e29b33;
+  --color-syntax-string-special: #dd9e17;
+  --color-syntax-escape: #c7a618;
+  --color-syntax-entity: #c792ff;
+  --color-syntax-preproc: #4cbe7a;
+  --color-syntax-preproc-file: #63b2dd;
+  --color-syntax-decorator: #4cbe7a;
+  --color-syntax-namespace: #c9d1d9;
+  --color-syntax-name-pseudo: #c792ff;
+  --color-syntax-comment-special: #b89de4;
+  --color-syntax-text: #c9d1d9;
+  --color-syntax-text-alt: #b9bcc7;
+  --color-syntax-punctuation: #d2d4db;
+  --color-syntax-whitespace: #7f8699;
+  --color-syntax-diff-fg: #ffffff;
+  --color-syntax-deleted-bg: #5f3737;
+  --color-syntax-inserted-bg: #3a523a;
+  --color-syntax-emph: #d1a242;
+  --color-syntax-strong: #e29b33;
+  --color-syntax-heading: #dd9e17;
+  --color-syntax-subheading: #95b62a;
+  --color-syntax-output: #8898b0;
+  --color-syntax-prompt: #e29b33;
+  --color-syntax-traceback: #ff8686;
+  --color-syntax-matching-bracket-bg: #00918a48;
+  --color-syntax-nonmatching-bracket-bg: #cc484848;
+  accent-color: var(--color-accent);
+  color-scheme: dark;
+}
+
+/* invert emojis that are hard to read otherwise */
+.emoji[data-alias="heavy_check_mark"],
+.emoji[data-alias="currency_exchange"],
+.emoji[data-alias="top"],
+.emoji[data-alias="end"],
+.emoji[data-alias="on"],
+.emoji[data-alias="soon"],
+.emoji[data-alias="heavy_dollar_sign"],
+.emoji[data-alias="copyright"],
+.emoji[data-alias="registered"],
+.emoji[data-alias="tm"],
+.emoji[data-alias="heavy_multiplication_x"],
+.emoji[data-alias="heavy_plus_sign"],
+.emoji[data-alias="heavy_minus_sign"],
+.emoji[data-alias="heavy_division_sign"],
+.emoji[data-alias="curly_loop"],
+.emoji[data-alias="loop"],
+.emoji[data-alias="wavy_dash"],
+.emoji[data-alias="feet"],
+.emoji[data-alias="musical_note"],
+.emoji[data-alias="notes"] {
+  filter: invert(100%) hue-rotate(180deg);
+}
+/* Revika Dark: near-black neutral canvas, surfaces lift by 2-3% lightness, borders are translucent white. */
+:root {
+  /* Revika primitives */
+  --rv-canvas: #0d0e0f;
+  --rv-surface-1: #131415;
+  --rv-surface-2: #18191b;
+  --rv-surface-3: #1e1f22;
+  --rv-inset: #0a0b0c;
+  --rv-line: rgb(255 255 255 / 0.07);
+  --rv-line-soft: rgb(255 255 255 / 0.045);
+  --rv-line-strong: rgb(255 255 255 / 0.12);
+  --rv-ink: #eeeff1;
+  --rv-ink-2: #b4b7bd;
+  --rv-ink-3: #8a8f98;
+  --rv-ink-4: #62666d;
+  /* No hue accent: the primary action is the brightest ink on the canvas. */
+  --rv-accent: #e8e9ec;
+  --rv-accent-ink: #0d0e0f;
+  --rv-accent-soft: rgb(255 255 255 / 0.08);
+  --rv-focus: rgb(255 255 255 / 0.28);
+  --rv-hover: rgb(255 255 255 / 0.04);
+  --rv-press: rgb(255 255 255 / 0.07);
+  /* Status hues: used only on icons and dots, never on text blocks. */
+  --rv-open: #e2b340;
+  --rv-done: #6e79d6;
+  --rv-success: #4cb782;
+  --rv-danger: #eb5757;
+  --rv-neutral: #8a8f98;
+  /* Shape: 6 for 28px controls and inline tokens, 8 for controls, 12 for surfaces; pills only for chips. */
+  --rv-radius-sm: 6px;
+  --rv-radius: 8px;
+  --rv-radius-lg: 12px;
+  --rv-h-sm: 28px;
+  --rv-h: 32px;
+  --rv-shadow-pop: 0 0 0 1px var(--rv-line), 0 8px 24px rgb(0 0 0 / 0.45);
+  --rv-shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  --rv-selection: rgb(255 255 255 / 0.18);
+  --rv-glow: rgb(255 255 255 / 0.035);
+
+  /* Gitea mapping */
+  --color-primary: var(--rv-accent);
+  --color-primary-contrast: var(--rv-accent-ink);
+  --color-primary-hover: #ffffff;
+  --color-primary-active: #d4d6da;
+  --color-primary-alpha-10: rgb(255 255 255 / 0.04);
+  --color-primary-alpha-20: rgb(255 255 255 / 0.07);
+  --color-primary-alpha-30: rgb(255 255 255 / 0.1);
+  --color-primary-alpha-40: rgb(255 255 255 / 0.14);
+  --color-primary-alpha-50: rgb(255 255 255 / 0.18);
+  --color-primary-alpha-60: rgb(255 255 255 / 0.24);
+  --color-primary-alpha-70: rgb(255 255 255 / 0.32);
+  --color-primary-alpha-80: rgb(255 255 255 / 0.42);
+  --color-primary-alpha-90: rgb(255 255 255 / 0.56);
+  --color-primary-light-1: #d4d6da;
+  --color-primary-light-2: #c2c4c9;
+  --color-primary-light-3: #a9acb2;
+  --color-primary-light-4: #8a8f98;
+  --color-primary-light-5: #62666d;
+  --color-primary-light-6: #3a3c40;
+  --color-primary-light-7: #232427;
+  --color-primary-dark-1: #ffffff;
+  --color-primary-dark-2: #ffffff;
+  --color-primary-dark-3: #ffffff;
+  --color-primary-dark-4: #ffffff;
+  --color-primary-dark-5: #ffffff;
+  --color-primary-dark-6: #ffffff;
+  --color-primary-dark-7: #ffffff;
+  --color-accent: var(--rv-accent);
+
+  --color-secondary: var(--rv-line-strong);
+  --color-secondary-bg: var(--rv-surface-2);
+  --color-secondary-alpha-40: rgb(255 255 255 / 0.1);
+  --color-secondary-alpha-50: rgb(255 255 255 / 0.12);
+
+  --color-body: var(--rv-canvas);
+  --color-box-header: var(--rv-surface-1);
+  --color-box-body: var(--rv-canvas);
+  --color-box-body-highlight: var(--rv-surface-1);
+  --color-card: var(--rv-surface-1);
+  --color-menu: var(--rv-surface-2);
+  --color-button: var(--rv-surface-1);
+  --color-nav-bg: var(--rv-canvas);
+  --color-secondary-nav-bg: var(--rv-canvas);
+  --color-footer: var(--rv-canvas);
+  --color-code-bg: var(--rv-canvas);
+  --color-console-bg: var(--rv-inset);
+  --color-expand-button: var(--rv-surface-3);
+  --color-input-background: var(--rv-inset);
+  --color-input-toggle-background: var(--rv-surface-3);
+  --color-input-border: var(--rv-line);
+
+  --color-text-dark: #ffffff;
+  --color-text: var(--rv-ink);
+  --color-text-light: var(--rv-ink-2);
+  --color-text-light-1: var(--rv-ink-2);
+  --color-text-light-2: var(--rv-ink-3);
+  --color-text-light-3: var(--rv-ink-3);
+  --color-placeholder-text: var(--rv-ink-4);
+  --color-nav-text: var(--rv-ink-2);
+
+  --color-light-border: var(--rv-line);
+  --color-timeline: var(--rv-line-strong);
+  --color-hover: var(--rv-hover);
+  --color-hover-opaque: #151618;
+  --color-active: var(--rv-press);
+  --color-shadow: rgb(0 0 0 / 0.5);
+
+  --color-markup-code-inline: rgb(255 255 255 / 0.06);
+  --color-markup-code-block: var(--rv-surface-1);
+  --color-markup-table-row: rgb(255 255 255 / 0.025);
+
+  --color-tooltip-bg: var(--rv-surface-3);
+  --color-tooltip-text: var(--rv-ink);
+  --color-overlay-backdrop: rgb(0 0 0 / 0.6);
+  --color-reaction-bg: rgb(255 255 255 / 0.05);
+  --color-label-bg: rgb(255 255 255 / 0.06);
+  --color-label-hover-bg: rgb(255 255 255 / 0.1);
+  --color-label-active-bg: rgb(255 255 255 / 0.14);
+
+  --color-red: var(--rv-danger);
+  --color-green: var(--rv-success);
+  --color-yellow: var(--rv-open);
+  --color-purple: var(--rv-done);
+  --color-grey: #2a2c30;
+  --color-grey-light: var(--rv-ink-3);
+
+  --color-success-text: var(--rv-success);
+  --color-success-bg: rgb(76 183 130 / 0.1);
+  --color-success-border: rgb(76 183 130 / 0.25);
+  --color-error-text: var(--rv-danger);
+  --color-error-bg: rgb(235 87 87 / 0.1);
+  --color-error-bg-hover: rgb(235 87 87 / 0.14);
+  --color-error-bg-active: rgb(235 87 87 / 0.18);
+  --color-error-border: rgb(235 87 87 / 0.3);
+  --color-warning-text: var(--rv-open);
+  --color-warning-bg: rgb(226 179 64 / 0.1);
+  --color-warning-border: rgb(226 179 64 / 0.25);
+  --color-info-text: var(--rv-ink-2);
+  --color-info-bg: var(--rv-surface-1);
+  --color-info-border: var(--rv-line);
+  --color-logo: var(--rv-ink);
+  --color-nav-hover-bg: var(--rv-hover);
+
+  /* Diff: calm row tint, saturated gutter edge and word highlight only. */
+  --color-diff-added-fg: #6cc496;
+  --color-diff-added-row-bg: rgb(76 183 130 / 0.07);
+  --color-diff-added-linenum-bg: rgb(76 183 130 / 0.1);
+  --color-diff-added-row-border: rgb(76 183 130 / 0.2);
+  --color-diff-added-word-bg: rgb(76 183 130 / 0.24);
+  --color-diff-removed-fg: #ef7b7b;
+  --color-diff-removed-row-bg: rgb(235 87 87 / 0.07);
+  --color-diff-removed-linenum-bg: rgb(235 87 87 / 0.1);
+  --color-diff-removed-row-border: rgb(235 87 87 / 0.2);
+  --color-diff-removed-word-bg: rgb(235 87 87 / 0.24);
+  --color-diff-inactive: var(--rv-surface-1);
+
+  /* Syntax tuned to the screenshots: violet keywords, teal types, warm strings. */
+  --color-syntax-text: var(--rv-ink);
+  --color-syntax-keyword: #c792ea;
+  --color-syntax-type: #7fd4c1;
+  --color-syntax-name: #82aaff;
+  --color-syntax-variable: #e8a7a7;
+  --color-syntax-attribute: #82aaff;
+  --color-syntax-property: #d4d7dd;
+  --color-syntax-tag: #ef8f8f;
+  --color-syntax-string: #e7c08a;
+  --color-syntax-number: #f4a46b;
+  --color-syntax-comment: #62666d;
+  --color-syntax-operator: #b4b7bd;
+  --color-syntax-punctuation: #8a8f98;
+
+  --border-radius: var(--rv-radius);
+  --border-radius-medium: var(--rv-radius-lg);
+}
+/* Sign-in and 2FA: one narrow centred column on an empty canvas, no navbar or footer. */
+body:has(.rv-auth) :is(#navbar, .page-footer) {
+  display: none;
+}
+
+body:has(.rv-auth) .full.height {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body:has(.rv-auth) {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, var(--rv-glow), transparent 70%),
+    var(--rv-canvas);
+}
+
+.page-content.rv-auth {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px 18vh;
+}
+
+.rv-auth-card {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  text-align: center;
+}
+
+.rv-auth-mark {
+  align-self: center;
+  color: var(--rv-ink);
+  margin-bottom: 8px;
+}
+
+.rv-auth-mark .rv-mark {
+  width: 44px;
+  height: 44px;
+}
+
+.rv-auth-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+  color: var(--rv-ink);
+}
+
+.rv-auth .flash-message {
+  margin: 0;
+  text-align: left;
+  border-radius: var(--rv-radius);
+}
+
+.rv-auth-form.ui.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rv-auth-form.ui.form .field {
+  margin: 0;
+}
+
+/* Auth fields are the hero of this screen: 44px, above the 32px app-wide control height.
+   Higher specificity than controls.css, which loads later in the build and pins inputs to 32px. */
+.rv-auth-form.ui.form input:not([type="checkbox"], [type="radio"], [type="file"], .ui.dropdown > input.search) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0 14px;
+  background: var(--color-input-background);
+  font-size: 14px;
+}
+
+.rv-auth-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 2px 6px;
+  font-size: 13px;
+  color: var(--rv-ink-3);
+}
+
+.rv-auth-row .ui.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rv-auth-row .ui.checkbox label {
+  color: var(--rv-ink-3);
+  cursor: pointer;
+}
+
+.rv-auth-row a,
+.rv-auth-links a {
+  color: var(--rv-ink-3);
+}
+
+.rv-auth-row a:hover,
+.rv-auth-links a:hover {
+  color: var(--rv-ink);
+}
+
+/* The sign-in hero keeps a pill CTA; app controls elsewhere are 8px rectangles. */
+.rv-auth-submit.ui.button,
+.rv-auth #external-login-navigator .ui.button {
+  border-radius: var(--border-radius-full);
+}
+
+.rv-auth-submit.ui.button {
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
+  margin: 0;
+  font-size: 14px;
+}
+
+.rv-auth .divider.divider-text {
+  margin: 4px 0;
+  color: var(--rv-ink-4);
+  font-size: 12px;
+}
+
+.rv-auth #external-login-navigator .ui.button {
+  width: 100%;
+  min-height: 44px;
+  justify-content: center;
+  margin: 0;
+  background: var(--rv-surface-2);
+}
+
+.rv-auth #external-login-navigator svg,
+.rv-auth #external-login-navigator img {
+  filter: grayscale(1);
+}
+
+.rv-auth-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--rv-ink-4);
+}
+
+.rv-auth-links .signin-passkey {
+  cursor: pointer;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  font-feature-settings: "cv11", "ss01";
+  letter-spacing: -0.003em;
+}
+
+::selection {
+  background: var(--rv-selection);
+}
+
+:focus-visible {
+  outline: 2px solid var(--rv-focus);
+  outline-offset: 2px;
+}
+
+.rv-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Boxes: one translucent hairline, no header slab. */
+.ui.segment,
+.ui.attached.segment,
+.ui.attached.header,
+.ui.message,
+.ui.table {
+  border-color: var(--rv-line) !important;
+}
+
+.ui.top.attached.header {
+  font-weight: var(--font-weight-medium);
+}
+
+.divider:not(.divider-text) {
+  border-color: var(--rv-line-soft);
+}
+
+/*
+ * Popups lift one step with a soft shadow instead of a border. Only the outer menu is a surface:
+ * nested .scrolling.menu lists stay flat. Selection dropdowns keep their list attached to the field.
+ */
+.tippy-box:not([data-theme="tooltip"]),
+.ui.dropdown:not(.selection) > .menu,
+.ui.menu .dropdown.item > .menu {
+  background: var(--rv-surface-2) !important;
+  border: 0 !important;
+  border-radius: var(--rv-radius-lg) !important;
+  box-shadow: var(--rv-shadow-pop) !important;
+}
+
+/* Text tooltips keep their own inverted --color-tooltip-bg (dark on light scheme). */
+.tippy-box[data-theme="tooltip"] {
+  border-radius: var(--rv-radius) !important;
+  box-shadow: var(--rv-shadow-pop);
+}
+
+.ui.dropdown:not(.selection) > .menu {
+  padding: 4px !important;
+}
+
+.ui.dropdown:not(.selection) > .menu > .scrolling.menu {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.ui.selection.dropdown > .menu {
+  border-radius: 0 0 var(--rv-radius) var(--rv-radius) !important;
+}
+
+.ui.dropdown:not(.selection) .menu > .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+.ui.dropdown .menu > .item:hover {
+  background: var(--rv-hover) !important;
+}
+/*
+ * Controls: one rounded-rectangle family. 32px / 8px by default, 28px / 6px compact.
+ * Primary is solid ink; everything else is a quiet surface with a hairline.
+ */
+.ui.button {
+  min-height: var(--rv-h);
+  padding: 0 12px;
+  border-radius: var(--rv-radius);
+  font-weight: var(--font-weight-medium);
+  line-height: 20px;
+  border: 1px solid var(--rv-line);
+  background: var(--rv-surface-1);
+  color: var(--rv-ink-2);
+  box-shadow: none;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.ui.button:hover {
+  background: var(--rv-surface-3);
+  border-color: var(--rv-line-strong);
+  color: var(--rv-ink);
+}
+
+/* Upstream pins small buttons with a 4-class selector; match its weight. */
+.ui.ui.ui.ui.small.button,
+.ui.ui.ui.ui.compact.button,
+.ui.ui.ui.ui.tiny.button,
+.ui.ui.ui.ui.mini.button,
+.ui.ui.ui.ui.small.button.compact,
+.ui.ui.ui.ui.small.buttons .button {
+  min-height: var(--rv-h-sm);
+  padding: 0 10px;
+  font-size: 13px;
+  border-radius: var(--rv-radius-sm);
+}
+
+/* Dropdown buttons draw an absolute caret on the right; reserve room so it never covers the label. */
+.ui.ui.ui.ui.dropdown.button:not(.icon) {
+  padding-right: 26px;
+}
+
+/* Upstream pins these to 30px with height; keep them on the 28px compact step. */
+.repository .diff-detail-box .ui.button,
+.repo-view-container .ui.button.repo-view-file-tree-toggle {
+  height: var(--rv-h-sm);
+  min-height: var(--rv-h-sm);
+}
+
+.ui.icon.button:not(.compact),
+.ui.icon.button,
+.ui.icon.buttons .button {
+  padding: 0 7px;
+  min-width: var(--rv-h);
+  justify-content: center;
+}
+
+.ui.ui.ui.ui.compact.icon.button,
+.ui.ui.ui.ui.small.icon.button,
+.ui.ui.ui.ui.tiny.icon.button,
+.ui.ui.compact.icon.buttons .button {
+  padding: 0 5px;
+  min-width: var(--rv-h-sm);
+}
+
+.ui.primary.button,
+.ui.primary.buttons .button {
+  border-color: transparent;
+}
+
+.ui.basic.button {
+  background: transparent;
+  border-color: var(--rv-line);
+}
+
+.ui.red.button,
+.ui.basic.red.button {
+  background: transparent;
+  color: var(--rv-danger);
+  border-color: var(--color-error-border);
+}
+
+.ui.red.button:hover,
+.ui.basic.red.button:hover {
+  background: var(--color-error-bg);
+  color: var(--rv-danger);
+}
+
+.ui.green.button {
+  background: var(--rv-accent);
+  color: var(--rv-accent-ink);
+  border-color: transparent;
+}
+
+/* Groups: outer corners only, hairline seams inside. No overflow clipping: split buttons own dropdowns. */
+.ui.buttons {
+  border-radius: var(--rv-radius);
+}
+
+.ui.buttons > .button,
+.ui.buttons > .ui.dropdown.button {
+  margin: 0;
+  border-radius: 0;
+}
+
+.ui.buttons > .button + .button {
+  margin-left: -1px;
+}
+
+.ui.buttons > .button:first-child {
+  border-top-left-radius: var(--rv-radius);
+  border-bottom-left-radius: var(--rv-radius);
+}
+
+.ui.buttons > .button:last-child {
+  border-top-right-radius: var(--rv-radius);
+  border-bottom-right-radius: var(--rv-radius);
+}
+
+.ui.compact.buttons > .button:first-child,
+.ui.small.buttons > .button:first-child {
+  border-top-left-radius: var(--rv-radius-sm);
+  border-bottom-left-radius: var(--rv-radius-sm);
+}
+
+.ui.compact.buttons > .button:last-child,
+.ui.small.buttons > .button:last-child {
+  border-top-right-radius: var(--rv-radius-sm);
+  border-bottom-right-radius: var(--rv-radius-sm);
+}
+
+.ui.buttons > .active.button {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Labeled buttons (Watch / Star / Fork): one control, the count sits behind a seam. */
+.ui.labeled.button > .button {
+  border-radius: var(--rv-radius-sm) 0 0 var(--rv-radius-sm);
+}
+
+.ui.labeled.button > .label {
+  min-height: var(--rv-h-sm);
+  padding: 0 8px;
+  border: 1px solid var(--rv-line);
+  border-radius: 0 var(--rv-radius-sm) var(--rv-radius-sm) 0;
+  background: var(--rv-surface-1);
+  color: var(--rv-ink-3);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inputs sit slightly below the surface: darker fill, hairline, ring on focus. */
+.ui.form input:not([type="checkbox"], [type="radio"]),
+.ui.form select,
+.ui.form textarea,
+.ui.input > input,
+.ui.selection.dropdown,
+.ui.search > .prompt {
+  border-radius: var(--rv-radius);
+  border-color: var(--rv-line);
+}
+
+/*
+ * Fixed height, no vertical padding: upstream em-padding made inputs 35-42px and stretched buttons beside them.
+ * Search inputs inside dropdowns are bare text carets sized by the dropdown, so they are excluded.
+ */
+.ui.form input:not([type="checkbox"], [type="radio"], [type="file"], .ui.dropdown > input.search),
+.ui.input > input {
+  height: var(--rv-h);
+  min-height: var(--rv-h);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+input:not([type="checkbox"], [type="radio"]):focus,
+textarea:focus,
+.ui.form input:not([type="checkbox"], [type="radio"]):focus,
+.ui.form textarea:focus,
+.ui.form select:focus,
+.ui.input input:focus,
+.ui.search > .prompt:focus {
+  border-color: var(--rv-line-strong) !important;
+  box-shadow: 0 0 0 3px var(--rv-accent-soft);
+}
+
+.ui.form .field.error input:not([type="checkbox"], [type="radio"]) {
+  border-color: var(--rv-danger);
+  background: var(--color-input-background);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--rv-ink-4);
+}
+
+.form .help {
+  color: var(--rv-ink-3);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border-color: var(--rv-line-strong);
+}
+
+/* Action inputs (search + button): one field, the button is a quiet glyph inside its right end. */
+.ui.action.input:not([class*="left action"]) > input,
+.ui.action.input:not([class*="left action"]) > .ui.input > input {
+  border-radius: var(--rv-radius) 0 0 var(--rv-radius) !important;
+  border-right: 0 !important;
+}
+
+/* A selection dropdown acting as the field (dependency search) takes the same height and left corners. */
+.ui.action.input > .ui.selection.dropdown {
+  min-height: var(--rv-h);
+  height: var(--rv-h);
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  border-radius: var(--rv-radius) 0 0 var(--rv-radius) !important;
+  border-right: 0;
+}
+
+.ui.action.input > .button,
+.ui.action.input > .ui.button,
+.ui.action.input > .ui.dropdown.button {
+  min-height: 0;
+  height: var(--rv-h);
+  padding: 0 10px !important;
+  border: 1px solid var(--rv-line);
+  border-left: 0;
+  border-radius: 0 var(--rv-radius) var(--rv-radius) 0 !important;
+  background: var(--color-input-background);
+  color: var(--rv-ink-3);
+}
+
+.ui.action.input > .ui.dropdown.button:not(.icon) {
+  padding-right: 26px !important;
+}
+
+.ui.action.input > .button:hover {
+  background: var(--color-input-background);
+  color: var(--rv-ink);
+}
+
+.ui.action.input:focus-within > .button,
+.ui.action.input:focus-within > .ui.dropdown.button {
+  border-color: var(--rv-line-strong);
+}
+
+/*
+ * Tabs: every tab kind (repo nav, PR tabs, Write/Preview) is the same quiet chip row.
+ * overflow-menu measures item widths, so the repo nav gets margins, not flex gap.
+ */
+.ui.secondary.pointing.menu,
+overflow-menu.ui.secondary.pointing.menu,
+.ui.tabular.menu {
+  border: 0 !important;
+  border-bottom: 1px solid var(--rv-line-soft) !important;
+  border-radius: 0;
+  background: transparent;
+  padding-bottom: 8px;
+  min-height: 0;
+}
+
+.ui.secondary.pointing.menu .item,
+.ui.tabular.menu .item {
+  border: 0 !important;
+  margin: 0 4px 0 0 !important;
+  align-self: center;
+  min-height: var(--rv-h);
+  padding: 0 10px !important;
+  line-height: 20px;
+  border-radius: var(--rv-radius) !important;
+  background: transparent;
+  color: var(--rv-ink-3);
+}
+
+.ui.secondary.pointing.menu a.item:hover,
+.ui.tabular.menu .item:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.secondary.pointing.menu .active.item,
+.ui.secondary.pointing.menu .active.item:hover,
+.ui.tabular.menu .active.item,
+.ui.tabular.menu .active.item:hover {
+  border-radius: var(--rv-radius) !important;
+  background: var(--rv-press);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.secondary.pointing.menu .item > .label,
+.ui.tabular.menu .item > .label {
+  background: transparent;
+  color: var(--rv-ink-3);
+  padding: 0;
+  margin-left: 6px;
+  font-weight: var(--font-weight-normal);
+  font-variant-numeric: tabular-nums;
+}
+
+.ui.tabular.menu + .attached:not(.top).segment {
+  border: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* The PR tab row is a bare strip, not an attached box header. */
+.ui.top.attached.pull.tabular.menu {
+  margin-bottom: 16px;
+}
+
+/* Segmented switches (Open/Closed, small menus): chip row like tabs. */
+/* Upstream pins the group to 35.4px with !important, which stretched the whole list-header row. */
+.small-menu-items.ui.menu {
+  min-height: var(--rv-h) !important;
+  background: transparent;
+  border: 0;
+  gap: 4px;
+}
+
+.small-menu-items.ui.menu .item {
+  min-height: var(--rv-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  background: transparent !important;
+  color: var(--rv-ink-3);
+  border: 1px solid transparent !important;
+}
+
+.small-menu-items.ui.menu .item::before {
+  display: none;
+}
+
+.small-menu-items.ui.menu .item:hover {
+  color: var(--rv-ink);
+}
+
+.small-menu-items.ui.menu .active.item {
+  background: var(--rv-press) !important;
+  border-color: var(--rv-line) !important;
+  color: var(--rv-ink);
+}
+
+/* Pagination and compact menus: separate 8px chips. */
+.ui.pagination.menu,
+.ui.compact.menu:not(.small-menu-items) {
+  background: transparent;
+  border: 0;
+  gap: 2px;
+}
+
+.ui.pagination.menu .item,
+.ui.compact.menu:not(.small-menu-items) > .item {
+  border-radius: var(--rv-radius) !important;
+  min-width: var(--rv-h);
+  justify-content: center;
+}
+
+.ui.pagination.menu .item::before,
+.ui.compact.menu:not(.small-menu-items) > .item::before {
+  display: none;
+}
+
+.ui.pagination.menu .active.item {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Vertical menus (settings, activity): a bare sidebar list, no outer box. */
+.ui.vertical.menu {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* details.item (collapsible groups) keeps its block layout; only plain links become rows. */
+.ui.secondary.vertical.menu > .item,
+.ui.vertical.menu > a.item,
+.ui.vertical.menu > div.item:not(:has(> .menu)),
+.ui.vertical.menu .item > .menu > .item,
+.ui.vertical.menu > details.item > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--rv-h);
+  margin: 0 0 2px;
+  padding: 0 10px !important;
+  border: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  color: var(--rv-ink-3);
+  background: transparent;
+}
+
+.ui.vertical.menu > details.item,
+.ui.vertical.menu > .item:has(> .menu) {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent;
+}
+
+.ui.vertical.menu .item::before {
+  display: none;
+}
+
+.ui.vertical.menu a.item:hover,
+.ui.vertical.menu > details.item > summary:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.vertical.menu a.active.item,
+.ui.vertical.menu .item .menu .active.item {
+  background: var(--rv-press) !important;
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.vertical.menu .item > .menu {
+  margin: 0 0 0 12px;
+  border: 0;
+  background: transparent;
+}
+
+/* Horizontal secondary menus that are not tabs (filters, dashboard switchers, two-item toggles): quiet 8px items. */
+.ui.secondary.menu:not(.pointing, .vertical) > .item,
+.ui.secondary.menu:not(.pointing, .vertical) > form > .item,
+.ui.item.menu > .item {
+  min-height: var(--rv-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  color: var(--rv-ink-3);
+}
+
+.ui.secondary.menu:not(.pointing, .vertical) > .item:hover,
+.ui.item.menu > a.item:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.item.menu {
+  background: transparent;
+  border: 0;
+  gap: 4px;
+}
+
+.ui.item.menu > .item::before {
+  display: none;
+}
+
+.ui.item.menu > .item.active {
+  background: var(--rv-press);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink);
+}
+
+.ui.menu .item > .label:not(.floating),
+.ui.small.label.counter {
+  background: transparent;
+}
+/*
+ * Issue / PR conversation: a thin rail with small neutral event dots, comments as calm surfaces.
+ * Status colour (open / closed / merged) is kept on the event icon only.
+ */
+.repository.view.issue .comment-list::before {
+  width: 1px;
+  background-color: var(--rv-line);
+}
+
+/* Odd width so the badge centre lands on the 1px rail at left:30px. */
+.repository.view.issue .comment-list .timeline-item .badge {
+  width: 29px;
+  height: 29px;
+  margin-left: -31px;
+  margin-right: 8px;
+  background-color: var(--rv-canvas);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-3);
+}
+
+.repository.view.issue .comment-list .timeline-item .badge .svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Upstream fills status badges with tw-bg-*; keep a neutral dot and colour the glyph instead. */
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-green {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-success) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-red {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-danger) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-purple {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-done) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-primary {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-ink) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.badge-commit {
+  box-shadow: none;
+}
+
+.repository.view.issue .comment-list .timeline-item.commits-list .badge {
+  height: 24px;
+}
+
+/* Commit rows were exactly as tall as their SHA chips, so the chips stacked edge to edge. */
+.repository.view.issue .comment-list .timeline-item.commits-list .flex-text-block {
+  min-height: 30px;
+}
+
+/* Code review conversation: file bar, code preview and comments are one card with inner seams. */
+.ui.segment.collapsible-comment-box {
+  margin-bottom: 0;
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0 !important;
+  background: var(--rv-surface-1);
+}
+
+.ui.segment.collapsible-comment-box + .ui.table.segment,
+.ui.segment.collapsible-comment-box ~ .comment-code-cloud.ui.segment {
+  margin-top: -1px;
+  border-radius: 0 !important;
+}
+
+.ui.segment.collapsible-comment-box ~ .comment-code-cloud.ui.segment:last-child {
+  border-radius: 0 0 var(--rv-radius-lg) var(--rv-radius-lg) !important;
+}
+
+/* Messages closing the timeline (sign-in, archived) sit on the rail: paint them opaque. */
+.repository.view.issue .comment-list > .ui.message {
+  position: relative;
+  margin-top: 16px;
+  background-image: linear-gradient(var(--color-warning-bg), var(--color-warning-bg));
+  background-color: var(--rv-canvas);
+  border-radius: var(--rv-radius-lg);
+}
+
+.comment-text-line {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+.comment-text-line .author,
+.comment-text-line > a.author {
+  color: var(--rv-ink-2);
+  font-weight: var(--font-weight-medium);
+}
+
+.repository.view.issue .comment-list .timeline-item .comment-text-label {
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius-sm);
+}
+
+/* Comment cards. */
+.repository.view.issue .comment-list .comment .ui.segment,
+.repository.view.issue .comment-list .comment > .content > .ui.segment {
+  border-color: var(--rv-line) !important;
+}
+
+.comment-header {
+  min-height: 40px;
+  padding: 6px 12px 6px 16px;
+}
+
+.comment-header-left .muted-links,
+.comment-header-left .time-since {
+  color: var(--rv-ink-3);
+}
+
+.comment-header-right .item,
+.comment-header-right .context-dropdown > .svg {
+  color: var(--rv-ink-4);
+}
+
+.comment-header-right .item:hover {
+  color: var(--rv-ink);
+}
+
+.comment-body {
+  padding: 16px !important;
+}
+
+/* Reactions: small neutral chips. */
+.bottom-reactions .ui.label {
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-2);
+}
+
+.bottom-reactions .ui.label.primary {
+  background-color: var(--rv-press) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line-strong);
+}
+
+.bottom-reactions .ui.label:hover {
+  background-color: var(--rv-hover) !important;
+}
+
+.ui.dropdown.select-reaction .menu > .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+/* PR merge box: a single surface, list rows separated by hairlines. */
+.merge-section.flex-divided-list > .item + .item {
+  border-top-color: var(--rv-line-soft);
+}
+
+.merge-section .item .svg.tw-text-green,
+.merge-section .item .tw-text-green {
+  color: var(--rv-success) !important;
+}
+
+/* Markdown body. */
+.markup {
+  line-height: 1.6;
+  color: var(--rv-ink-2);
+}
+
+.markup h1,
+.markup h2,
+.markup h3,
+.markup h4,
+.markup h5,
+.markup h6 {
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.01em;
+}
+
+.markup h1,
+.markup h2 {
+  border-bottom-color: var(--rv-line-soft);
+}
+
+.markup code,
+.markup tt {
+  border-radius: var(--rv-radius-sm);
+  font-size: 0.86em;
+}
+
+.markup pre,
+.markup .highlight pre,
+.markup .code-block-container {
+  border-radius: var(--rv-radius);
+  border: 1px solid var(--rv-line-soft);
+}
+
+.markup blockquote {
+  border-left-width: 2px;
+  border-left-color: var(--rv-line-strong);
+  color: var(--rv-ink-3);
+}
+
+.markup table th,
+.markup table td {
+  border-color: var(--rv-line) !important;
+}
+
+.markup hr {
+  height: 1px;
+  background-color: var(--rv-line);
+}
+
+.markup a:not(.label, .button) {
+  color: var(--rv-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rv-line-strong);
+  text-underline-offset: 2px;
+}
+
+.markup a:not(.label, .button):hover {
+  text-decoration-color: var(--rv-ink-3);
+}
+
+.markup a:is(.mention, .ref-issue, .commit, .anchor) {
+  text-decoration: none;
+}
+
+/* Markdown editor: the textarea is the field, toolbar icons are quiet. */
+.combo-markdown-editor .markdown-toolbar .markdown-toolbar-button {
+  color: var(--rv-ink-3);
+  border-radius: var(--rv-radius-sm);
+}
+
+.combo-markdown-editor .markdown-toolbar .markdown-toolbar-button:hover {
+  color: var(--rv-ink);
+  background: var(--rv-hover);
+}
+
+.combo-markdown-editor textarea.markdown-text-editor {
+  border-radius: var(--rv-radius);
+  padding: 10px 12px;
+}
+
+/* Diff: hairline file boxes, quiet line numbers, monospace 12.5. */
+.diff-file-box {
+  border-color: var(--rv-line) !important;
+}
+
+.diff-file-header .file-link,
+.diff-file-header .diff-stats-bar {
+  font-size: 13px;
+}
+
+.code-diff td.lines-num,
+.code-diff td.lines-escape,
+.code-diff td.lines-type-marker {
+  color: var(--rv-ink-4);
+}
+
+.code-diff .code-inner,
+.code-diff td.lines-num {
+  font-size: 12.5px;
+}
+
+.diff-detail-box {
+  background: var(--rv-canvas);
+  border-bottom: 1px solid var(--rv-line-soft);
+}
+
+.diff-detail-stats strong.tw-text-green {
+  color: var(--rv-success) !important;
+}
+
+.diff-detail-stats strong.tw-text-red {
+  color: var(--rv-danger) !important;
+}
+
+/* Diff file tree. */
+.diff-file-tree .item,
+#diff-file-tree .item,
+.repo-file-tree .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+.repo-file-tree .item.selected,
+#diff-file-tree .item.selected {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+/*
+ * Labels: a coloured dot and neutral text in a quiet pill.
+ * RenderLabel sets the label colour inline with !important on color and background-color,
+ * so the dot inherits background-color and the pill paints its own background-image on top.
+ */
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right) {
+  position: relative;
+  gap: 6px;
+  padding: 1px 8px 1px 6px;
+  border-radius: var(--border-radius-full);
+  background-image: linear-gradient(var(--rv-label-base, var(--rv-canvas)), var(--rv-label-base, var(--rv-canvas)));
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  font-weight: var(--font-weight-normal);
+}
+
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis {
+  color: var(--rv-ink-2);
+}
+
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: inherit;
+  background-image: none;
+}
+
+/* Scoped labels: keep the two-part shape, but neutral pill with a dot on the scope. */
+.ui.label.scope-parent {
+  background: transparent !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  border-radius: var(--border-radius-full);
+  padding: 0;
+}
+
+.ui.label.scope-parent > .ui.label {
+  background-image: linear-gradient(var(--rv-label-base, var(--rv-canvas)), var(--rv-label-base, var(--rv-canvas)));
+  color: var(--rv-ink-2) !important;
+  font-weight: var(--font-weight-normal);
+}
+
+.ui.label.scope-parent > .scope-left {
+  gap: 6px;
+  border-radius: var(--border-radius-full) 0 0 var(--border-radius-full);
+  border-right: 1px solid var(--rv-line);
+}
+
+.ui.label.scope-parent > .scope-left::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: inherit;
+  background-image: none;
+}
+
+.ui.label.scope-parent > :last-child {
+  border-radius: 0 var(--border-radius-full) var(--border-radius-full) 0;
+}
+/*
+ * Page frame. On full-width pages (file tree, PR files, compare) the repo header follows the
+ * fluid content container so the title, tabs and content share one left edge.
+ */
+.page-content:has(> .ui.fluid.container):not(:has(> .ui.container:not(.fluid))) > .secondary-nav > .ui.container {
+  width: 100%;
+}
+
+/*
+ * Full-bleed tab bars (explore, link account): upstream centres the items across the viewport
+ * (tw-justify-center !important). Pin them to the 1280 content column.
+ * overflow-menu compares this.offsetLeft + offsetWidth (page-relative) with item.offsetLeft
+ * (host-relative), so the host must start at x=0: indent with padding-left and end the box at
+ * the column's right edge. The full-width hairline is drawn by ::after.
+ */
+.page-content > overflow-menu.secondary-nav.ui.secondary.pointing.menu {
+  --rv-col-x: max(var(--page-margin-x), calc((100% - 1280px) / 2));
+  box-sizing: border-box;
+  width: calc(100% - var(--rv-col-x));
+  margin-left: 0;
+  margin-right: 0;
+  padding: 8px 0 8px var(--rv-col-x) !important;
+  border-bottom-color: transparent !important;
+}
+
+.page-content > overflow-menu.secondary-nav.ui.secondary.pointing.menu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100vw;
+  height: 1px;
+  background: var(--rv-line-soft);
+}
+
+overflow-menu.secondary-nav .overflow-menu-items.tw-justify-center {
+  justify-content: flex-start !important;
+}
+
+/* Org header: compact avatar beside the name, separated from the tab row. */
+.page-content.organization > .ui.container.flex-container:has(> div:first-child > .avatar) {
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.page-content.organization > .ui.container.flex-container:has(> div:first-child > .avatar) img.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--rv-radius-lg);
+}
+
+.page-content.organization > .ui.container.flex-container:has(> div:first-child > .avatar) .tw-text-2xl {
+  font-size: 22px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.015em;
+}
+
+/* PR tabs share one frame: "Files changed" is fluid upstream, so switching tabs jumped by 48px. */
+/* Split diffs are a deliberate width-over-consistency choice: they keep the upstream full width. */
+.page-content.repository.view.issue.pull:not(:has(.code-diff-split)) > .ui.fluid.container,
+.page-content.repository.view.issue.pull:not(:has(.code-diff-split)):has(> .ui.fluid.container) > .secondary-nav > .ui.container {
+  width: 1280px;
+}
+
+.secondary-nav {
+  border-bottom: 0 !important;
+  margin-bottom: 20px;
+}
+
+.repo-header {
+  padding: 16px 0 10px;
+}
+
+.repo-header .flex-text-block > .tw-text-18,
+.repo-header .flex-text-inline {
+  font-size: 18px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+}
+
+/* Page titles: one size everywhere. */
+.repository.view.issue .issue-title h1 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.015em;
+  color: var(--rv-ink);
+}
+
+.issue-title .index {
+  color: var(--rv-ink-3);
+  font-weight: var(--font-weight-normal);
+}
+
+.repository.view.issue .issue-title {
+  align-items: center;
+  min-height: var(--rv-h);
+}
+
+.repository.view.issue .issue-title-buttons > .ui.button {
+  height: auto;
+}
+
+/* Status chip: neutral pill, colour only on the icon. */
+.ui.label.issue-state-label {
+  min-height: var(--rv-h-sm);
+  padding: 0 10px 0 8px !important;
+  border-radius: var(--border-radius-full) !important;
+  background: var(--rv-surface-2) !important;
+  border: 1px solid var(--rv-line) !important;
+  color: var(--rv-ink) !important;
+  font-size: 13px !important;
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.green.label.issue-state-label .svg {
+  color: var(--rv-success);
+}
+
+.ui.purple.label.issue-state-label .svg {
+  color: var(--rv-done);
+}
+
+.ui.red.label.issue-state-label .svg {
+  color: var(--rv-danger);
+}
+
+.ui.grey.label.issue-state-label .svg {
+  color: var(--rv-ink-3);
+}
+
+/* Branch list PR state uses the same neutral chip with a coloured glyph. */
+.ui.large.label:is(.green, .red, .purple):not(.issue-state-label) {
+  min-height: var(--rv-h-sm);
+  padding: 0 10px 0 8px;
+  border-radius: var(--border-radius-full);
+  background: var(--rv-surface-2) !important;
+  border: 1px solid var(--rv-line) !important;
+  color: var(--rv-ink) !important;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.green.large.label .svg {
+  color: var(--rv-success);
+}
+
+.ui.red.large.label .svg {
+  color: var(--rv-danger);
+}
+
+.ui.purple.large.label .svg {
+  color: var(--rv-done);
+}
+
+/* Inline tokens: sha, role ("Owner"), small counters — 6px, quiet. */
+.ui.label.commit-id-short,
+a.ui.label.commit-id-short,
+.ui.basic.label.role-label,
+.ui.label.sha {
+  min-height: 22px;
+  padding: 0 6px;
+  border-radius: var(--rv-radius-sm);
+  background: var(--rv-surface-1);
+  border: 1px solid var(--rv-line);
+  color: var(--rv-ink-3);
+  font-weight: var(--font-weight-normal);
+}
+
+.ui.label.commit-id-short,
+a.ui.label.commit-id-short,
+.ui.label.sha {
+  font-family: var(--fonts-monospace);
+  font-size: 12px;
+}
+
+.ui.basic.label.role-label {
+  min-height: 20px;
+  font-size: 12px;
+}
+
+/* Surfaces: 12px corners, one hairline, transparent header rows. */
+.ui.segment,
+.ui.segments,
+.ui.table,
+.repo-file-list,
+#repo-files-table,
+.diff-file-box,
+.comment .comment-container,
+.timeline-item .comment-container,
+.ui.comments .comment .content > .segment {
+  border-radius: var(--rv-radius-lg);
+}
+
+.ui.segment.repository-menu,
+.ui.segment.avatar-content-left-arrow,
+.ui.segment.collapsible-comment-box,
+.comment-code-cloud.ui.segment {
+  border-radius: var(--rv-radius-lg);
+}
+
+.ui.attached.segment:not(.top, .bottom) {
+  border-radius: 0;
+}
+
+/* Upstream closes attached stacks with literal .2857rem corners; match the surface radius. */
+.ui.top.attached.segment,
+.ui.top.attached.header {
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0;
+}
+
+.ui.bottom.attached.segment,
+.ui.bottom.attached.header,
+.ui.attached.segment:last-child,
+.ui.attached.segment:has(+ :not(.ui.attached.segment)),
+.ui.segments:not(.horizontal) > .segment:last-child,
+.repository.view.issue .comment-list .comment > .content > div:last-child {
+  border-bottom-left-radius: var(--rv-radius-lg);
+  border-bottom-right-radius: var(--rv-radius-lg);
+}
+
+.ui.segments:not(.horizontal) > .segment:first-child,
+.repository.view.issue .comment-list .comment > .content > div:first-child {
+  border-top-left-radius: var(--rv-radius-lg);
+  border-top-right-radius: var(--rv-radius-lg);
+}
+
+.ui.segments:not(.horizontal) > .segment:only-child {
+  border-radius: var(--rv-radius-lg);
+}
+
+/* Cells of horizontal segment rows (activity stats) live inside a box: square, no own border. */
+.ui.horizontal.segments > .ui.segment {
+  border-radius: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.ui.top.attached.header,
+.ui.attached.header {
+  background: transparent;
+  border-color: var(--rv-line) !important;
+}
+
+.comment-header {
+  background: transparent;
+  border-bottom-color: var(--rv-line-soft);
+  color: var(--rv-ink-3);
+}
+
+.comment-header .author,
+.comment-header strong {
+  color: var(--rv-ink);
+}
+
+/* The speech-bubble arrow points at the avatar; it now matches the transparent header. */
+.comment-header.avatar-content-left-arrow::after {
+  border-right-color: var(--rv-canvas);
+}
+
+.comment-header.avatar-content-left-arrow::before {
+  border-right-color: var(--rv-line);
+}
+
+/* Sticky diff headers must stay opaque, or scrolled code shows through. */
+.diff-file-header {
+  background: var(--rv-canvas) !important;
+  border-bottom: 1px solid var(--rv-line) !important;
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0;
+}
+
+/* Issue/PR sidebar: section headings small and quiet, rows separated by space, not lines. */
+.issue-content-right .ui.dropdown.full-width > .fixed-text strong,
+.issue-content-right .flex-text-block > strong,
+.issue-content-right > .divider + span > strong {
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--rv-ink-3);
+  letter-spacing: 0.01em;
+}
+
+.issue-content-right .divider {
+  border-color: transparent !important;
+  margin: 10px 0;
+}
+
+/* Standalone sidebar actions span the column; buttons inside action inputs (due date, dependency)
+   and inline rows (reference link copy) stay compact. */
+.issue-content-right .ui.button:not(.action.input .button, .ui.buttons .button, .flex-text-block > .button) {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Footer: present but quiet. */
+.page-footer {
+  background: transparent;
+  border-top: 1px solid var(--rv-line-soft);
+  color: var(--rv-ink-4);
+  font-size: 12px;
+  padding: 10px 24px;
+}
+
+.page-footer a,
+.page-footer .ui.dropdown {
+  color: var(--rv-ink-3);
+}
+
+.page-footer strong {
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink-3);
+}
+
+/* Branch / tag selector (Vue component): one surface, chip tabs, no nested boxes. */
+.ui.dropdown.branch-selector-dropdown > .menu {
+  padding: 6px !important;
+}
+
+.branch-selector-dropdown .ui.icon.search.input {
+  margin: 0 0 6px;
+}
+
+.branch-selector-dropdown .ui.icon.search.input > input {
+  border-radius: var(--rv-radius-sm) !important;
+  min-height: var(--rv-h);
+}
+
+.branch-selector-dropdown .branch-tag-tab {
+  display: flex;
+  gap: 2px;
+  padding: 0 0 6px;
+}
+
+.branch-selector-dropdown .branch-tag-item {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--rv-h-sm);
+  padding: 0 8px;
+  border: 0 !important;
+  border-radius: var(--rv-radius-sm) !important;
+  background: transparent;
+  color: var(--rv-ink-3);
+}
+
+.branch-selector-dropdown .branch-tag-item:hover {
+  color: var(--rv-ink);
+  background: var(--rv-hover);
+}
+
+.branch-selector-dropdown .branch-tag-item.active {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+.branch-selector-dropdown .branch-tag-divider {
+  margin: 0 -6px 6px !important;
+  border-top: 1px solid var(--rv-line-soft) !important;
+}
+
+.ui.dropdown.branch-selector-dropdown .scrolling.menu {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.branch-selector-dropdown .menu > .divider {
+  margin: 6px -6px !important;
+  border-color: var(--rv-line-soft) !important;
+}
+
+.branch-selector-dropdown .menu .item .ui.label {
+  min-height: 18px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-3);
+  font-size: 11px;
+}
+/* Repo home: file table as one quiet surface, last-commit row without a slab. */
+#repo-files-table {
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius-lg);
+  background: transparent;
+}
+
+#repo-files-table .repo-file-line,
+#repo-files-table .repo-file-cell {
+  border-top-color: var(--rv-line-soft);
+  padding: 7px 12px;
+}
+
+#repo-files-table .repo-file-last-commit {
+  background: transparent;
+  color: var(--rv-ink-3);
+  min-height: 44px;
+}
+
+#repo-files-table .repo-file-line:first-child {
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0;
+}
+
+#repo-files-table .repo-file-item:last-child .repo-file-cell:first-child {
+  border-bottom-left-radius: calc(var(--rv-radius-lg) - 1px);
+}
+
+#repo-files-table .repo-file-item:last-child .repo-file-cell:last-child {
+  border-bottom-right-radius: calc(var(--rv-radius-lg) - 1px);
+}
+
+#repo-files-table .repo-file-item:hover > .repo-file-cell,
+#repo-files-table .parent-link:hover {
+  background: var(--rv-hover);
+}
+
+#repo-files-table .repo-file-cell.name .svg {
+  color: var(--rv-ink-3);
+}
+
+#repo-files-table .repo-file-cell.message,
+#repo-files-table .repo-file-cell.age {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+#repo-files-table .repo-file-cell.age {
+  font-variant-numeric: tabular-nums;
+}
+
+.repo-button-row .ui.button,
+.repo-button-row .repo-file-search-container .ui.input {
+  min-height: var(--rv-h);
+  height: var(--rv-h);
+}
+
+/* Repo home sidebar: quiet property-group headings. */
+.repo-home-sidebar-header {
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--rv-ink-3);
+  letter-spacing: 0.01em;
+  margin-top: 4px;
+}
+
+.repo-description {
+  color: var(--rv-ink-2);
+}
+
+.repo-home-sidebar-top a.flex-text-block,
+.repo-home-sidebar-bottom a.flex-text-block {
+  color: var(--rv-ink-2);
+}
+
+.repo-home-sidebar-top a.flex-text-block:hover,
+.repo-home-sidebar-bottom a.flex-text-block:hover {
+  color: var(--rv-ink);
+}
+
+.repo-home-sidebar-top kbd {
+  border-radius: var(--rv-radius-sm);
+  border-color: var(--rv-line);
+  background: var(--rv-surface-2);
+  color: var(--rv-ink-4);
+}
+
+.ui.label.repo-topic {
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-2);
+  font-size: 12px;
+  font-weight: var(--font-weight-normal);
+}
+
+.ui.label.repo-topic:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+/* README / file view: the header is a transparent row above the content. */
+.non-diff-file-content > .ui.top.attached.header,
+.file-header {
+  background: transparent;
+  min-height: 44px;
+}
+
+#readme .markup,
+.file-view.markup {
+  padding: 24px 32px;
+}
+
+/* Issue, PR and repo lists: compact rows. Hairline dividers, hover tint, quiet metadata. */
+.flex-divided-list > .item + .item {
+  border-top-color: var(--rv-line-soft);
+}
+
+#issue-list.flex-divided-list > .item {
+  padding: 10px 12px;
+  margin: 0 -12px;
+  border-radius: var(--rv-radius);
+  align-items: center;
+}
+
+#issue-list.flex-divided-list > .item + .item {
+  border-top: 0;
+  box-shadow: 0 -1px 0 var(--rv-line-soft);
+}
+
+/* Opaque hover so label pills can match it exactly. */
+#issue-list.flex-divided-list > .item:hover {
+  background: var(--rv-surface-1);
+  box-shadow: none;
+}
+
+#issue-list.flex-divided-list > .item:hover + .item {
+  box-shadow: none;
+}
+
+#issue-list .item-main {
+  gap: 2px;
+}
+
+.list-item-large-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink);
+}
+
+.items-with-main > .item .item-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Links in lists stay ink on hover instead of the accent colour. */
+.items-with-main > .item a:not(.label, .button):hover {
+  color: var(--rv-ink) !important;
+}
+
+.items-with-main > .item .item-body,
+.list-item-secondary-bar {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
+
+#issue-list .item-body a,
+#issue-list .item-body .index {
+  color: var(--rv-ink-3);
+}
+
+#issue-list .item-body .index {
+  font-variant-numeric: tabular-nums;
+}
+
+#issue-list .branches .branch {
+  padding: 0 6px;
+  border-radius: var(--rv-radius-sm);
+  background: var(--rv-surface-2);
+  font-family: var(--fonts-monospace);
+  font-size: 11.5px;
+}
+
+#issue-list .checklist progress::-webkit-progress-bar {
+  background: var(--rv-press);
+  border-radius: 3px;
+}
+
+#issue-list .checklist progress::-webkit-progress-value {
+  background-color: var(--rv-ink-3);
+  border-radius: 3px;
+}
+
+#issue-list .checklist progress::-moz-progress-bar {
+  background-color: var(--rv-ink-3);
+}
+
+/* Reveal-on-hover only where hover exists; touch devices always see the bulk-select checkbox. */
+@media (hover: hover) and (pointer: fine) {
+  #issue-list .issue-checkbox {
+    opacity: 0;
+    transition: opacity 0.12s;
+  }
+
+  #issue-list .item:hover .issue-checkbox,
+  #issue-list .issue-checkbox:checked,
+  #issue-list .issue-checkbox:focus-visible,
+  #issue-list:has(.issue-checkbox:checked) .issue-checkbox {
+    opacity: 1;
+  }
+}
+
+/* Label pills paint their fill with --rv-label-base; match it to the surface under them. */
+#issue-list > .item:hover {
+  --rv-label-base: var(--rv-surface-1);
+}
+
+.issue-list-toolbar {
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+/* Filter dropdowns read as quiet text buttons. */
+.issue-list-toolbar-right .ui.secondary.filter.menu > .item {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+.issue-list-toolbar-right .ui.secondary.filter.menu > .item:hover {
+  color: var(--rv-ink);
+}
+
+/* Dashboard repo list: filter chips form a row under the search field, flush with its left edge.
+   Upstream pins the menu to 35.4px, zeroes its margin and centres items via tw-justify-center. */
+.ui.attached.segment.repos-search {
+  padding-bottom: 12px !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu {
+  border-bottom: 0 !important;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 10px 0 0 !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter .overflow-menu-items.tw-justify-center {
+  justify-content: flex-start !important;
+  align-items: center;
+  gap: 2px;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .item {
+  min-height: var(--rv-h-sm) !important;
+  height: var(--rv-h-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 !important;
+  padding: 0 10px !important;
+  border: 1px solid transparent !important;
+  font-size: 13px;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .item:hover {
+  background: var(--rv-hover) !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .active.item {
+  background: var(--rv-press) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter .item .ui.mini.label {
+  box-sizing: border-box;
+  min-width: 18px;
+  min-height: 0;
+  height: 18px;
+  margin: 0 !important;
+  padding: 0 5px !important;
+  border: 0 !important;
+  border-radius: var(--border-radius-full) !important;
+  background: var(--rv-press) !important;
+  color: var(--rv-ink-2) !important;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  line-height: 18px;
+}
+
+/* The active chip is already filled with press; lift the counter off it. */
+.ui.attached.segment.repos-search overflow-menu.repos-filter .active.item .ui.mini.label {
+  background: var(--rv-surface-2) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+}
+
+/* Empty states. */
+.empty-placeholder {
+  color: var(--rv-ink-3);
+}
+
+.empty-placeholder .svg {
+  color: var(--rv-ink-4);
+}
+
+/* Repo lists (explore, profile, org): the repo name is the row title, not a link-blue string. */
+.flex-divided-list .item-title a.name,
+.flex-divided-list .item-title .tw-text-primary {
+  color: var(--rv-ink) !important;
+}
+
+.flex-divided-list .item-title .ui.basic.label {
+  min-height: 20px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  border-color: var(--rv-line);
+  color: var(--rv-ink-3);
+  font-size: 11px;
+  font-weight: var(--font-weight-normal);
+}
+
+.flex-divided-list .item-trailing {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
+/* Monochrome Gitea mark: upstream cup and branch paths, the white tag fill dropped so the tag reads as a cut-out. */
+:root {
+  --rv-gitea-mark: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 640%22%3E%3Cpath d=%22M622.7 149.8c-4.1-4.1-9.6-4-9.6-4s-117.2 6.6-177.9 8c-13.3.3-26.5.6-39.6.7v117.2c-5.5-2.6-11.1-5.3-16.6-7.9 0-36.4-.1-109.2-.1-109.2-29 .4-89.2-2.2-89.2-2.2s-141.4-7.1-156.8-8.5c-9.8-.6-22.5-2.1-39 1.5-8.7 1.8-33.5 7.4-53.8 26.9C-4.9 212.4 6.6 276.2 8 285.8c1.7 11.7 6.9 44.2 31.7 72.5 45.8 56.1 144.4 54.8 144.4 54.8s12.1 28.9 30.6 55.5c25 33.1 50.7 58.9 75.7 62 63 0 188.9-.1 188.9-.1s12 .1 28.3-10.3c14-8.5 26.5-23.4 26.5-23.4S547 483 565 451.5c5.5-9.7 10.1-19.1 14.1-28 0 0 55.2-117.1 55.2-231.1-1.1-34.5-9.6-40.6-11.6-42.6M125.6 353.9c-25.9-8.5-36.9-18.7-36.9-18.7S69.6 321.8 60 295.4c-16.5-44.2-1.4-71.2-1.4-71.2s8.4-22.5 38.5-30c13.8-3.7 31-3.1 31-3.1s7.1 59.4 15.7 94.2c7.2 29.2 24.8 77.7 24.8 77.7s-26.1-3.1-43-9.1m300.3 107.6s-6.1 14.5-19.6 15.4c-5.8.4-10.3-1.2-10.3-1.2s-.3-.1-5.3-2.1l-112.9-55s-10.9-5.7-12.8-15.6c-2.2-8.1 2.7-18.1 2.7-18.1L322 273s4.8-9.7 12.2-13c.6-.3 2.3-1 4.5-1.5 8.1-2.1 18 2.8 18 2.8L467.4 315s12.6 5.7 15.3 16.2c1.9 7.4-.5 14-1.8 17.2-6.3 15.4-55 113.1-55 113.1%22/%3E%3Cpath d=%22M326.8 380.1c-8.2.1-15.4 5.8-17.3 13.8s2 16.3 9.1 20c7.7 4 17.5 1.8 22.7-5.4 5.1-7.1 4.3-16.9-1.8-23.1l24-49.1c1.5.1 3.7.2 6.2-.5 4.1-.9 7.1-3.6 7.1-3.6 4.2 1.8 8.6 3.8 13.2 6.1 4.8 2.4 9.3 4.9 13.4 7.3.9.5 1.8 1.1 2.8 1.9 1.6 1.3 3.4 3.1 4.7 5.5 1.9 5.5-1.9 14.9-1.9 14.9-2.3 7.6-18.4 40.6-18.4 40.6-8.1-.2-15.3 5-17.7 12.5-2.6 8.1 1.1 17.3 8.9 21.3s17.4 1.7 22.5-5.3c5-6.8 4.6-16.3-1.1-22.6 1.9-3.7 3.7-7.4 5.6-11.3 5-10.4 13.5-30.4 13.5-30.4.9-1.7 5.7-10.3 2.7-21.3-2.5-11.4-12.6-16.7-12.6-16.7-12.2-7.9-29.2-15.2-29.2-15.2s0-4.1-1.1-7.1c-1.1-3.1-2.8-5.1-3.9-6.3 4.7-9.7 9.4-19.3 14.1-29-4.1-2-8.1-4-12.2-6.1-4.8 9.8-9.7 19.7-14.5 29.5-6.7-.1-12.9 3.5-16.1 9.4-3.4 6.3-2.7 14.1 1.9 19.8z%22/%3E%3C/svg%3E");
+}
+
+.rv-mark {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: currentcolor;
+  mask: var(--rv-gitea-mark) center / contain no-repeat;
+}
+/* Top bar: same canvas as the page, a hairline below, quiet items that brighten on hover. */
+#navbar {
+  border-bottom-color: var(--rv-line-soft);
+  padding: 0 12px;
+}
+
+#navbar .navbar-left,
+#navbar .navbar-right {
+  min-height: 47px;
+  gap: 2px;
+}
+
+#navbar .navbar-left > .item,
+#navbar .navbar-right > .item {
+  min-height: 30px;
+  padding: 3px 10px;
+  border-radius: var(--rv-radius);
+  color: var(--rv-ink-3);
+  font-weight: var(--font-weight-medium);
+}
+
+#navbar :is(a, button).item:not(.dropdown *):hover {
+  color: var(--rv-ink);
+}
+
+#navbar .item.active {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Upstream colour logo swapped for the monochrome mark. */
+#navbar-logo img {
+  display: none;
+}
+
+#navbar-logo::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: var(--rv-ink);
+  mask: var(--rv-gitea-mark) center / contain no-repeat;
+}
+
+#navbar .notification_count,
+#navbar .header-stopwatch-dot {
+  background: var(--rv-ink) !important;
+  color: var(--rv-canvas) !important;
+}
+
+.secondary-nav {
+  border-bottom: 0 !important;
+}
+/*
+ * Project board: columns are bare lanes on the canvas, cards are the only surfaces.
+ * Columns with a user colour keep it (inline !important) as before.
+ */
+.project-column {
+  margin: 0 6px;
+  padding: 8px;
+  border: 0;
+  border-radius: var(--rv-radius-lg);
+  background-color: var(--rv-surface-1);
+}
+
+.project-column-header {
+  min-height: var(--rv-h);
+  padding: 0 4px 6px;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink-2);
+}
+
+.ui.label.project-column-issue-count {
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  background: var(--rv-press);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-column > .divider {
+  display: none;
+}
+
+.project-column > .ui.cards {
+  gap: 6px;
+}
+
+.issue-card {
+  padding: 10px 12px;
+  gap: 6px;
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius);
+  background: var(--rv-surface-2);
+  box-shadow: var(--rv-shadow-card);
+  --rv-label-base: var(--rv-surface-2);
+  transition: border-color 0.12s;
+}
+
+.issue-card:hover {
+  border-color: var(--rv-line-strong);
+}
+
+.issue-card-title {
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink);
+}
+
+.issue-card .meta,
+.issue-card-bottom {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
+
+.card-ghost {
+  border-color: var(--rv-line-strong) !important;
+  border-radius: var(--rv-radius);
+}
+
+/* The board scrolls horizontally inside the page frame; keep the first column on the content edge. */
+#project-board {
+  margin: 0 -6px;
+}
+
+.project-header h2 {
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+}
+
+/* Milestone and project list progress bars. */
+progress {
+  border-radius: 3px;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--rv-press);
+  border-radius: 3px;
+}
+
+progress::-webkit-progress-value {
+  background: var(--rv-ink-3);
+  border-radius: 3px;
+}
+
+progress::-moz-progress-bar {
+  background: var(--rv-ink-3);
+}

@@ -1,0 +1,13 @@
+{
+  "name": "gitea-theme",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "sh scripts/build.sh",
+    "check": "sh scripts/build.sh && git diff --exit-code -- dist",
+    "shots": "sh scripts/build.sh && node dev/shots.mjs && SCHEME=light node dev/shots.mjs && mkdir -p docs/screenshots/dark docs/screenshots/light && rsync -a --delete --exclude light shots/ docs/screenshots/dark/ && rsync -a --delete shots/light/ docs/screenshots/light/ && git add -A docs/screenshots"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}

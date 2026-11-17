@@ -1,0 +1,70 @@
+/*
+ * Labels: a coloured dot and neutral text in a quiet pill.
+ * RenderLabel sets the label colour inline with !important on color and background-color,
+ * so the dot inherits background-color and the pill paints its own background-image on top.
+ */
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right),
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right) {
+  position: relative;
+  gap: 6px;
+  padding: 1px 8px 1px 6px;
+  border-radius: var(--border-radius-full);
+  background-image: linear-gradient(var(--rv-label-base, var(--rv-canvas)), var(--rv-label-base, var(--rv-canvas)));
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  font-weight: var(--font-weight-normal);
+}
+
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis,
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right) > .gt-ellipsis {
+  color: var(--rv-ink-2);
+}
+
+.labels-list .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.issue-content-right .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.issue-card .ui.label:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before,
+.flex-text-block .ui.label[data-tooltip-content]:not(.scope-parent, .scope-left, .scope-middle, .scope-right)::before {
+  content: "";
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: inherit;
+  background-image: none;
+}
+
+/* Scoped labels: keep the two-part shape, but neutral pill with a dot on the scope. */
+.ui.label.scope-parent {
+  background: transparent !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  border-radius: var(--border-radius-full);
+  padding: 0;
+}
+
+.ui.label.scope-parent > .ui.label {
+  background-image: linear-gradient(var(--rv-label-base, var(--rv-canvas)), var(--rv-label-base, var(--rv-canvas)));
+  color: var(--rv-ink-2) !important;
+  font-weight: var(--font-weight-normal);
+}
+
+.ui.label.scope-parent > .scope-left {
+  gap: 6px;
+  border-radius: var(--border-radius-full) 0 0 var(--border-radius-full);
+  border-right: 1px solid var(--rv-line);
+}
+
+.ui.label.scope-parent > .scope-left::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: inherit;
+  background-image: none;
+}
+
+.ui.label.scope-parent > :last-child {
+  border-radius: 0 var(--border-radius-full) var(--border-radius-full) 0;
+}

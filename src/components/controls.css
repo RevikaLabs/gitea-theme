@@ -1,0 +1,466 @@
+/*
+ * Controls: one rounded-rectangle family. 32px / 8px by default, 28px / 6px compact.
+ * Primary is solid ink; everything else is a quiet surface with a hairline.
+ */
+.ui.button {
+  min-height: var(--rv-h);
+  padding: 0 12px;
+  border-radius: var(--rv-radius);
+  font-weight: var(--font-weight-medium);
+  line-height: 20px;
+  border: 1px solid var(--rv-line);
+  background: var(--rv-surface-1);
+  color: var(--rv-ink-2);
+  box-shadow: none;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.ui.button:hover {
+  background: var(--rv-surface-3);
+  border-color: var(--rv-line-strong);
+  color: var(--rv-ink);
+}
+
+/* Upstream pins small buttons with a 4-class selector; match its weight. */
+.ui.ui.ui.ui.small.button,
+.ui.ui.ui.ui.compact.button,
+.ui.ui.ui.ui.tiny.button,
+.ui.ui.ui.ui.mini.button,
+.ui.ui.ui.ui.small.button.compact,
+.ui.ui.ui.ui.small.buttons .button {
+  min-height: var(--rv-h-sm);
+  padding: 0 10px;
+  font-size: 13px;
+  border-radius: var(--rv-radius-sm);
+}
+
+/* Dropdown buttons draw an absolute caret on the right; reserve room so it never covers the label. */
+.ui.ui.ui.ui.dropdown.button:not(.icon) {
+  padding-right: 26px;
+}
+
+/* Upstream pins these to 30px with height; keep them on the 28px compact step. */
+.repository .diff-detail-box .ui.button,
+.repo-view-container .ui.button.repo-view-file-tree-toggle {
+  height: var(--rv-h-sm);
+  min-height: var(--rv-h-sm);
+}
+
+.ui.icon.button:not(.compact),
+.ui.icon.button,
+.ui.icon.buttons .button {
+  padding: 0 7px;
+  min-width: var(--rv-h);
+  justify-content: center;
+}
+
+.ui.ui.ui.ui.compact.icon.button,
+.ui.ui.ui.ui.small.icon.button,
+.ui.ui.ui.ui.tiny.icon.button,
+.ui.ui.compact.icon.buttons .button {
+  padding: 0 5px;
+  min-width: var(--rv-h-sm);
+}
+
+.ui.primary.button,
+.ui.primary.buttons .button {
+  border-color: transparent;
+}
+
+.ui.basic.button {
+  background: transparent;
+  border-color: var(--rv-line);
+}
+
+.ui.red.button,
+.ui.basic.red.button {
+  background: transparent;
+  color: var(--rv-danger);
+  border-color: var(--color-error-border);
+}
+
+.ui.red.button:hover,
+.ui.basic.red.button:hover {
+  background: var(--color-error-bg);
+  color: var(--rv-danger);
+}
+
+.ui.green.button {
+  background: var(--rv-accent);
+  color: var(--rv-accent-ink);
+  border-color: transparent;
+}
+
+/* Groups: outer corners only, hairline seams inside. No overflow clipping: split buttons own dropdowns. */
+.ui.buttons {
+  border-radius: var(--rv-radius);
+}
+
+.ui.buttons > .button,
+.ui.buttons > .ui.dropdown.button {
+  margin: 0;
+  border-radius: 0;
+}
+
+.ui.buttons > .button + .button {
+  margin-left: -1px;
+}
+
+.ui.buttons > .button:first-child {
+  border-top-left-radius: var(--rv-radius);
+  border-bottom-left-radius: var(--rv-radius);
+}
+
+.ui.buttons > .button:last-child {
+  border-top-right-radius: var(--rv-radius);
+  border-bottom-right-radius: var(--rv-radius);
+}
+
+.ui.compact.buttons > .button:first-child,
+.ui.small.buttons > .button:first-child {
+  border-top-left-radius: var(--rv-radius-sm);
+  border-bottom-left-radius: var(--rv-radius-sm);
+}
+
+.ui.compact.buttons > .button:last-child,
+.ui.small.buttons > .button:last-child {
+  border-top-right-radius: var(--rv-radius-sm);
+  border-bottom-right-radius: var(--rv-radius-sm);
+}
+
+.ui.buttons > .active.button {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Labeled buttons (Watch / Star / Fork): one control, the count sits behind a seam. */
+.ui.labeled.button > .button {
+  border-radius: var(--rv-radius-sm) 0 0 var(--rv-radius-sm);
+}
+
+.ui.labeled.button > .label {
+  min-height: var(--rv-h-sm);
+  padding: 0 8px;
+  border: 1px solid var(--rv-line);
+  border-radius: 0 var(--rv-radius-sm) var(--rv-radius-sm) 0;
+  background: var(--rv-surface-1);
+  color: var(--rv-ink-3);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inputs sit slightly below the surface: darker fill, hairline, ring on focus. */
+.ui.form input:not([type="checkbox"], [type="radio"]),
+.ui.form select,
+.ui.form textarea,
+.ui.input > input,
+.ui.selection.dropdown,
+.ui.search > .prompt {
+  border-radius: var(--rv-radius);
+  border-color: var(--rv-line);
+}
+
+/*
+ * Fixed height, no vertical padding: upstream em-padding made inputs 35-42px and stretched buttons beside them.
+ * Search inputs inside dropdowns are bare text carets sized by the dropdown, so they are excluded.
+ */
+.ui.form input:not([type="checkbox"], [type="radio"], [type="file"], .ui.dropdown > input.search),
+.ui.input > input {
+  height: var(--rv-h);
+  min-height: var(--rv-h);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+input:not([type="checkbox"], [type="radio"]):focus,
+textarea:focus,
+.ui.form input:not([type="checkbox"], [type="radio"]):focus,
+.ui.form textarea:focus,
+.ui.form select:focus,
+.ui.input input:focus,
+.ui.search > .prompt:focus {
+  border-color: var(--rv-line-strong) !important;
+  box-shadow: 0 0 0 3px var(--rv-accent-soft);
+}
+
+.ui.form .field.error input:not([type="checkbox"], [type="radio"]) {
+  border-color: var(--rv-danger);
+  background: var(--color-input-background);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--rv-ink-4);
+}
+
+.form .help {
+  color: var(--rv-ink-3);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  border-color: var(--rv-line-strong);
+}
+
+/* Action inputs (search + button): one field, the button is a quiet glyph inside its right end. */
+.ui.action.input:not([class*="left action"]) > input,
+.ui.action.input:not([class*="left action"]) > .ui.input > input {
+  border-radius: var(--rv-radius) 0 0 var(--rv-radius) !important;
+  border-right: 0 !important;
+}
+
+/* A selection dropdown acting as the field (dependency search) takes the same height and left corners. */
+.ui.action.input > .ui.selection.dropdown {
+  min-height: var(--rv-h);
+  height: var(--rv-h);
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  border-radius: var(--rv-radius) 0 0 var(--rv-radius) !important;
+  border-right: 0;
+}
+
+.ui.action.input > .button,
+.ui.action.input > .ui.button,
+.ui.action.input > .ui.dropdown.button {
+  min-height: 0;
+  height: var(--rv-h);
+  padding: 0 10px !important;
+  border: 1px solid var(--rv-line);
+  border-left: 0;
+  border-radius: 0 var(--rv-radius) var(--rv-radius) 0 !important;
+  background: var(--color-input-background);
+  color: var(--rv-ink-3);
+}
+
+.ui.action.input > .ui.dropdown.button:not(.icon) {
+  padding-right: 26px !important;
+}
+
+.ui.action.input > .button:hover {
+  background: var(--color-input-background);
+  color: var(--rv-ink);
+}
+
+.ui.action.input:focus-within > .button,
+.ui.action.input:focus-within > .ui.dropdown.button {
+  border-color: var(--rv-line-strong);
+}
+
+/*
+ * Tabs: every tab kind (repo nav, PR tabs, Write/Preview) is the same quiet chip row.
+ * overflow-menu measures item widths, so the repo nav gets margins, not flex gap.
+ */
+.ui.secondary.pointing.menu,
+overflow-menu.ui.secondary.pointing.menu,
+.ui.tabular.menu {
+  border: 0 !important;
+  border-bottom: 1px solid var(--rv-line-soft) !important;
+  border-radius: 0;
+  background: transparent;
+  padding-bottom: 8px;
+  min-height: 0;
+}
+
+.ui.secondary.pointing.menu .item,
+.ui.tabular.menu .item {
+  border: 0 !important;
+  margin: 0 4px 0 0 !important;
+  align-self: center;
+  min-height: var(--rv-h);
+  padding: 0 10px !important;
+  line-height: 20px;
+  border-radius: var(--rv-radius) !important;
+  background: transparent;
+  color: var(--rv-ink-3);
+}
+
+.ui.secondary.pointing.menu a.item:hover,
+.ui.tabular.menu .item:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.secondary.pointing.menu .active.item,
+.ui.secondary.pointing.menu .active.item:hover,
+.ui.tabular.menu .active.item,
+.ui.tabular.menu .active.item:hover {
+  border-radius: var(--rv-radius) !important;
+  background: var(--rv-press);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.secondary.pointing.menu .item > .label,
+.ui.tabular.menu .item > .label {
+  background: transparent;
+  color: var(--rv-ink-3);
+  padding: 0;
+  margin-left: 6px;
+  font-weight: var(--font-weight-normal);
+  font-variant-numeric: tabular-nums;
+}
+
+.ui.tabular.menu + .attached:not(.top).segment {
+  border: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* The PR tab row is a bare strip, not an attached box header. */
+.ui.top.attached.pull.tabular.menu {
+  margin-bottom: 16px;
+}
+
+/* Segmented switches (Open/Closed, small menus): chip row like tabs. */
+/* Upstream pins the group to 35.4px with !important, which stretched the whole list-header row. */
+.small-menu-items.ui.menu {
+  min-height: var(--rv-h) !important;
+  background: transparent;
+  border: 0;
+  gap: 4px;
+}
+
+.small-menu-items.ui.menu .item {
+  min-height: var(--rv-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  background: transparent !important;
+  color: var(--rv-ink-3);
+  border: 1px solid transparent !important;
+}
+
+.small-menu-items.ui.menu .item::before {
+  display: none;
+}
+
+.small-menu-items.ui.menu .item:hover {
+  color: var(--rv-ink);
+}
+
+.small-menu-items.ui.menu .active.item {
+  background: var(--rv-press) !important;
+  border-color: var(--rv-line) !important;
+  color: var(--rv-ink);
+}
+
+/* Pagination and compact menus: separate 8px chips. */
+.ui.pagination.menu,
+.ui.compact.menu:not(.small-menu-items) {
+  background: transparent;
+  border: 0;
+  gap: 2px;
+}
+
+.ui.pagination.menu .item,
+.ui.compact.menu:not(.small-menu-items) > .item {
+  border-radius: var(--rv-radius) !important;
+  min-width: var(--rv-h);
+  justify-content: center;
+}
+
+.ui.pagination.menu .item::before,
+.ui.compact.menu:not(.small-menu-items) > .item::before {
+  display: none;
+}
+
+.ui.pagination.menu .active.item {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}
+
+/* Vertical menus (settings, activity): a bare sidebar list, no outer box. */
+.ui.vertical.menu {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* details.item (collapsible groups) keeps its block layout; only plain links become rows. */
+.ui.secondary.vertical.menu > .item,
+.ui.vertical.menu > a.item,
+.ui.vertical.menu > div.item:not(:has(> .menu)),
+.ui.vertical.menu .item > .menu > .item,
+.ui.vertical.menu > details.item > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--rv-h);
+  margin: 0 0 2px;
+  padding: 0 10px !important;
+  border: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  color: var(--rv-ink-3);
+  background: transparent;
+}
+
+.ui.vertical.menu > details.item,
+.ui.vertical.menu > .item:has(> .menu) {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent;
+}
+
+.ui.vertical.menu .item::before {
+  display: none;
+}
+
+.ui.vertical.menu a.item:hover,
+.ui.vertical.menu > details.item > summary:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.vertical.menu a.active.item,
+.ui.vertical.menu .item .menu .active.item {
+  background: var(--rv-press) !important;
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-medium);
+}
+
+.ui.vertical.menu .item > .menu {
+  margin: 0 0 0 12px;
+  border: 0;
+  background: transparent;
+}
+
+/* Horizontal secondary menus that are not tabs (filters, dashboard switchers, two-item toggles): quiet 8px items. */
+.ui.secondary.menu:not(.pointing, .vertical) > .item,
+.ui.secondary.menu:not(.pointing, .vertical) > form > .item,
+.ui.item.menu > .item {
+  min-height: var(--rv-h);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: var(--rv-radius) !important;
+  color: var(--rv-ink-3);
+}
+
+.ui.secondary.menu:not(.pointing, .vertical) > .item:hover,
+.ui.item.menu > a.item:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+.ui.item.menu {
+  background: transparent;
+  border: 0;
+  gap: 4px;
+}
+
+.ui.item.menu > .item::before {
+  display: none;
+}
+
+.ui.item.menu > .item.active {
+  background: var(--rv-press);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink);
+}
+
+.ui.menu .item > .label:not(.floating),
+.ui.small.label.counter {
+  background: transparent;
+}

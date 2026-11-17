@@ -1,0 +1,291 @@
+/*
+ * Issue / PR conversation: a thin rail with small neutral event dots, comments as calm surfaces.
+ * Status colour (open / closed / merged) is kept on the event icon only.
+ */
+.repository.view.issue .comment-list::before {
+  width: 1px;
+  background-color: var(--rv-line);
+}
+
+/* Odd width so the badge centre lands on the 1px rail at left:30px. */
+.repository.view.issue .comment-list .timeline-item .badge {
+  width: 29px;
+  height: 29px;
+  margin-left: -31px;
+  margin-right: 8px;
+  background-color: var(--rv-canvas);
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-3);
+}
+
+.repository.view.issue .comment-list .timeline-item .badge .svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Upstream fills status badges with tw-bg-*; keep a neutral dot and colour the glyph instead. */
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-green {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-success) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-red {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-danger) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-purple {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-done) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.tw-bg-primary {
+  background-color: var(--rv-canvas) !important;
+  color: var(--rv-ink) !important;
+}
+
+.repository.view.issue .comment-list .timeline-item .badge.badge-commit {
+  box-shadow: none;
+}
+
+.repository.view.issue .comment-list .timeline-item.commits-list .badge {
+  height: 24px;
+}
+
+/* Commit rows were exactly as tall as their SHA chips, so the chips stacked edge to edge. */
+.repository.view.issue .comment-list .timeline-item.commits-list .flex-text-block {
+  min-height: 30px;
+}
+
+/* Code review conversation: file bar, code preview and comments are one card with inner seams. */
+.ui.segment.collapsible-comment-box {
+  margin-bottom: 0;
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0 !important;
+  background: var(--rv-surface-1);
+}
+
+.ui.segment.collapsible-comment-box + .ui.table.segment,
+.ui.segment.collapsible-comment-box ~ .comment-code-cloud.ui.segment {
+  margin-top: -1px;
+  border-radius: 0 !important;
+}
+
+.ui.segment.collapsible-comment-box ~ .comment-code-cloud.ui.segment:last-child {
+  border-radius: 0 0 var(--rv-radius-lg) var(--rv-radius-lg) !important;
+}
+
+/* Messages closing the timeline (sign-in, archived) sit on the rail: paint them opaque. */
+.repository.view.issue .comment-list > .ui.message {
+  position: relative;
+  margin-top: 16px;
+  background-image: linear-gradient(var(--color-warning-bg), var(--color-warning-bg));
+  background-color: var(--rv-canvas);
+  border-radius: var(--rv-radius-lg);
+}
+
+.comment-text-line {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+.comment-text-line .author,
+.comment-text-line > a.author {
+  color: var(--rv-ink-2);
+  font-weight: var(--font-weight-medium);
+}
+
+.repository.view.issue .comment-list .timeline-item .comment-text-label {
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius-sm);
+}
+
+/* Comment cards. */
+.repository.view.issue .comment-list .comment .ui.segment,
+.repository.view.issue .comment-list .comment > .content > .ui.segment {
+  border-color: var(--rv-line) !important;
+}
+
+.comment-header {
+  min-height: 40px;
+  padding: 6px 12px 6px 16px;
+}
+
+.comment-header-left .muted-links,
+.comment-header-left .time-since {
+  color: var(--rv-ink-3);
+}
+
+.comment-header-right .item,
+.comment-header-right .context-dropdown > .svg {
+  color: var(--rv-ink-4);
+}
+
+.comment-header-right .item:hover {
+  color: var(--rv-ink);
+}
+
+.comment-body {
+  padding: 16px !important;
+}
+
+/* Reactions: small neutral chips. */
+.bottom-reactions .ui.label {
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-2);
+}
+
+.bottom-reactions .ui.label.primary {
+  background-color: var(--rv-press) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line-strong);
+}
+
+.bottom-reactions .ui.label:hover {
+  background-color: var(--rv-hover) !important;
+}
+
+.ui.dropdown.select-reaction .menu > .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+/* PR merge box: a single surface, list rows separated by hairlines. */
+.merge-section.flex-divided-list > .item + .item {
+  border-top-color: var(--rv-line-soft);
+}
+
+.merge-section .item .svg.tw-text-green,
+.merge-section .item .tw-text-green {
+  color: var(--rv-success) !important;
+}
+
+/* Markdown body. */
+.markup {
+  line-height: 1.6;
+  color: var(--rv-ink-2);
+}
+
+.markup h1,
+.markup h2,
+.markup h3,
+.markup h4,
+.markup h5,
+.markup h6 {
+  color: var(--rv-ink);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.01em;
+}
+
+.markup h1,
+.markup h2 {
+  border-bottom-color: var(--rv-line-soft);
+}
+
+.markup code,
+.markup tt {
+  border-radius: var(--rv-radius-sm);
+  font-size: 0.86em;
+}
+
+.markup pre,
+.markup .highlight pre,
+.markup .code-block-container {
+  border-radius: var(--rv-radius);
+  border: 1px solid var(--rv-line-soft);
+}
+
+.markup blockquote {
+  border-left-width: 2px;
+  border-left-color: var(--rv-line-strong);
+  color: var(--rv-ink-3);
+}
+
+.markup table th,
+.markup table td {
+  border-color: var(--rv-line) !important;
+}
+
+.markup hr {
+  height: 1px;
+  background-color: var(--rv-line);
+}
+
+.markup a:not(.label, .button) {
+  color: var(--rv-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rv-line-strong);
+  text-underline-offset: 2px;
+}
+
+.markup a:not(.label, .button):hover {
+  text-decoration-color: var(--rv-ink-3);
+}
+
+.markup a:is(.mention, .ref-issue, .commit, .anchor) {
+  text-decoration: none;
+}
+
+/* Markdown editor: the textarea is the field, toolbar icons are quiet. */
+.combo-markdown-editor .markdown-toolbar .markdown-toolbar-button {
+  color: var(--rv-ink-3);
+  border-radius: var(--rv-radius-sm);
+}
+
+.combo-markdown-editor .markdown-toolbar .markdown-toolbar-button:hover {
+  color: var(--rv-ink);
+  background: var(--rv-hover);
+}
+
+.combo-markdown-editor textarea.markdown-text-editor {
+  border-radius: var(--rv-radius);
+  padding: 10px 12px;
+}
+
+/* Diff: hairline file boxes, quiet line numbers, monospace 12.5. */
+.diff-file-box {
+  border-color: var(--rv-line) !important;
+}
+
+.diff-file-header .file-link,
+.diff-file-header .diff-stats-bar {
+  font-size: 13px;
+}
+
+.code-diff td.lines-num,
+.code-diff td.lines-escape,
+.code-diff td.lines-type-marker {
+  color: var(--rv-ink-4);
+}
+
+.code-diff .code-inner,
+.code-diff td.lines-num {
+  font-size: 12.5px;
+}
+
+.diff-detail-box {
+  background: var(--rv-canvas);
+  border-bottom: 1px solid var(--rv-line-soft);
+}
+
+.diff-detail-stats strong.tw-text-green {
+  color: var(--rv-success) !important;
+}
+
+.diff-detail-stats strong.tw-text-red {
+  color: var(--rv-danger) !important;
+}
+
+/* Diff file tree. */
+.diff-file-tree .item,
+#diff-file-tree .item,
+.repo-file-tree .item {
+  border-radius: var(--rv-radius-sm);
+}
+
+.repo-file-tree .item.selected,
+#diff-file-tree .item.selected {
+  background: var(--rv-press);
+  color: var(--rv-ink);
+}

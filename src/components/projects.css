@@ -1,0 +1,99 @@
+/*
+ * Project board: columns are bare lanes on the canvas, cards are the only surfaces.
+ * Columns with a user colour keep it (inline !important) as before.
+ */
+.project-column {
+  margin: 0 6px;
+  padding: 8px;
+  border: 0;
+  border-radius: var(--rv-radius-lg);
+  background-color: var(--rv-surface-1);
+}
+
+.project-column-header {
+  min-height: var(--rv-h);
+  padding: 0 4px 6px;
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink-2);
+}
+
+.ui.label.project-column-issue-count {
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  background: var(--rv-press);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-column > .divider {
+  display: none;
+}
+
+.project-column > .ui.cards {
+  gap: 6px;
+}
+
+.issue-card {
+  padding: 10px 12px;
+  gap: 6px;
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius);
+  background: var(--rv-surface-2);
+  box-shadow: var(--rv-shadow-card);
+  --rv-label-base: var(--rv-surface-2);
+  transition: border-color 0.12s;
+}
+
+.issue-card:hover {
+  border-color: var(--rv-line-strong);
+}
+
+.issue-card-title {
+  font-size: 13px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink);
+}
+
+.issue-card .meta,
+.issue-card-bottom {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
+
+.card-ghost {
+  border-color: var(--rv-line-strong) !important;
+  border-radius: var(--rv-radius);
+}
+
+/* The board scrolls horizontally inside the page frame; keep the first column on the content edge. */
+#project-board {
+  margin: 0 -6px;
+}
+
+.project-header h2 {
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.01em;
+}
+
+/* Milestone and project list progress bars. */
+progress {
+  border-radius: 3px;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--rv-press);
+  border-radius: 3px;
+}
+
+progress::-webkit-progress-value {
+  background: var(--rv-ink-3);
+  border-radius: 3px;
+}
+
+progress::-moz-progress-bar {
+  background: var(--rv-ink-3);
+}

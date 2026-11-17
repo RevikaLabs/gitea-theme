@@ -1,0 +1,326 @@
+/* Repo home: file table as one quiet surface, last-commit row without a slab. */
+#repo-files-table {
+  border-color: var(--rv-line);
+  border-radius: var(--rv-radius-lg);
+  background: transparent;
+}
+
+#repo-files-table .repo-file-line,
+#repo-files-table .repo-file-cell {
+  border-top-color: var(--rv-line-soft);
+  padding: 7px 12px;
+}
+
+#repo-files-table .repo-file-last-commit {
+  background: transparent;
+  color: var(--rv-ink-3);
+  min-height: 44px;
+}
+
+#repo-files-table .repo-file-line:first-child {
+  border-radius: var(--rv-radius-lg) var(--rv-radius-lg) 0 0;
+}
+
+#repo-files-table .repo-file-item:last-child .repo-file-cell:first-child {
+  border-bottom-left-radius: calc(var(--rv-radius-lg) - 1px);
+}
+
+#repo-files-table .repo-file-item:last-child .repo-file-cell:last-child {
+  border-bottom-right-radius: calc(var(--rv-radius-lg) - 1px);
+}
+
+#repo-files-table .repo-file-item:hover > .repo-file-cell,
+#repo-files-table .parent-link:hover {
+  background: var(--rv-hover);
+}
+
+#repo-files-table .repo-file-cell.name .svg {
+  color: var(--rv-ink-3);
+}
+
+#repo-files-table .repo-file-cell.message,
+#repo-files-table .repo-file-cell.age {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+#repo-files-table .repo-file-cell.age {
+  font-variant-numeric: tabular-nums;
+}
+
+.repo-button-row .ui.button,
+.repo-button-row .repo-file-search-container .ui.input {
+  min-height: var(--rv-h);
+  height: var(--rv-h);
+}
+
+/* Repo home sidebar: quiet property-group headings. */
+.repo-home-sidebar-header {
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  color: var(--rv-ink-3);
+  letter-spacing: 0.01em;
+  margin-top: 4px;
+}
+
+.repo-description {
+  color: var(--rv-ink-2);
+}
+
+.repo-home-sidebar-top a.flex-text-block,
+.repo-home-sidebar-bottom a.flex-text-block {
+  color: var(--rv-ink-2);
+}
+
+.repo-home-sidebar-top a.flex-text-block:hover,
+.repo-home-sidebar-bottom a.flex-text-block:hover {
+  color: var(--rv-ink);
+}
+
+.repo-home-sidebar-top kbd {
+  border-radius: var(--rv-radius-sm);
+  border-color: var(--rv-line);
+  background: var(--rv-surface-2);
+  color: var(--rv-ink-4);
+}
+
+.ui.label.repo-topic {
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+  color: var(--rv-ink-2);
+  font-size: 12px;
+  font-weight: var(--font-weight-normal);
+}
+
+.ui.label.repo-topic:hover {
+  background: var(--rv-hover);
+  color: var(--rv-ink);
+}
+
+/* README / file view: the header is a transparent row above the content. */
+.non-diff-file-content > .ui.top.attached.header,
+.file-header {
+  background: transparent;
+  min-height: 44px;
+}
+
+#readme .markup,
+.file-view.markup {
+  padding: 24px 32px;
+}
+
+/* Issue, PR and repo lists: compact rows. Hairline dividers, hover tint, quiet metadata. */
+.flex-divided-list > .item + .item {
+  border-top-color: var(--rv-line-soft);
+}
+
+#issue-list.flex-divided-list > .item {
+  padding: 10px 12px;
+  margin: 0 -12px;
+  border-radius: var(--rv-radius);
+  align-items: center;
+}
+
+#issue-list.flex-divided-list > .item + .item {
+  border-top: 0;
+  box-shadow: 0 -1px 0 var(--rv-line-soft);
+}
+
+/* Opaque hover so label pills can match it exactly. */
+#issue-list.flex-divided-list > .item:hover {
+  background: var(--rv-surface-1);
+  box-shadow: none;
+}
+
+#issue-list.flex-divided-list > .item:hover + .item {
+  box-shadow: none;
+}
+
+#issue-list .item-main {
+  gap: 2px;
+}
+
+.list-item-large-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--rv-ink);
+}
+
+.items-with-main > .item .item-title {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Links in lists stay ink on hover instead of the accent colour. */
+.items-with-main > .item a:not(.label, .button):hover {
+  color: var(--rv-ink) !important;
+}
+
+.items-with-main > .item .item-body,
+.list-item-secondary-bar {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
+
+#issue-list .item-body a,
+#issue-list .item-body .index {
+  color: var(--rv-ink-3);
+}
+
+#issue-list .item-body .index {
+  font-variant-numeric: tabular-nums;
+}
+
+#issue-list .branches .branch {
+  padding: 0 6px;
+  border-radius: var(--rv-radius-sm);
+  background: var(--rv-surface-2);
+  font-family: var(--fonts-monospace);
+  font-size: 11.5px;
+}
+
+#issue-list .checklist progress::-webkit-progress-bar {
+  background: var(--rv-press);
+  border-radius: 3px;
+}
+
+#issue-list .checklist progress::-webkit-progress-value {
+  background-color: var(--rv-ink-3);
+  border-radius: 3px;
+}
+
+#issue-list .checklist progress::-moz-progress-bar {
+  background-color: var(--rv-ink-3);
+}
+
+/* Reveal-on-hover only where hover exists; touch devices always see the bulk-select checkbox. */
+@media (hover: hover) and (pointer: fine) {
+  #issue-list .issue-checkbox {
+    opacity: 0;
+    transition: opacity 0.12s;
+  }
+
+  #issue-list .item:hover .issue-checkbox,
+  #issue-list .issue-checkbox:checked,
+  #issue-list .issue-checkbox:focus-visible,
+  #issue-list:has(.issue-checkbox:checked) .issue-checkbox {
+    opacity: 1;
+  }
+}
+
+/* Label pills paint their fill with --rv-label-base; match it to the surface under them. */
+#issue-list > .item:hover {
+  --rv-label-base: var(--rv-surface-1);
+}
+
+.issue-list-toolbar {
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+/* Filter dropdowns read as quiet text buttons. */
+.issue-list-toolbar-right .ui.secondary.filter.menu > .item {
+  color: var(--rv-ink-3);
+  font-size: 13px;
+}
+
+.issue-list-toolbar-right .ui.secondary.filter.menu > .item:hover {
+  color: var(--rv-ink);
+}
+
+/* Dashboard repo list: filter chips form a row under the search field, flush with its left edge.
+   Upstream pins the menu to 35.4px, zeroes its margin and centres items via tw-justify-center. */
+.ui.attached.segment.repos-search {
+  padding-bottom: 12px !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu {
+  border-bottom: 0 !important;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 10px 0 0 !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter .overflow-menu-items.tw-justify-center {
+  justify-content: flex-start !important;
+  align-items: center;
+  gap: 2px;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .item {
+  min-height: var(--rv-h-sm) !important;
+  height: var(--rv-h-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 !important;
+  padding: 0 10px !important;
+  border: 1px solid transparent !important;
+  font-size: 13px;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .item:hover {
+  background: var(--rv-hover) !important;
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter.ui.secondary.pointing.menu .active.item {
+  background: var(--rv-press) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+}
+
+.ui.attached.segment.repos-search overflow-menu.repos-filter .item .ui.mini.label {
+  box-sizing: border-box;
+  min-width: 18px;
+  min-height: 0;
+  height: 18px;
+  margin: 0 !important;
+  padding: 0 5px !important;
+  border: 0 !important;
+  border-radius: var(--border-radius-full) !important;
+  background: var(--rv-press) !important;
+  color: var(--rv-ink-2) !important;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  line-height: 18px;
+}
+
+/* The active chip is already filled with press; lift the counter off it. */
+.ui.attached.segment.repos-search overflow-menu.repos-filter .active.item .ui.mini.label {
+  background: var(--rv-surface-2) !important;
+  box-shadow: inset 0 0 0 1px var(--rv-line);
+}
+
+/* Empty states. */
+.empty-placeholder {
+  color: var(--rv-ink-3);
+}
+
+.empty-placeholder .svg {
+  color: var(--rv-ink-4);
+}
+
+/* Repo lists (explore, profile, org): the repo name is the row title, not a link-blue string. */
+.flex-divided-list .item-title a.name,
+.flex-divided-list .item-title .tw-text-primary {
+  color: var(--rv-ink) !important;
+}
+
+.flex-divided-list .item-title .ui.basic.label {
+  min-height: 20px;
+  padding: 0 6px;
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  border-color: var(--rv-line);
+  color: var(--rv-ink-3);
+  font-size: 11px;
+  font-weight: var(--font-weight-normal);
+}
+
+.flex-divided-list .item-trailing {
+  color: var(--rv-ink-3);
+  font-size: 12px;
+}
