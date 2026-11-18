@@ -655,7 +655,8 @@ body:has(.rv-auth) {
   gap: 8px;
   margin-top: 4px;
   font-size: 13px;
-  color: var(--rv-ink-4);
+  /* Links are real text: quiet but AA, ink-4 is reserved for placeholders and decorations. */
+  color: var(--rv-ink-3);
 }
 
 .rv-auth-links .signin-passkey {
@@ -844,6 +845,10 @@ body {
 .ui.buttons > .button,
 .ui.buttons > .ui.dropdown.button {
   margin: 0;
+}
+
+/* Out-weigh the 4-class size rules above, which round every mini/small button inside a group. */
+.ui.ui.ui.ui.buttons > .button {
   border-radius: 0;
 }
 
@@ -851,24 +856,26 @@ body {
   margin-left: -1px;
 }
 
-.ui.buttons > .button:first-child {
+.ui.ui.ui.ui.buttons > .button:first-child {
   border-top-left-radius: var(--rv-radius);
   border-bottom-left-radius: var(--rv-radius);
 }
 
-.ui.buttons > .button:last-child {
+.ui.ui.ui.ui.buttons > .button:last-child {
   border-top-right-radius: var(--rv-radius);
   border-bottom-right-radius: var(--rv-radius);
 }
 
-.ui.compact.buttons > .button:first-child,
-.ui.small.buttons > .button:first-child {
+.ui.ui.ui.compact.buttons > .button:first-child,
+.ui.ui.ui.small.buttons > .button:first-child,
+.ui.ui.ui.ui.buttons > .mini.button:first-child {
   border-top-left-radius: var(--rv-radius-sm);
   border-bottom-left-radius: var(--rv-radius-sm);
 }
 
-.ui.compact.buttons > .button:last-child,
-.ui.small.buttons > .button:last-child {
+.ui.ui.ui.compact.buttons > .button:last-child,
+.ui.ui.ui.small.buttons > .button:last-child,
+.ui.ui.ui.ui.buttons > .mini.button:last-child {
   border-top-right-radius: var(--rv-radius-sm);
   border-bottom-right-radius: var(--rv-radius-sm);
 }
@@ -1714,6 +1721,39 @@ overflow-menu.secondary-nav .overflow-menu-items.tw-justify-center {
   font-weight: var(--font-weight-medium);
 }
 
+/* Release state (Latest / Stable / Pre-release / Draft): neutral chip, the hue lives in a dot. */
+.release-list-title > .ui.label:is(.green, .orange, .yellow),
+.repo-home-sidebar-bottom .ui.label:is(.green, .orange, .yellow) {
+  gap: 6px;
+  padding: 2px 8px !important;
+  border-radius: var(--border-radius-full) !important;
+  background: transparent !important;
+  border: 1px solid var(--rv-line) !important;
+  color: var(--rv-ink-2) !important;
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 16px;
+}
+
+.release-list-title > .ui.label:is(.green, .orange, .yellow)::before,
+.repo-home-sidebar-bottom .ui.label:is(.green, .orange, .yellow)::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rv-success);
+}
+
+.release-list-title > .ui.orange.label::before,
+.repo-home-sidebar-bottom .ui.orange.label::before {
+  background: var(--rv-open);
+}
+
+.release-list-title > .ui.yellow.label::before,
+.repo-home-sidebar-bottom .ui.yellow.label::before {
+  background: var(--rv-ink-3);
+}
+
 .ui.green.large.label .svg {
   color: var(--rv-success);
 }
@@ -1868,7 +1908,7 @@ a.ui.label.commit-id-short,
 .page-footer {
   background: transparent;
   border-top: 1px solid var(--rv-line-soft);
-  color: var(--rv-ink-4);
+  color: var(--rv-ink-3);
   font-size: 12px;
   padding: 10px 24px;
 }
