@@ -99,6 +99,10 @@
 .ui.buttons > .button,
 .ui.buttons > .ui.dropdown.button {
   margin: 0;
+}
+
+/* Out-weigh the 4-class size rules above, which round every mini/small button inside a group. */
+.ui.ui.ui.ui.buttons > .button {
   border-radius: 0;
 }
 
@@ -106,24 +110,26 @@
   margin-left: -1px;
 }
 
-.ui.buttons > .button:first-child {
+.ui.ui.ui.ui.buttons > .button:first-child {
   border-top-left-radius: var(--rv-radius);
   border-bottom-left-radius: var(--rv-radius);
 }
 
-.ui.buttons > .button:last-child {
+.ui.ui.ui.ui.buttons > .button:last-child {
   border-top-right-radius: var(--rv-radius);
   border-bottom-right-radius: var(--rv-radius);
 }
 
-.ui.compact.buttons > .button:first-child,
-.ui.small.buttons > .button:first-child {
+.ui.ui.ui.compact.buttons > .button:first-child,
+.ui.ui.ui.small.buttons > .button:first-child,
+.ui.ui.ui.ui.buttons > .mini.button:first-child {
   border-top-left-radius: var(--rv-radius-sm);
   border-bottom-left-radius: var(--rv-radius-sm);
 }
 
-.ui.compact.buttons > .button:last-child,
-.ui.small.buttons > .button:last-child {
+.ui.ui.ui.compact.buttons > .button:last-child,
+.ui.ui.ui.small.buttons > .button:last-child,
+.ui.ui.ui.ui.buttons > .mini.button:last-child {
   border-top-right-radius: var(--rv-radius-sm);
   border-bottom-right-radius: var(--rv-radius-sm);
 }

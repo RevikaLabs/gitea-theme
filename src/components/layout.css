@@ -142,6 +142,39 @@ overflow-menu.secondary-nav .overflow-menu-items.tw-justify-center {
   font-weight: var(--font-weight-medium);
 }
 
+/* Release state (Latest / Stable / Pre-release / Draft): neutral chip, the hue lives in a dot. */
+.release-list-title > .ui.label:is(.green, .orange, .yellow),
+.repo-home-sidebar-bottom .ui.label:is(.green, .orange, .yellow) {
+  gap: 6px;
+  padding: 2px 8px !important;
+  border-radius: var(--border-radius-full) !important;
+  background: transparent !important;
+  border: 1px solid var(--rv-line) !important;
+  color: var(--rv-ink-2) !important;
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  line-height: 16px;
+}
+
+.release-list-title > .ui.label:is(.green, .orange, .yellow)::before,
+.repo-home-sidebar-bottom .ui.label:is(.green, .orange, .yellow)::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rv-success);
+}
+
+.release-list-title > .ui.orange.label::before,
+.repo-home-sidebar-bottom .ui.orange.label::before {
+  background: var(--rv-open);
+}
+
+.release-list-title > .ui.yellow.label::before,
+.repo-home-sidebar-bottom .ui.yellow.label::before {
+  background: var(--rv-ink-3);
+}
+
 .ui.green.large.label .svg {
   color: var(--rv-success);
 }
@@ -296,7 +329,7 @@ a.ui.label.commit-id-short,
 .page-footer {
   background: transparent;
   border-top: 1px solid var(--rv-line-soft);
-  color: var(--rv-ink-4);
+  color: var(--rv-ink-3);
   font-size: 12px;
   padding: 10px 24px;
 }
