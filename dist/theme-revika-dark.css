@@ -2029,7 +2029,12 @@ a.ui.label.commit-id-short,
 #repo-files-table .repo-file-last-commit {
   background: transparent;
   color: var(--rv-ink-3);
-  min-height: 44px;
+  /* Symmetric padding instead of min-height: collapsed row keeps its
+     natural ~44px (12 + ~20 content + 12), so `start` matches the old
+     vertical centering; with the body expanded the content stays at the
+     top like on GitHub. */
+  padding-block: 12px;
+  align-items: start;
 }
 
 #repo-files-table .repo-file-line:first-child {
