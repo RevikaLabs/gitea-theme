@@ -80,3 +80,28 @@ body {
 .ui.dropdown .menu > .item:hover {
   background: var(--rv-hover) !important;
 }
+
+/* Toasts float over page content (position: fixed): a translucent status
+   background lets the underlying text bleed through — give them an opaque
+   surface. Status classes (.toast-error etc.) set their own background with
+   equal specificity but later in the cascade, so !important is required. */
+.toastify,
+.toastify.toast-error,
+.toastify.toast-success,
+.toastify.toast-warning,
+.toastify.toast-info {
+  background: var(--rv-surface-1) !important;
+}
+
+/* Gitea pins the avatar+name stack to the vertical middle of the row
+   (.avatar-stack-names has align-self: center in avatar.css) and centers
+   .latest-commit / the row itself — with the commit body expanded the
+   author drifts to the middle. Pin the whole row subtree to the top:
+   align-self on descendants beats their own base centering by specificity. */
+#repo-files-table .repo-file-last-commit,
+#repo-files-table .repo-file-last-commit > *,
+#repo-files-table .repo-file-last-commit .latest-commit,
+#repo-files-table .repo-file-last-commit .avatar-stack-names {
+  align-self: start;
+  align-items: start;
+}
